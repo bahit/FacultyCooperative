@@ -15,3 +15,12 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('publicProfile/{id}', 'ProfileController@showPublicProfile');
+
+Route::get('editProfile/{id}', 'ProfileController@editProfile');
+
+Route::post('updateProfile/{id}', 'ProfileController@updateProfile');
+
+
+//Route::resource('profiles', 'ProfileController');

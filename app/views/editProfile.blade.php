@@ -14,7 +14,7 @@
     </head>
     <body>
        
-        <?php $profile = Profile::find($id);?>
+       
         <h1>Edit your Profile, {{$profile->screenName}}</h1>
         
         <h2>When a new user is registered a default profile should be created for them. They can then edit it with this form</h2>
@@ -25,7 +25,7 @@
         
        
         
-        {{ Form::open(array('url' => 'updateProfile/'.$id,  'method' => 'post')) }}
+        {{ Form::open(array('url' => 'updateProfile/'.$profile->id,  'method' => 'post')) }}
        
        {{ Form::label('screenName', 'Screen Name', array('class' => 'form-label')) }}
          {{ Form::text('screenName', $profile->screenName, array('class'=>'input-block-level', 'placeholder'=>$profile->screenName)) }}

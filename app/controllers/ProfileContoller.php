@@ -5,7 +5,13 @@ class ProfileController extends BaseController
 	public function showPublicProfile($id)
     {
       	$profile = Profile::find($id);
-		$view = View::make('showProfile')->with('profile', $profile);
+		$skills = Skill::whereRaw('id = ?', array($id))->get();
+		
+		
+		$view = View::make('showProfile', array('profile' => $profile, 
+												 'skills' => $skills));
+		
+		
 		return $view;
     }
 
@@ -13,8 +19,12 @@ class ProfileController extends BaseController
 public function editProfile($id)
 
     {
-       
-	   $view = View::make('editProfile')->with('id', $id);
+       $profile = Profile::find($id);
+	   
+	   $view = View::make('editProfile', array('profile' => $profile));
+		
+	   
+	 
 	   return $view;
 	  
     }

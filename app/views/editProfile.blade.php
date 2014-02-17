@@ -19,8 +19,8 @@
         
         <h2>When a new user is registered a default profile should be created for them. They can then edit it with this form</h2>
         
-        
-       
+        <!--This picks up errors from validation-->
+       {{ HTML::ul($errors->all()) }}
         
         
        
@@ -30,7 +30,7 @@
        {{ Form::label('screenName', 'Screen Name', array('class' => 'form-label')) }}
          {{ Form::text('screenName', $profile->screenName, array('class'=>'input-block-level', 'placeholder'=>$profile->screenName)) }}
          
-         {{ Form::label('bioDetails', 'Tell us about yourself in 200 words or less') }}
+         {{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}
          {{ Form::textarea('bioDetails', $profile->bioDetails, array('class'=>'input-block-level')) }}
          
          {{ Form::label('careerStatus', 'Career Status') }}

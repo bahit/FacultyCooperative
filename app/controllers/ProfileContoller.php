@@ -18,16 +18,7 @@ public function editProfile($id)
 	   return $view;
 	   
 	   
-	   
-	   //$frog = new Frog;
-
-		
-		//$frog->name = $name;
-		//$frog->pond = 'blue pond';
-
-		//$frog->save();
-
-		//return 'done it';
+	  
     }
 
 public function updateProfile($id)

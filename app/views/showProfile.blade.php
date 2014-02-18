@@ -31,19 +31,19 @@
               
               
              
-             {{ $skillOffer->skill_id }}, &nbsp;<br><br>
+             
             
-           
-            
+           <?  
+		//one-many not working with eloquent!
+		$skillOffers = Skill::find($skillOffer->skill_id);
+		print_r($skillOffers->category);
+		print_r($skillOffers->skillName);
+		?>
+            <br><br>
        
        @endforeach
 		
-		<?  
-		//one-many not working!
-		//$skillOffers = Skill::find(2)->skillOffers;
-		//print_r($skillOffers->category);
-		//print_r($skillOffers->skillName);
-		?>
+		
        
        
        <p> {{$profile->screenName}}'s investment offered: {{$profile->investmentOffered}} </p>

@@ -15,7 +15,7 @@
     <body>
        
        
-        <h1>Edit your Profile, {{$profile->screenName}}</h1>
+        <h1>Edit your Profile, {{$profile->screen_name}}</h1>
         
         <h2>When a new user is registered a default profile should be created for them. They can then edit it with this form</h2>
         
@@ -28,16 +28,16 @@
         {{ Form::open(array('url' => 'updateProfile/'.$profile->id,  'method' => 'post')) }}
        
        {{ Form::label('screenName', 'Screen Name', array('class' => 'form-label')) }}
-         {{ Form::text('screenName', $profile->screenName, array('class'=>'input-block-level', 'placeholder'=>$profile->screenName)) }}
+         {{ Form::text('screenName', $profile->screen_name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
          
          {{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}
-         {{ Form::textarea('bioDetails', $profile->bioDetails, array('class'=>'input-block-level')) }}
+         {{ Form::textarea('bioDetails', $profile->bio_details, array('class'=>'input-block-level')) }}
          
          {{ Form::label('careerStatus', 'Career Status') }}
          
          <!--We might want to populate these pull down boxes from the database-->
          {{ Form::select('careerStatus', array(
-                  'default' => $profile->careerStatus,
+                  'default' => $profile->career_status,
   				  'academicProfessional' => 'Academic Professional',
  				  'businessProfessiona' => 'Business Professional',
  				  'postgraduateStudent' => 'Postgraduate Student',

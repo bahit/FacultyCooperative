@@ -12,33 +12,40 @@ class CreateAuthorsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('authors', function($t) {
+		
+		
+		  
+		  
+		  Schema::create('profiles', function($t) {
               // auto increment id (primary key)
               $t->increments('id');
 
-              $t->string('name');
-              $t->integer('age')->nullable();
-              $t->boolean('active')->default(1);
-              $t->integer('role_id')->unsigned();
-              $t->text('bio');
+              $t->string('screen_name');
+              $t->text('bio_details');
+              $t->string('career_status');
+              $t->string('institution');
+			  $t->boolean('investment_offered')->default(0);
+             
 
               // created_at, updated_at DATETIME
               $t->timestamps();
           });
 		  
 		  
-		  Schema::create('frogs', function($t) {
-              // auto increment id (primary key)
+		  Schema::create('skills', function($t) {
+             
               $t->increments('id');
-
-              $t->string('name');
-              $t->integer('age')->nullable();
-              $t->boolean('active')->default(1);
-              $t->integer('role_id')->unsigned();
-              $t->text('bio');
-
-              // created_at, updated_at DATETIME
-              $t->timestamps();
+			  $t->string('category');
+              $t->text('skill_name');
+          	  $t->timestamps();
+          });
+		  
+		   Schema::create('skill_offers', function($t) {
+             
+              $t->increments('id');
+			  $t->integer('profile_id');
+              $t->integer('skill_id');
+          	  $t->timestamps();
           });
 		  
 		  

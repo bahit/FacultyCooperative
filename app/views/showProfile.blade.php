@@ -16,14 +16,14 @@
         
         <h1>View Public profile</h1>
       
-        <h2>About {{$profile->screenName}}</h2>
+        <h2>About {{$profile->screen_name}}</h2>
         
        
-       <p> {{$profile->screenName}}'s details:    {{$profile->bioDetails}} </p>
-       <p> {{$profile->screenName}}'s career status:   {{$profile->careerStatus}} </p>
-       <p> {{$profile->screenName}}'s institution: {{$profile->institution}} </p>
+       <p> {{$profile->screen_name}}'s details:    {{$profile->bio_details}} </p>
+       <p> {{$profile->screen_name}}'s career status:   {{$profile->careerStatus}} </p>
+       <p> {{$profile->screen_name}}'s institution: {{$profile->institution}} </p>
        
-       <p> {{$profile->screenName}}'s Loop skills offered: ??could be a <em>subview</em> ?? </p>
+       <p> {{$profile->screen_name}}'s Loop skills offered: ??could be a <em>subview</em> ?? </p>
        
        
        

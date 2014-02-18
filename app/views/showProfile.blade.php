@@ -35,10 +35,17 @@
             
            <?  
 		//one-many not working with eloquent!
-		$skillOffers = Skill::find($skillOffer->skill_id);
-		print_r($skillOffers->category);
-		print_r($skillOffers->skillName);
-		?>
+		//NEED to try and move this out of the view
+	$skillOffers = Skill::find($skillOffer->skill_id);?>
+		
+		
+		{{$skillOffers->category}}
+		{{$skillOffers->skillName}}
+		
+		<?  //$test= Skill::test($skillOffer->skill_id);
+		//print_r($test->category);
+		//print_r($test->skillName);?>
+		
             <br><br>
        
        @endforeach

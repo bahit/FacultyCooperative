@@ -4,9 +4,9 @@ class Skill extends Eloquent
 {
 	 //public static $timestamps = false;
 	 
-	//public function skillOffers()
+	//public static function test($skill_id)
     //{
-       // return $this->hasMany('SkillOffer');
+        //return Skill::find($skill_id);;
    // }
     
 }

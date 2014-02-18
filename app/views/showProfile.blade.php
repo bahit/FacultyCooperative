@@ -23,25 +23,27 @@
        <p> {{$profile->screenName}}'s career status:   {{$profile->careerStatus}} </p>
        <p> {{$profile->screenName}}'s institution: {{$profile->institution}} </p>
        
-       <p> {{$profile->screenName}}'s skills: ??could be a <em>subview</em> ?? </p>
+       <p> {{$profile->screenName}}'s Loop skills offered: ??could be a <em>subview</em> ?? </p>
        
-       <!--loop category hierachy-->
        
-       {{$category = ''}}
-       @foreach($skills as $key => $skill)
+       
+      @foreach($skillOffer as $key => $skillOffer)
               
               
-              @if ($category <> $skill->category)
-                    <br>{{$category = $skill->category}}: &nbsp;
-              @endif      
-             {{ $skill->skillName }}, &nbsp;
+             
+             {{ $skillOffer->skill_id }}, &nbsp;<br><br>
+            
+           
             
        
        @endforeach
-       
-      
 		
-		
+		<?  
+		//one-many not working!
+		//$skillOffers = Skill::find(2)->skillOffers;
+		//print_r($skillOffers->category);
+		//print_r($skillOffers->skillName);
+		?>
        
        
        <p> {{$profile->screenName}}'s investment offered: {{$profile->investmentOffered}} </p>
@@ -54,5 +56,18 @@
 </html>
 
 
-
+{{--loop category hierachy
+       
+       {{$category = ''}}
+       @foreach($skills as $key => $skill)
+              
+              
+              @if ($category <> $skill->category)
+                    <br>{{$category = $skill->category}}: &nbsp;
+              @endif      
+             {{ $skill->skillName }}, &nbsp;
+            
+       
+       @endforeach
+       --}}
 

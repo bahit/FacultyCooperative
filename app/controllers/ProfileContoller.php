@@ -5,11 +5,12 @@ class ProfileController extends BaseController
 	public function showPublicProfile($id)
     {
       	$profile = Profile::find($id);
-		$skills = Skill::whereRaw('id = ?', array($id))->get();
+		$skillOffer = SkillOffer::whereRaw('profile_id = ?', array($id))->get();
 		
+		//SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
 		
 		$view = View::make('showProfile', array('profile' => $profile, 
-												 'skills' => $skills));
+												 'skillOffer' => $skillOffer));
 		
 		
 		return $view;

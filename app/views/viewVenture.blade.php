@@ -18,6 +18,7 @@
       
         <h2>About {{$venture->title}}</h2>
         
+        <p>The team leader is {{$team_leader->screen_name}}</p>
        
        
       

@@ -20,8 +20,15 @@
         
         <p>The team leader is {{$team_leader->screen_name}}</p>
        
+      <p>Team members are</p>
        
-      
+       
+        @foreach($team_members as $team_member)
+             {{$team_member->name}}, &nbsp;
+               
+       @endforeach
+       
+     
         
         
 </body>

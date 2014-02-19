@@ -2,7 +2,6 @@
 
 class TeamMember extends Eloquent
 {
-	 //
 	
     
 }

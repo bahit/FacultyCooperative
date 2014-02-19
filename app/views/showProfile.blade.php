@@ -23,7 +23,7 @@
        <p> {{$profile->screen_name}}'s career status:   {{$profile->career_status}} </p>
        <p> {{$profile->screen_name}}'s institution: {{$profile->institution}} </p>
        
-       <p> {{$profile->screen_name}}'s Loop skills offered: ??could be a <em>subview</em> ?? </p>
+       <p> {{$profile->screen_name}}'s Offers the following skills -  <em>Loop skills offered: ??could be implemented as subview??</em></p>
        
        
        
@@ -53,7 +53,7 @@
 		
        
        
-       <p> {{$profile->screenName}}'s investment offered: {{$profile->investmentOffered}} </p>
+       <p> {{$profile->screen_name}}'s investment offered: {{$profile->investment_offered}} <em>This is a boolean value and needs hooking to a checkbox </em></p>
         
         
       

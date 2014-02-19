@@ -48,5 +48,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+	
+	
+	
+	 //each user can be a member of many teams
+	//public function team_members()
+    //{
+      //  return $this->hasMany('TeamMember');
+   // }
+	
+	//retrieve with
+	//$team_members = User::find(1)->team_members;
+	
+	
 
 }

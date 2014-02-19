@@ -41,7 +41,7 @@ class CreateAll extends Migration {
 		   Schema::create('skill_offers', function($t) {
              
               $t->increments('id');
-			  $t->integer('profile_id');
+			  $t->integer('user_id');
               $t->integer('skill_id');
           	  $t->timestamps();
           });

@@ -5,7 +5,7 @@ class ProfileController extends BaseController
 	public function showPublicProfile($id)
     {
       	$profile = User::find($id);
-		$skillOffer = SkillOffer::whereRaw('profile_id = ?', array($id))->get();
+		$skillOffer = SkillOffer::whereRaw('user_id = ?', array($id))->get();
 		
 		//SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
 		
@@ -56,20 +56,31 @@ public function updateProfile($id)
 		} else {
 			
 			
-			$profile = Profile::find($id);
-			$profile->screenName       = Input::get('screenName');
-			$profile->bioDetails      = Input::get('bioDetails');
-			$profile->careerStatus      = Input::get('careerStatus');
-			$profile->institution      = Input::get('institution');
-			$profile->investmentOffered      = Input::get('investmentOffered');
+			$user = User::find($id);
+			$user->screen_name       = Input::get('screenName');
+			$user->bio_details      = Input::get('bioDetails');
+			$user->career_status      = Input::get('careerStatus');
+			$user->institution      = Input::get('institution');
+			$user->investment_offered      = Input::get('investmentOffered');
 			
-			$profile->save();
+			$user->save();
 
 			
-			return 'done it';
+			return 'done it- saved some changes to the DB';
 		
     }
 
 
 	}
+	
+	public function searchUserByName()
+    
+    {
+       //$user = User::find($id);
+	   
+	  
+	  
+    }
+	
+	
 }

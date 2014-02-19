@@ -1,8 +1,10 @@
 <?php
 
-class Profile extends Eloquent
+class Venture extends Eloquent
 {
 	 //public static $timestamps = false;
+	 
+	 
 	 
 	
     

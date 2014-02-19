@@ -20,7 +20,7 @@
         
        
        <p> {{$profile->screen_name}}'s details:    {{$profile->bio_details}} </p>
-       <p> {{$profile->screen_name}}'s career status:   {{$profile->careerStatus}} </p>
+       <p> {{$profile->screen_name}}'s career status:   {{$profile->career_status}} </p>
        <p> {{$profile->screen_name}}'s institution: {{$profile->institution}} </p>
        
        <p> {{$profile->screen_name}}'s Loop skills offered: ??could be a <em>subview</em> ?? </p>
@@ -36,11 +36,11 @@
            <?  
 		//one-many not working with eloquent!
 		//NEED to try and move this out of the view
-	$skillOffers = Skill::find($skillOffer->skill_id);?>
+	    $skills = Skill::find($skillOffer->skill_id);?>
 		
 		
-		{{$skillOffers->category}}
-		{{$skillOffers->skillName}}
+	   {{$skills->category}}
+	   {{$skills->skill_name}}
 		
 		<?  //$test= Skill::test($skillOffer->skill_id);
 		//print_r($test->category);

@@ -4,7 +4,7 @@ class ProfileController extends BaseController
     
 	public function showPublicProfile($id)
     {
-      	$profile = Profile::find($id);
+      	$profile = User::find($id);
 		$skillOffer = SkillOffer::whereRaw('profile_id = ?', array($id))->get();
 		
 		//SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
@@ -20,7 +20,7 @@ class ProfileController extends BaseController
 public function editProfile($id)
 
     {
-       $profile = Profile::find($id);
+       $profile = User::find($id);
 	   
 	   $view = View::make('editProfile', array('profile' => $profile));
 		

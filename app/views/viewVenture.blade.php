@@ -24,9 +24,9 @@
        
        
         @foreach($team_members as $team_member)
-             {{$team_member->name}}, &nbsp;
-               
-       @endforeach
+          <a href="../publicProfile/{{$team_member->user_id}}" >{{$team_member->name}}</a>
+
+        @endforeach
        
      
         

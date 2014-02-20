@@ -7,6 +7,8 @@ class VentureController extends BaseController
       	$venture = Venture::find($id);
 		$team_leader = User::find($venture->user_id);
 		//Don't know how to do this using eloquent models so doing it the old fashioned way - ST
+		//http://stackoverflow.com/questions/14130338/laravel-really-struggling-to-understand-eloquent - may explainl
+		
 		$team_members = DB::table('users')
             ->join('team_members', 'users.id', '=', 'team_members.user_id')
 			

@@ -16,6 +16,11 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+Route::get('test', function()
+{
+	return View::make('main');
+});
+
 Route::get('publicProfile/{id}', 'ProfileController@showPublicProfile');
 
 Route::get('editProfile/{id}', 'ProfileController@editProfile');

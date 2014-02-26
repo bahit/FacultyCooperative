@@ -16,6 +16,7 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+<<<<<<< HEAD
 
 Route::get('hi', function()
 {
@@ -24,6 +25,13 @@ Route::get('hi', function()
 
 
 
+=======
+Route::get('test', function()
+{
+	return View::make('main');
+});
+
+>>>>>>> 964826214baf3255ed1fc48aaa37a0665fcee365
 Route::get('publicProfile/{id}', 'ProfileController@showPublicProfile');
 
 Route::get('editProfile/{id}', 'ProfileController@editProfile');

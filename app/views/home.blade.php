@@ -1,20 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Laravel PHP Framework</title>
-	<style>
-		
-
-		h1 {
-			font-size: 32px;
-			margin: 16px 0 0 0;
-		}
-	</style>
-    
-    
-</head>
-<body>
+@extends('main')
+@section('content')
 	<div class="welcome">
 		
 		<h1>You have arrived.</h1>
@@ -32,5 +17,4 @@
     
     
     
-</body>
-</html>
+@endsection

@@ -1,18 +1,5 @@
-<html>
-    <head>
-    
-    <style type="text/css">
-    .input-block-level {
-	font-family: Arial, Helvetica, sans-serif;
-	display: block;
-	}
-	.form-label, form-button {
-	font-family: Arial, Helvetica, sans-serif;
-	display: block;
-	}
-    </style>
-    </head>
-    <body>
+@extends('main')
+@section('content')
        
        
         <h1>Edit your Profile, {{$profile->screen_name}}</h1>
@@ -67,8 +54,7 @@
         
         
         
-</body>
-</html>
+@endsection
 
 
 

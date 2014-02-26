@@ -12,17 +12,25 @@ class VentureController extends BaseController
 		$team_members = DB::table('users')
             ->join('team_members', 'users.id', '=', 'team_members.user_id')
 			
-			->where('team_members.venture_id', '=', 1)
+			->where('team_members.venture_id', '=', $id)
             
             ->get();
 			
+		$skillsWanted = DB::table('skills')
+            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
+            ->where('skill_wanteds.venture_id', '=', $id)
+            ->get();
 		
 		
-		
-		$view = View::make('viewVenture', array('venture' => $venture, 'team_leader' => $team_leader,
+		$view = View::make('viewVenture', array('venture' => $venture,
+                            'team_leader' => $team_leader,
+                              'skillsWanted' => $skillsWanted,
 							'team_members' => $team_members));
 		return $view;
+        //return $skillsWanted;
     }
+
+
 
 
 public function editVenture($id)

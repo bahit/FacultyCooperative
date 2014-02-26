@@ -7,12 +7,12 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-
-
-Route::get('hi', function()
+Route::get('home', function()
 {
-    return 'Hello World';
+    return View::make('home');
 });
+
+
 
 
 
@@ -37,8 +37,17 @@ Route::post('searchUserNames', 'SearchController@searchUserNames');
 
 Route::post('searchVentureTitles', 'SearchController@searchVentureTitles');
 
-Route::post('searchSkills', 'SearchController@searchSkills');
+Route::get('searchSkills/{id}', 'SearchController@searchSkills');
 
+Route::get('venturesWantingSkill/{id}', 'SearchController@venturesWantingSkill');
+
+//
+
+Route::post('searchSkillsOffered', 'SearchController@searchSkillsOffered');
+
+Route::post('searchSkillsWanted', 'SearchController@searchSkillsWanted');
+
+//Route::get('clicked/{id}', 'SearchController@clicked');
 //Route::resource('profiles', 'ProfileController');
 
-//searchUserNames
+//searchSkillsWanted

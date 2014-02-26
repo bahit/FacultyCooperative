@@ -24,25 +24,16 @@
     <body>
         <!-- Navbar -->
         <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
+            <div class="navbar-brand">
                 <div class="container">
-                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content
+                   -->
 
-                    <a class="brand" href="#">Faculty Cooperative</a>
-                    <a class="brand" href="#">Link 2</a>
+                    <a class="brand" href="home">Faculty Cooperative</a>
+                    <a class="brand" href="search">Search</a>
                     <a class="brand" href="#">Link 3</a>
 
-                    <!-- Everything you want hidden at 940px or less, place within here -->
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a href="{{{ URL::to('') }}}">Home</a></li>
-                        </ul> 
-                    </div>
+
                 </div>
             </div>
         </div> 

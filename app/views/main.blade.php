@@ -8,6 +8,7 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!--https://bitbucket.org/beni/laravel-4-tutorial/wiki/Add_Twitter-Bootstrap-->
        
         {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
         {{ HTML::style('css/main.css') }}

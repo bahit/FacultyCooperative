@@ -8,9 +8,9 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-       
-        {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
-        {{ HTML::style('css/main.css') }}
+
+        {{ HTML::style('packages/bootstrap/css/bootstrap.css') }}
+
 
 
         <style>
@@ -24,9 +24,9 @@
     </head>
 
     <body>
-<<<<<<< HEAD
+
         <!-- Navbar -->
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar navbar-fixed-top">
             <div class="navbar-brand">
                 <div class="container">
                     <!-- .btn-navbar is used as the toggle for collapsed navbar content
@@ -36,7 +36,7 @@
                     <a class="brand" href="../search">Search</a>
                     <a class="brand" href="#">Link 3</a>
 
-=======
+
         <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -52,6 +52,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active">{{ HTML::link('home', 'Home') }}</li>
+            <li class="active">{{ HTML::link('search', 'Search') }}</li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
@@ -74,7 +75,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
->>>>>>> 5f692c2e04751b61c77266ced6235e8e3bd074e0
+
 
 
         <!-- Container -->

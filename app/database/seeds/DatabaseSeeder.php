@@ -32,6 +32,9 @@ class SkillTableSeeder extends Seeder {
 		Skill::create(array('category' => 'IT', 'skill_name' => 'C++'));
 		Skill::create(array('category' => 'Art', 'skill_name' => 'Dance'));
 		Skill::create(array('category' => 'Law', 'skill_name' => 'Patent Law'));
+		Skill::create(array('category' => 'Engineering', 'skill_name' => 'Mechanics'));
+
+
     }
 
 }

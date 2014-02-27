@@ -106,7 +106,9 @@
 
 @foreach($usersWithSkill as $userWith)
 
-<p><a href='../publicProfile/{{$userWith->user_id}}'>View {{$userWith->name}}'s profile</a></p>
+<p><!--SEE profile controller - need to resize image when saved!!!  ST -->
+    <img src='../images/{{$userWith->image}}' width="80px"/>
+    <a href='../publicProfile/{{$userWith->user_id}}'>View {{$userWith->name}}'s profile</a></p>
 
 
 @endforeach

@@ -17,6 +17,7 @@
             body {
                 padding-top: 60px;
             }
+
         @show
         </style>
     </head>
@@ -29,8 +30,8 @@
                     <!-- .btn-navbar is used as the toggle for collapsed navbar content
                    -->
 
-                    <a class="brand" href="home">Faculty Cooperative</a>
-                    <a class="brand" href="search">Search</a>
+                    <a class="brand" href="../home">Faculty Cooperative</a>
+                    <a class="brand" href="../search">Search</a>
                     <a class="brand" href="#">Link 3</a>
 
 

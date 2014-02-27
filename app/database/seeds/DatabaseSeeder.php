@@ -47,6 +47,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'sthomag@essex.ac.uk', 
 				'password' => 'password',
 				'name' => 'Sarah Thomas',
+                'image' => 'profile1.jpg',
 				'screen_name' => 'Sarah T',
 				'bio_details' => 'I am skilled at making tea',
 				'career_status' => 'Postgraduate',

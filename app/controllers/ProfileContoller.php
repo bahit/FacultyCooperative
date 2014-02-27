@@ -5,15 +5,24 @@ class ProfileController extends BaseController
 	public function showPublicProfile($id)
     {
       	$profile = User::find($id);
-		$skillOffer = SkillOffer::whereRaw('user_id = ?', array($id))->get();
+		//$skillOffer = SkillOffer::whereRaw('user_id = ?', array($id))->get();
 		
 		//SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
+
+
+        $skillOffer =  DB::table('skills')
+            ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
+            ->where('skill_offers.user_id', '=', $id)
+            ->get();
+
+
 		
-		$view = View::make('showProfile', array('profile' => $profile, 
+		$view = View::make('showProfile', array('profile' => $profile,
 												 'skillOffer' => $skillOffer));
 		
 		
 		return $view;
+        //return $skillOffer;
     }
 
 
@@ -21,12 +30,18 @@ public function editProfile($id)
 
     {
        $profile = User::find($id);
-	   
-	   $view = View::make('editProfile', array('profile' => $profile));
-		
-	   
-	 
-	   return $view;
+
+/*
+        $skills =  DB::table('skills')
+            ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
+            //->where('skill_offers.user_id', '=', $id)
+            ->get();
+*/
+        $skills =  Skill::all();
+        $view = View::make('editProfile', array('profile' => $profile, 'skills'=>$skills));
+
+	  return $view;
+        //return $skills;
 	  
     }
 
@@ -63,10 +78,30 @@ public function updateProfile($id)
 			$user->institution      = Input::get('institution');
 			$user->investment_offered      = Input::get('investmentOffered');
 			
-			$user->save();
 
-			
-			return 'done it- saved some changes to the DB';
+            //Intervention/Image package
+            //To resixe images - investigate
+            // TODO
+            //
+            if (Input::hasFile('image'))
+            {
+                Input::file('image')->move(base_path() .'/public/images/','profile'.$id.'.jpg');
+                $user->image = 'profile'.$id.'.jpg';
+            }
+
+            $user->save();
+
+            //TODO
+            //no validation or error checking
+            $profile = User::find($id);
+            $view = View::make('editProfile', array('profile' => $profile,'success'=>'yes'));
+            return $view;
+
+
+			//return 'done it- saved some changes to the DB';
+            //return base_path() .'/public/images';
+            //return $file->getClientOriginalName();
+
 		
     }
 

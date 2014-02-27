@@ -11,7 +11,10 @@
        
        
         @foreach($team_members as $team_member)
-         <li> <a href="../publicProfile/{{$team_member->user_id}}" >{{$team_member->name}}</a></li>
+         <li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
+             <img src='../images/{{$team_member->image}}' width="80px"/>
+
+             <a href="../publicProfile/{{$team_member->user_id}}" >{{$team_member->name}}</a></li>
 
         @endforeach
 

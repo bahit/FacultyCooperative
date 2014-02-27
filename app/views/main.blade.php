@@ -24,7 +24,7 @@
     </head>
 
     <body>
-
+		<!-- Irene was here -->
         <!-- Navbar -->
         <div class="navbar navbar navbar-fixed-top">
             <div class="navbar-brand">
@@ -69,7 +69,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>{{ HTML::link('users/register', 'Register') }}</li>   
+            <li>{{ HTML::link('users/register', 'Register') }}</li>
             <li>{{ HTML::link('users/login', 'Login') }}</li>
           </ul>
         </div><!--/.nav-collapse -->

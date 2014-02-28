@@ -52,7 +52,7 @@ public function updateProfile($id)
 		
 		
 		$rules = array(
-			'screenName'       => 'required',
+			'name'       => 'required',
 			'bioDetails'       => 'required|max:200'
 		);
 		
@@ -72,7 +72,7 @@ public function updateProfile($id)
 			
 			
 			$user = User::find($id);
-			$user->screen_name       = Input::get('screenName');
+			$user->name       = Input::get('name');
 			$user->bio_details      = Input::get('bioDetails');
 			$user->career_status      = Input::get('careerStatus');
 			$user->institution      = Input::get('institution');

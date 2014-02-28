@@ -29,7 +29,6 @@ class CreateAll extends Migration
             $t->string('image')->default('default.jpg');
             $t->string('password');
             $t->string('name');
-            $t->string('screen_name');
             $t->text('bio_details');
             $t->string('career_status');
             $t->string('institution');

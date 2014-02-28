@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h1>Edit your Profile, {{$profile->screen_name}}</h1>
+<h1>Edit your Profile, {{$profile->name}}</h1>
 
 @if(!isset($success))
 <h4>When a new user is registered a default profile should be created for them. They can then edit it with this
@@ -18,8 +18,8 @@
 
 {{ Form::open(array('url' => 'updateProfile/'.$profile->id, 'files' => true, 'method' => 'post')) }}
 
-{{ Form::label('screenName', 'Screen Name', array('class' => 'form-label')) }}
-{{ Form::text('screenName', $profile->screen_name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
+{{ Form::label('name', 'Name', array('class' => 'form-label')) }}
+{{ Form::text('name', $profile->name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
 <br>
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->

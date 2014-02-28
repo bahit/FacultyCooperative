@@ -35,21 +35,8 @@
         needs hooking to a checkbox </em></p>
 
 
+
+<p><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></p>
+
+
 @endsection
-
-
-{{--loop category hierachy
-
-{{$category = ''}}
-@foreach($skills as $key => $skill)
-
-
-@if ($category <> $skill->category)
-<br>{{$category = $skill->category}}: &nbsp;
-@endif
-{{ $skill->skillName }}, &nbsp;
-
-
-@endforeach
---}}
-

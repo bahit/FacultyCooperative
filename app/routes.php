@@ -51,7 +51,9 @@ Route::get('editVenture/{id}', 'VentureController@editVenture');
 
 Route::post('updateVenture/{id}', 'VentureController@updateVenture');
 
+Route::get('sendMessage/{id}', 'MessageController@sendMessage');
 
+Route::post('addMessage/{id}', 'MessageController@addMessage');
 
 
 //Route::get('clicked/{id}', 'SearchController@clicked');

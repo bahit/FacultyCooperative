@@ -7,6 +7,9 @@
 
 
 <h2>Hello Group 1</h2>
+
+<h3> <em>!!Test Links - All need hooking up to some sort of system !! </em></h3>
+
 <p><a href="publicProfile/1">This link should take you to view profile for user id 1</a></p>
 
 <p><a href="editProfile/1">This link should take you to edit profile for user id 1</a></p>
@@ -18,5 +21,6 @@
 
 <p><a href="search">This link should take you to search page</a></p>
 
+<p><a href="sendMessage/1">This link should send a message to user id 1</a></p>
 
 @endsection

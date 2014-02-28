@@ -20,6 +20,7 @@ class CreateAll extends Migration
         Schema::dropIfExists('skill_wanteds');
         Schema::dropIfExists('ventures');
         Schema::dropIfExists('team_members');
+        Schema::dropIfExists('messages');
 
 
         Schema::create('users', function ($t) {
@@ -85,6 +86,18 @@ class CreateAll extends Migration
             $t->increments('id');
             $t->integer('venture_id'); //foreign key
             $t->integer('user_id'); //foreign key
+            $t->timestamps();
+        });
+
+
+        Schema::create('messages', function ($t) {
+
+            $t->increments('id');
+            $t->integer('to_user_id');
+            $t->integer('from_user_id');
+            $t->string('content');
+            $t->string('read_flag');
+
             $t->timestamps();
         });
 

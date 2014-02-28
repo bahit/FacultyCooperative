@@ -33,13 +33,8 @@ class VentureController extends BaseController
     {
         $venture = Venture::find($id);
 
-        /*
-                $skills =  DB::table('skills')
-                    ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
-                    //->where('skill_offers.user_id', '=', $id)
-                    ->get();
-        */
-        $skills =  Skill::all();
+
+        $skills =  VentureController::skillWantedChecklistInit($id);
         $view = View::make('editVenture', array('venture' => $venture, 'skills'=>$skills));
 
         return $view;
@@ -77,9 +72,67 @@ public function updateVenture($id)
         $venture->save();
 
 
+
+
+        //clear user skills as results only sent for boxes checked
+        SkillWanted::where('venture_id', '=', $id)->delete();
+
+        $skill_wanteds = Input::get('skillsCB');
+
+        //loops checkbox array and writes to DB
+        foreach ($skill_wanteds as $skill_id) {
+            $skill_wanted = new SkillWanted;
+
+            $skill_wanted->venture_id = $id;
+            $skill_wanted->skill_id = $skill_id;
+
+            $skill_wanted->save();
+        }
+
+
+        $skills =  VentureController::skillWantedChecklistInit($id);
+
+
         $venture = Venture::find($id);
-        $view = View::make('editVenture', array('venture' => $venture,'success'=>'yes'));
+        $view = View::make('editVenture',
+            array('venture' => $venture,'success'=>'yes','skills'=>$skills));
         return $view;
 
 	}
+
+
+    public function skillWantedChecklistInit($id)
+
+    {
+        ///
+        //getting checkboxes to correct state
+
+        $skill_wanteds =  DB::table('skills')
+            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
+            ->where('skill_wanteds.venture_id', '=', $id)
+            ->lists('skill_wanteds.skill_id');
+        // ->get();
+
+
+        $skillsList = Skill::all();
+        foreach ($skillsList as $skill) {
+
+
+            if (in_array($skill->id, $skill_wanteds)) {
+                $checked='checked';
+            }
+            else{$checked='unchecked';}
+
+
+            $skills[] = array('id' => $skill->id,
+                'skill_name' => $skill->skill_name,
+                'category' => $skill->category,
+                'checked' => $checked
+            );
+        }
+
+        return $skills;
+        ////
+
+    }
 }

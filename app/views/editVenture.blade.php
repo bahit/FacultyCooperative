@@ -7,6 +7,9 @@
 @if(isset($success))
 <!--hateful inline style temporary!-->
 <h4 style="background-color:red;">Thank you - your venture has been updated</h4>
+
+<h4><a href="../viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
+
 @endif
 
 <!--This picks up errors from validation-->
@@ -42,22 +45,10 @@
 
 <br>
 
-<!--SEE profile controller - need to resize image when saved!!!  ST
-<img src='../images/@{{$profile->image}}' width="200px"/>
-{{Form::file('image')}}
-
-<br>
-
-{{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}
-@{{ Form::textarea('bioDetails', $profile->bio_details, array('class'=>'input-block-level')) }}
-
--->
 
 
-<!--The skills heirachy needs to go in here somehow - or we simplify with just a text entry -->
-{{ Form::label('skillsOffered', 'What skills does your venture seek?') }}
 
-<p><em>!!Checkbox for skills list needs modifying!!</em></p>
+<h3>What skills does your venture seek?</h3>
 
 
 
@@ -65,18 +56,20 @@
 
 {{$category=''}}
 
-@foreach($skills as $skill)
+@foreach($skills as $key => $skill)
 
-@if ($category<>$skill->category)
-<h4>{{$skill->category}}</h4>
+@if ($category<>$skill["category"])
+<h4>{{$skill["category"]}}</h4>
 @endif
 
-{{$skill->skill_name}}
-<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill->skill_name}}" value="{{$skill->skill_name}}">
+{{$skill["skill_name"]}}
+
+<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}"
+value="{{$skill["id"]}}" {{$skill["checked"]}}>
 <!--@{{ Form::checkbox('skillsOffered', 'yes', false, array('class' => 'form-checkbox')) }} -->
 
-<?php $category=$skill->category?>
 
+<?php $category=$skill["category"]?>
 @endforeach
 @endif
 
@@ -86,7 +79,7 @@
 
 
 
-{{ Form::submit('Update your Profile',array('class' => 'form-button')) }}
+{{ Form::submit('Update your Venture Page',array('class' => 'form-button')) }}
 
 
 {{ Form::close() }}

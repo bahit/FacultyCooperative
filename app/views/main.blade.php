@@ -13,11 +13,18 @@
 
 
 
+
         <style>
         @section('styles')
             body {
                 padding-top: 60px;
             }
+
+        footer {
+            color: #666;
+            background: #222;
+            padding: 10px 0 18px 0;
+            border-top: 1px solid #000;
 
         @show
         </style>
@@ -86,7 +93,10 @@
             @yield('content')
 
         </div>
+       <footer>
+        <div class="container"><br><br><em>something here to make a nice footer please Irina ;-)</em></div>
 
+       </footer>
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery.min.js') }}
         {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}

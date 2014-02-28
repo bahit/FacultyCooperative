@@ -71,8 +71,6 @@
 <h4>{{$skill["category"]}}</h4>
 @endif
 
-
-
 {{$skill["skill_name"]}}
 
 <input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}"
@@ -83,7 +81,6 @@
 <?php $category=$skill["category"]?>
 @endforeach
 @endif
-
 
 
 <br><br>

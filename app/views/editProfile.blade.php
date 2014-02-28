@@ -52,15 +52,12 @@
 <!--I think a public profile should not talk about investment amount - just a boolean yes/no here -->
 {{ Form::label('investmentOffered', 'Are you willing to offer investment to potential ventures', array('class' => 'formlabel')) }}
 {{ Form::checkbox('investmentOffered', 'yes', $profile->investmentOffered) }}
-
+<em>!!not added yet !!</em>
+<br>
 <br>
 
-
 <!--The skills heirachy needs to go in here somehow - or we simplify with just a text entry -->
-{{ Form::label('skillsOffered', 'What skills can you offer') }}
-
-<p><em>!!Checkbox for skills list needs modifying!!</em></p>
-
+{{ Form::label('skillsOffered', 'What skills can you offer:') }}
 
 
 

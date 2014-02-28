@@ -51,6 +51,9 @@ Route::get('editVenture/{id}', 'VentureController@editVenture');
 
 Route::post('updateVenture/{id}', 'VentureController@updateVenture');
 
+
+
+
 //Route::get('clicked/{id}', 'SearchController@clicked');
 //Route::resource('profiles', 'ProfileController');
 

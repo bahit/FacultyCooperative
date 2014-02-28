@@ -63,22 +63,27 @@
 
 
 
+
 @if(isset($skills))
 
 {{$category=''}}
 
-@foreach($skills as $skill)
+@foreach($skills as $key => $skill)
 
-@if ($category<>$skill->category)
-<h4>{{$skill->category}}</h4>
+@if ($category<>$skill["category"])
+<h4>{{$skill["category"]}}</h4>
 @endif
 
-{{$skill->skill_name}}
-<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill->skill_name}}" value="{{$skill->skill_name}}">
+
+
+{{$skill["skill_name"]}}
+
+<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}"
+       value="{{$skill["id"]}}" {{$skill["checked"]}}>
 <!--@{{ Form::checkbox('skillsOffered', 'yes', false, array('class' => 'form-checkbox')) }} -->
 
-<?php $category=$skill->category?>
 
+<?php $category=$skill["category"]?>
 @endforeach
 @endif
 

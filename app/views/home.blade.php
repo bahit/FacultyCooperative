@@ -14,6 +14,8 @@
 
 <p><a href="viewVenture/1">This link should take you to view venture id 1</a></p>
 
+<p><a href="editVenture/1">This link should take you to edit venture id 1</a></p>
+
 <p><a href="search">This link should take you to search page</a></p>
 
 

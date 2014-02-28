@@ -69,6 +69,7 @@ class CreateAll extends Migration
 
             $t->increments('id');
             $t->string('title');
+            $t->string('logo')->default('default.jpg');
             $t->string('user_id'); //creator of venture, team leader
             $t->text('description');
             //$t->string('blog_id');  //link to blog - social area
@@ -90,16 +91,6 @@ class CreateAll extends Migration
 
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
-    }
+
 
 }

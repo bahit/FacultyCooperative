@@ -137,6 +137,7 @@ class VentureTableSeeder extends Seeder {
         Venture::create(array(
 				'title' => 'The IT Dance Company', 
 				'user_id' => '1',
+                'logo' =>'logo1.jpg',
 				'description' => 'A funky fusion of PHP and dance. We are going to be so rich',
 				'funding_target' => '300',
 				'funding_secured' => '100'

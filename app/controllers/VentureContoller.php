@@ -6,9 +6,7 @@ class VentureController extends BaseController
     {
       	$venture = Venture::find($id);
 		$team_leader = User::find($venture->user_id);
-		//Don't know how to do this using eloquent models so doing it the old fashioned way - ST
-		//http://stackoverflow.com/questions/14130338/laravel-really-struggling-to-understand-eloquent - may explainl
-		
+
 		$team_members = DB::table('users')
             ->join('team_members', 'users.id', '=', 'team_members.user_id')
 			
@@ -30,21 +28,58 @@ class VentureController extends BaseController
         //return $skillsWanted;
     }
 
-
-
-
-public function editVenture($id)
+    public function editVenture($id)
 
     {
-       //TODO
-	  
+        $venture = Venture::find($id);
+
+        /*
+                $skills =  DB::table('skills')
+                    ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
+                    //->where('skill_offers.user_id', '=', $id)
+                    ->get();
+        */
+        $skills =  Skill::all();
+        $view = View::make('editVenture', array('venture' => $venture, 'skills'=>$skills));
+
+        return $view;
+        //return $skills;
+
     }
+
+
+
 
 public function updateVenture($id)
 	
     {
-		
-		//TODO
+        //TODO
+        //no validation or error checking here - needs adding!!!
+        //
+
+        $venture = Venture::find($id);
+        $venture->title  = Input::get('title');
+        $venture->description  = Input::get('description');
+        $venture->funding_target    = Input::get('funding_target');
+        $venture->funding_secured  = Input::get('funding_secured');
+
+
+        //Intervention/Image package
+        //To resixe images - investigate
+        // TODO
+        //
+        if (Input::hasFile('logo'))
+        {
+            Input::file('logo')->move(base_path() .'/public/images/','logo'.$id.'.jpg');
+            $venture->logo = 'logo'.$id.'.jpg';
+        }
+
+        $venture->save();
+
+
+        $venture = Venture::find($id);
+        $view = View::make('editVenture', array('venture' => $venture,'success'=>'yes'));
+        return $view;
 
 	}
 }

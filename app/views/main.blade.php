@@ -18,13 +18,19 @@
         @section('styles')
             body {
                 padding-top: 60px;
+                height: 100%;
             }
 
+
         footer {
-            color: #666;
-            background: #222;
-            padding: 10px 0 18px 0;
+            color: #ccc;
+            background: #260;
             border-top: 1px solid #000;
+        }
+
+
+
+
 
         @show
         </style>
@@ -87,6 +93,7 @@
 </div>
 
         <!-- Container -->
+
         <div class="container">
 
             <!-- Content -->

@@ -2,7 +2,10 @@
 @section('content')
 
 
-<h2>Send Message to {{$user->name}}</h2>
+<h3>Send Message to {{$user->name}}</h3>
+
+<!--SEE profile controller - need to resize image when saved!!!  ST -->
+<img src='../images/{{$user->image}}' width="100px"/>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
@@ -14,7 +17,7 @@
 {{ HTML::ul($errors->all()) }}
 
 
-{{ Form::open(array('url' => 'addMessage/'.$user->id, 'files' => true, 'method' => 'post')) }}
+{{ Form::open(array('url' => 'addMessage/'.$user->id, 'files' => false, 'method' => 'post')) }}
 
 
 
@@ -24,6 +27,9 @@
 {{ Form::textarea('content', '', array('class'=>'input-block-level')) }}
 <br>
 <br>
+
+
+<!--NEEDS hooking to authentication so we know who messsage is FROM *********  -->
 
 {{ Form::submit('Send Message',array('class' => 'form-button')) }}
 

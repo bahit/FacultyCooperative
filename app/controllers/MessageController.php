@@ -39,4 +39,23 @@ class MessageController extends BaseController {
 
     }
 
+
+    public function readMessage($id)
+    {
+
+
+        $user = User::find($id);
+        $readMessages = Message::where('to_user_id', '=', $id)->get();
+
+        $view = View::make('readMessage', array('user' => $user
+            ,'readMessages'=>$readMessages
+        ));
+        return $view;
+
+        //return $user;
+        //return $readMessages;
+
+
+    }
+
 }

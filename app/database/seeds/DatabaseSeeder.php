@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('SkillWantedTableSeeder');
 		 $this->call('TeamMemberTableSeeder');
 		 $this->call('VentureTableSeeder');
+         $this->call('MessageTableSeeder');
 	}
 
 }
@@ -153,5 +154,33 @@ class VentureTableSeeder extends Seeder {
 		
 		
     }
+
+
+}
+
+class MessageTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('messages')->truncate();
+
+        Message::create(array(
+            'subject' => 'Hello Sarah',
+            'from_user_id' => '2',
+            'to_user_id' => '1',
+            'body' =>"Let's meet up for tea and cake",
+
+        ));
+
+        Message::create(array(
+            'subject' => 'Can you help us',
+            'from_user_id' => '3',
+            'to_user_id' => '1',
+            'body' =>"We need someone to do some stuff for us",
+        ));
+
+
+    }
+
 
 }

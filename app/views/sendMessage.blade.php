@@ -23,8 +23,11 @@
 
 <br>
 
-{{ Form::label('content', 'Message') }}
-{{ Form::textarea('content', '', array('class'=>'input-block-level')) }}
+{{ Form::label('subject', 'Subject') }}
+{{ Form::text('subject', '', array('class'=>'input-block-level')) }}
+
+{{ Form::label('body', 'Message') }}
+{{ Form::textarea('body', '', array('class'=>'input-block-level')) }}
 <br>
 <br>
 

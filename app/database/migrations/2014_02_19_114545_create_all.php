@@ -95,8 +95,9 @@ class CreateAll extends Migration
             $t->increments('id');
             $t->integer('to_user_id');
             $t->integer('from_user_id');
-            $t->string('content');
-            $t->string('read_flag');
+            $t->string('subject');
+            $t->string('body');
+            $t->boolean('read_flag')->default(false);;
 
             $t->timestamps();
         });

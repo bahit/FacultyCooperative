@@ -44,14 +44,16 @@ class ProfileController extends BaseController
 
     {
 
-
+       //////////////////
+        //This should go in model - see Message model for example
         $rules = array(
             'name' => 'required',
             'bioDetails' => 'required|max:200'
         );
 
         $validator = Validator::make(Input::all(), $rules);
-
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
 
         if ($validator->fails()) {
 

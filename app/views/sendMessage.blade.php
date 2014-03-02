@@ -7,17 +7,17 @@
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
 <img src='../images/{{$user->image}}' width="100px"/>
 
+
+
 @if(isset($success))
 <!--hateful inline style temporary!-->
 <h4 style="background-color:red;">Thank you - your message has been sent</h4>
 
 @endif
 
-<!--This picks up errors from validation-->
-{{ HTML::ul($errors->all()) }}
 
-
-{{ Form::open(array('url' => 'addMessage/'.$user->id, 'files' => false, 'method' => 'post')) }}
+{{ Form::open(array('url' => 'addMessage/'.$user->id,
+'files' => false, 'method' => 'post')) }}
 
 
 
@@ -25,9 +25,11 @@
 
 {{ Form::label('subject', 'Subject') }}
 {{ Form::text('subject', '', array('class'=>'input-block-level')) }}
-
+{{ $errors->first('subject')}}
+<br><br>
 {{ Form::label('body', 'Message') }}
 {{ Form::textarea('body', '', array('class'=>'input-block-level')) }}
+{{ $errors->first('body')}}
 <br>
 <br>
 

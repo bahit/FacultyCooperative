@@ -61,7 +61,7 @@
 
     sent: {{$readMessage->created_at}}
     From: {{$readMessage->name}}
-   
+
     <div class='result a{{$readMessage->id}}'>
     <div class='body'><p>{{$readMessage->body}}</p></div>
     <p><img src='/FacultyCooperative/public/images/{{$readMessage->image}}' width="100px"/></p>

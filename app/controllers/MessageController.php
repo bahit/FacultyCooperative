@@ -7,7 +7,6 @@ class MessageController extends BaseController {
 	public function sendMessage($id)
 	{
 
-
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user));
         return $view;
@@ -19,6 +18,23 @@ class MessageController extends BaseController {
 
     public function addMessage($id)
     {
+
+
+        $validator = Message::validate(Input::all());
+        
+
+
+        if ($validator->fails()) {
+
+            Input::flash();
+
+            return Redirect::to('sendMessage/' . $id)
+                ->withErrors($validator);
+        }
+        else
+        {
+
+
 
         $message = new Message;
         $message->to_user_id = $id;
@@ -34,9 +50,10 @@ class MessageController extends BaseController {
 
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user,'success' => 'success'));
-        return $view;
-        //return $message;
 
+        return $view;
+       // return $m;
+        }
 
     }
 
@@ -56,9 +73,6 @@ class MessageController extends BaseController {
             ->get();
 
 
-
-
-
         $view = View::make('readMessage', array('user' => $user
 
         //$view = View::make('readMessageWithAjax', array('user' => $user
@@ -66,9 +80,6 @@ class MessageController extends BaseController {
         //,'message'=>$message
         ));
         return $view;
-
-        //return $message;
-       // return $readMessages;
 
 
     }

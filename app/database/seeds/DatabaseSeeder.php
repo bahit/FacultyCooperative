@@ -179,6 +179,13 @@ class MessageTableSeeder extends Seeder {
             'body' =>"We need someone to do some stuff for us",
         ));
 
+        Message::create(array(
+            'subject' => 'We need a designer',
+            'from_user_id' => '3',
+            'to_user_id' => '1',
+            'body' =>"Can you design something for us - if so please reply",
+        ));
+
 
     }
 

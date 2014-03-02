@@ -55,7 +55,15 @@ Route::get('sendMessage/{id}', 'MessageController@sendMessage');
 
 Route::post('addMessage/{id}', 'MessageController@addMessage');
 
-Route::get('readMessage/{id}/{message_id}', 'MessageController@readMessage');
+Route::get('readMessage/{id}', 'MessageController@readMessage');
+
+///
+
+Route::get('test', 'AjaxTestController@test');
+
+Route::post('testPost', 'AjaxTestController@testPost');
+
+Route::post('messageBodyAjax', 'MessageController@messageBodyAjax');
 
 
 //Route::get('clicked/{id}', 'SearchController@clicked');

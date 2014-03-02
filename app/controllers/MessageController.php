@@ -41,11 +41,13 @@ class MessageController extends BaseController {
     }
 
 
-    public function readMessage($id,$mid)
+    public function readMessage($id)
     {
 
 
         $user = User::find($id);
+
+
 
         $readMessages = DB::table('users')
             ->join('messages', 'messages.from_user_id', '=', 'users.id')
@@ -54,19 +56,14 @@ class MessageController extends BaseController {
             ->get();
 
 
-        $message=new Message;
-
-        if($mid!=0){
-        $message = Message::find($mid);
-        $message->read_flag=true;
-        $message->save();
-        }
-
 
 
 
         $view = View::make('readMessage', array('user' => $user
-            ,'readMessages'=>$readMessages,'message'=>$message
+
+        //$view = View::make('readMessageWithAjax', array('user' => $user
+            ,'readMessages'=>$readMessages
+        //,'message'=>$message
         ));
         return $view;
 
@@ -74,6 +71,16 @@ class MessageController extends BaseController {
        // return $readMessages;
 
 
+    }
+
+    public function messageBodyAjax()
+    {
+        $message = Message::find(Input::get('bid'));
+        $message->read_flag=true;
+        $message->save();
+
+       // return $message;
+        return;
     }
 
 }

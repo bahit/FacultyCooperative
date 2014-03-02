@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+
+        <!-- Scripts are placed here -->
+        {{ HTML::script('js/jquery.min.js') }}
+        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+
+
         <title>
             @section('title')
             Faculty Cooperative
@@ -104,9 +111,7 @@
         <div class="container"><br><br><em>something here to make a nice footer please Irina ;-)</em></div>
 
        </footer>
-        <!-- Scripts are placed here -->
-        {{ HTML::script('js/jquery.min.js') }}
-        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+
 
     </body>
 </html>

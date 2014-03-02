@@ -2,7 +2,38 @@
 @section('content')
 
 
-<h3>Read you messages {{$user->name}}</h3>
+
+
+<script>
+    $(document).ready(function(){
+
+        $( ".result" ).hide();
+
+        $("button").click(function(){
+            var bid = this.id;
+            //alert("Data: " + bid);
+            $.post("/FacultyCooperative/public/messageBodyAjax",
+                {
+                    "bid":bid
+
+
+                },
+                function(data,status){
+
+                    $( ".result" ).hide();
+
+                    $( ".new"+bid ).hide();
+                    $( ".a"+bid ).slideDown( "slow", function() {
+                        // Animation complete.
+                    });
+
+
+                });
+        });
+    });
+</script>
+
+<h3>Read your messages {{$user->name}}</h3>
 
 <!--SEE profile controller - need to resize image when saved!!!
   Path a problem here ST -->
@@ -15,27 +46,29 @@
 
 @foreach($readMessages as $readMessage)
 
-<p>subject: <a href='/FacultyCooperative/public/readMessage/{{$user->id}}/{{$readMessage->id}}'>
-        {{$readMessage->subject}}</a>
-    sent: {{$readMessage->created_at}}
-    From: {{$readMessage->name}}
-
-    @if(!$readMessage->read_flag)
+<p>
 
     <!-- TODO  inline style needs taking out -->
-    <span style="background-color:red;">   UNREAD</span>
+<div class='new{{$readMessage->id}}' style="background-color:red; display:inline;">
+    @if(!$readMessage->read_flag)
+    NEW
     @endif
 
-    @if(isset($message))
-    @if($message->id==$readMessage->id)
-<p>{{$message->body}}</p>
-<p><img src='/FacultyCooperative/public/images/{{$readMessage->image}}' width="100px"/></p>
+</div>
+
+    <button id='{{$readMessage->id}}'>{{$readMessage->subject}}</button>
 
 
-<p><a href='/FacultyCooperative/public/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
+    sent: {{$readMessage->created_at}}
+    From: {{$readMessage->name}}
+   
+    <div class='result a{{$readMessage->id}}'>
+    <div class='body'><p>{{$readMessage->body}}</p></div>
+    <p><img src='/FacultyCooperative/public/images/{{$readMessage->image}}' width="100px"/></p>
 
-@endif
-@endif
+    <p><a href='/FacultyCooperative/public/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
+
+    </div>
 
 
 </p>

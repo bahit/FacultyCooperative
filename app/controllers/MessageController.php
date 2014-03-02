@@ -21,7 +21,7 @@ class MessageController extends BaseController {
 
 
         $validator = Message::validate(Input::all());
-        
+
 
 
         if ($validator->fails()) {
@@ -47,6 +47,7 @@ class MessageController extends BaseController {
 
         $message->save();
 
+        Input::flash();
 
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user,'success' => 'success'));

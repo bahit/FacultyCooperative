@@ -226,7 +226,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'xchenad@essex.ac.uk',
 				'password' => 'password',
 				'name' => 'Chen Xiaofeng',
-		'image' => 'profile2.jpg',
+		        'image' => 'profile2.jpg',
 				'bio_details' => 'Work hard, Play hard!',
 				'career_status' => 'Postgraduate',
 				'institution' => 'Essex University',
@@ -238,7 +238,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'iheras@essex.ac.uk',
 				'password' => 'password',
 				'name' => 'Irina Herascu',
-		'image' => 'profile3.jpg',
+		        'image' => 'profile3.jpg',
 				'bio_details' => 'I am from Romania, and I am good at Photoshop',
 				'career_status' => 'Postgraduate',
 				'institution' => 'Essex University',
@@ -250,7 +250,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'bhamid@essex.ac.uk',
 				'password' => 'password',
 				'name' => 'Bahit Hamit',
-		'image' => 'profile4.png',
+		        'image' => 'profile4.png',
 				'bio_details' => 'Hi, everyone. My name is Bahit, I am from Brunei, and I am good at programming in PHP',
 				'career_status' => 'Postgraduate',
 				'institution' => 'Essex University',
@@ -273,7 +273,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'kperry@hotmail.com',
 				'password' => 'password',
 				'name' => 'Katy Perry',
-		'image' => 'katyperry.jpg',
+		        'image' => 'katyperry.jpg',
 				'bio_details' => 'I am Katy Perry, I am a singer!Welcome to my personal website:www.katyperry.com',
 				'career_status' => 'Singer,Actress',
 				'institution' => 'None',
@@ -285,7 +285,7 @@ class UserTableSeeder extends Seeder {
 				'email' => 'bgates@hotmail.com',
 				'password' => 'password',
 				'name' => 'Bill Gates',
-		'image' => 'billgates.jpg',
+		        'image' => 'billgates.jpg',
 				'bio_details' => 'Hello every, I am Bill,I am the richest man in the world!',
 				'career_status' => 'Technology Advisor of Microsoft, Co-Chair of the Bill & Melinda Gates Foundation,CEO of Cascade Investment,Chairman of Corbis',
 				'institution' => 'Harvard University',
@@ -377,15 +377,86 @@ class VentureTableSeeder extends Seeder {
 				'funding_target' => '300',
 				'funding_secured' => '100'
 				 ));
-				 
-		Venture::create(array(
+        
+        
+        Venture::create(array(
 				'title' => 'The Robot Fish', 
 				'user_id' => '2',
 				'description' => 'A robot fish designed to scare all the other fish in the pond',
 				'funding_target' => '800',
 				'funding_secured' => '100'
-				));		 		
-		
+				));	
+
+
+        Venture::create(array(
+				'title' => 'Google', 
+				'user_id' => '3',
+                'logo' =>'logo3.jpg',
+				'description' => 'Do not be evil',
+				'funding_target' => '999999999',
+				'funding_secured' => '1000000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Apple', 
+				'user_id' => '4',
+                'logo' =>'logo4.jpg',
+				'description' => 'Change the world',
+				'funding_target' => '999999999',
+				'funding_secured' => '1000000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Microsoft', 
+				'user_id' => '5',
+                'logo' =>'logo5.jpg',
+				'description' => 'Be what is next',
+				'funding_target' => '999999999',
+				'funding_secured' => '1000000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Baidu', 
+				'user_id' => '6',
+                'logo' =>'logo6.jpg',
+				'description' => 'baidu yixia, you know!',
+				'funding_target' => '99999999',
+				'funding_secured' => '100000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Facebook', 
+				'user_id' => '7',
+                'logo' =>'logo7.jpg',
+				'description' => 'Facebook is a social utility that connects you with the people around you',
+				'funding_target' => '999999999',
+				'funding_secured' => '1000000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Tencent', 
+				'user_id' => '8',
+                'logo' =>'logo8.png',
+				'description' => 'To be the most respected internet company',
+				'funding_target' => '99999999',
+				'funding_secured' => '100000'
+				 ));
+        
+
+        Venture::create(array(
+				'title' => 'Amazon', 
+				'user_id' => '9',
+                'logo' =>'logo9.jpg',
+				'description' => '…and You are Done',
+				'funding_target' => '999999999',
+				'funding_secured' => '1000000'
+				 ));
+				 
 		
     }
 

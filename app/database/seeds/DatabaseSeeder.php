@@ -220,7 +220,79 @@ class UserTableSeeder extends Seeder {
 				'institution' => 'Essex University',
 				'investment_offered' => '0'
 				));
-				
+
+
+	User::create(array(
+				'email' => 'xchenad@essex.ac.uk',
+				'password' => 'password',
+				'name' => 'Chen Xiaofeng',
+		'image' => 'profile2.jpg',
+				'bio_details' => 'Work hard, Play hard!',
+				'career_status' => 'Postgraduate',
+				'institution' => 'Essex University',
+				'investment_offered' => '0'
+				));
+
+
+	User::create(array(
+				'email' => 'iheras@essex.ac.uk',
+				'password' => 'password',
+				'name' => 'Irina Herascu',
+		'image' => 'profile3.jpg',
+				'bio_details' => 'I am from Romania, and I am good at Photoshop',
+				'career_status' => 'Postgraduate',
+				'institution' => 'Essex University',
+				'investment_offered' => '0'
+				));
+
+
+	User::create(array(
+				'email' => 'bhamid@essex.ac.uk',
+				'password' => 'password',
+				'name' => 'Bahit Hamit',
+		'image' => 'profile4.png',
+				'bio_details' => 'Hi, everyone. My name is Bahit, I am from Brunei, and I am good at programming in PHP',
+				'career_status' => 'Postgraduate',
+				'institution' => 'Essex University',
+				'investment_offered' => '0'
+				));
+
+
+	User::create(array(
+				'email' => 'eaoals@essex.ac.uk',
+				'password' => 'password',
+				'name' => 'Alshuaibi Enaam A O',
+				'bio_details' => 'Hi, everyone. My name is Enaam, I like smiling',
+				'career_status' => 'Postgraduate',
+				'institution' => 'Essex University',
+				'investment_offered' => '0'
+				));
+
+
+	    User::create(array(
+				'email' => 'kperry@hotmail.com',
+				'password' => 'password',
+				'name' => 'Katy Perry',
+		'image' => 'katyperry.jpg',
+				'bio_details' => 'I am Katy Perry, I am a singer!Welcome to my personal website:www.katyperry.com',
+				'career_status' => 'Singer,Actress',
+				'institution' => 'None',
+				'investment_offered' => '1'
+				));
+
+
+		User::create(array(
+				'email' => 'bgates@hotmail.com',
+				'password' => 'password',
+				'name' => 'Bill Gates',
+		'image' => 'billgates.jpg',
+				'bio_details' => 'Hello every, I am Bill,I am the richest man in the world!',
+				'career_status' => 'Technology Advisor of Microsoft, Co-Chair of the Bill & Melinda Gates Foundation,CEO of Cascade Investment,Chairman of Corbis',
+				'institution' => 'Harvard University',
+				'investment_offered' => '1'
+				));
+
+
 		User::create(array(
 				'email' => 'bob@essex.ac.uk', 
 				'password' => 'password',

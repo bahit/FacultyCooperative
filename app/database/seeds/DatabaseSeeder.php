@@ -92,7 +92,7 @@ class SkillTableSeeder extends Seeder {
 	    Skill::create(array('category' => 'Business Skills', 'skill_name' => 'Administration'));
 	    Skill::create(array('category' => 'Business Skills', 'skill_name' => 'Finance'));
 	    Skill::create(array('category' => 'Philosophy', 'skill_name' => 'Greek Philosophy'));
-	    Skill::create(array('category' => 'Philosophy', '    skill_name' => 'Ethics'));
+	    Skill::create(array('category' => 'Philosophy', 'skill_name' => 'Ethics'));
 	    Skill::create(array('category' => 'Education', 'skill_name' => 'Communication'));
 	    Skill::create(array('category' => 'Education', 'skill_name' => 'History'));
 	    Skill::create(array('category' => 'Education', 'skill_name' => 'Pre-school'));

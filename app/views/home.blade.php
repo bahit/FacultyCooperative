@@ -17,7 +17,11 @@
 
 <p><a href="viewVenture/1">This link should take you to view venture id 1</a></p>
 
+<p><a href="createVenture">This link will allow a logged in user to create a new venture</a></p>
+
 <p><a href="editVenture/1">This link should take you to edit venture id 1</a></p>
+
+<p><a href="editTeam/1">This link should take you to edit the team for venture id 1</a></p>
 
 <p><a href="search">This link should take you to search page</a></p>
 

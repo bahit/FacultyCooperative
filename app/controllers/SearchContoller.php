@@ -61,6 +61,8 @@ public function searchUserNames()
 
         $chosenSkill = Skill::find($id);
 
+        Input::flash();
+
         $view = View::make('search',
             array('usersWithSkill' => $usersWithSkill,
                 'chosenSkill' => $chosenSkill

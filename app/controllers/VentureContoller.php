@@ -42,6 +42,23 @@ class VentureController extends BaseController
 
     }
 
+    public function createVenture()
+
+    {
+
+        $venture = new Venture;
+        $venture->title  = Input::get('title');
+
+        //TODO
+        $venture->user_id = 2;  //THIS needs changing to id of authenticated - logged in user
+        $venture->save();
+
+        $view = View::make('createVenture', array('venture' => $venture, 'success'=>'success'));
+       // return $venture;
+        return $view;
+
+    }
+
 
 
 

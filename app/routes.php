@@ -23,6 +23,14 @@ Route::get('search', function()
 });
 
 
+Route::get('createVenture', function()
+{
+    return View::make('createVenture');
+});
+
+Route::post('createVenture', 'VentureController@createVenture');
+
+
 Route::get('publicProfile/{id}', 'ProfileController@showPublicProfile');
 
 Route::get('editProfile/{id}', 'ProfileController@editProfile');
@@ -50,6 +58,14 @@ Route::post('searchSkillsWanted', 'SearchController@searchSkillsWanted');
 Route::get('editVenture/{id}', 'VentureController@editVenture');
 
 Route::post('updateVenture/{id}', 'VentureController@updateVenture');
+
+
+
+//
+Route::get('editTeam/{id}', 'TeamController@editTeam');
+
+Route::post('updateTeam/{id}', 'TeamController@updateTeam');
+//
 
 Route::get('sendMessage/{id}', 'MessageController@sendMessage');
 

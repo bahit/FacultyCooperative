@@ -2,9 +2,9 @@
 @section('content')
 
 
-<h1>Search Page</h1>
+<h2>Search Page</h2>
 
-<h2>We can do some searching here!</h2>
+<h3>Search for People, Ventures, Skills Offered and Skills Wanted</h3>
 
 <!--This picks up errors from validation
 {{ HTML::ul($errors->all()) }}-->
@@ -13,9 +13,15 @@
     {{$searchedFor = ''}}
 @endif
 
+
+<fieldset>
+    <legend>Search for user by name</legend>
+
+    <p>Search for any user of the Faculty Cooperative by any part of their name</p>
+
 {{ Form::open(array('url' => 'searchUserNames',  'method' => 'post')) }}
 
-{{ Form::label('search', 'Search for user by name', array('class' => 'form-label')) }}
+{{ Form::label('search', 'user name', array('class' => 'form-label')) }}
 {{ Form::text('search', $searchedFor, array('class'=>'input-block-level', 'placeholder'=>'search')) }}
 
 
@@ -23,6 +29,7 @@
 
 
 {{ Form::close() }}
+
 
 
 
@@ -37,15 +44,21 @@
 @endforeach
 @endif
 
+
+</fieldset>
 <!--  begin search venture by name   -->
 
 @if(!isset($searchedVenture))
     {{$searchedVenture = ''}}
 @endif
 
+<fieldset>
+    <legend>Search for Venture by Title</legend>
+    <p>Search for current ventures by any match in their titles</p>
+
 {{ Form::open(array('url' => 'searchVentureTitles',  'method' => 'post')) }}
 
-{{ Form::label('search', 'Search for venture by title', array('class' => 'form-label')) }}
+{{ Form::label('search', 'title', array('class' => 'form-label')) }}
 {{ Form::text('venture', $searchedVenture, array('class'=>'input-block-level', 'placeholder'=>'search')) }}
 
 
@@ -53,6 +66,10 @@
 
 
 {{ Form::close() }}
+
+
+
+
 
 
 
@@ -67,7 +84,7 @@
 @endforeach
 @endif
 
-
+</fieldset>
 
 <!--  begin search for  skills being offered by skill name -->
 
@@ -75,6 +92,12 @@
 @if(!isset($searchedSkill))
     {{$searchedSkill = ''}}
 @endif
+
+<fieldset>
+    <legend>Search for Skills being Offered</legend>
+
+    <p>Search for skills that are currently offered by users. Clicking in the skill in the result will take you to a list of users
+    with that skill. Click on the user to contact them.</p>
 
 {{ Form::open(array('url' => 'searchSkillsOffered',  'method' => 'post')) }}
 
@@ -86,6 +109,10 @@
 
 
 {{ Form::close() }}
+
+
+
+
 
 @if(isset($skills))
 <p>Please click on a result to see a list of users with that skill</p>
@@ -115,7 +142,7 @@
 
 
 @endif
-
+</fieldset>
 
 <!--  begin search for  skills WANTED by skill name -->
 
@@ -124,7 +151,15 @@
 {{$searchedSkillWanted = ''}}
 @endif
 
-{{ Form::open(array('url' => 'searchSkillsWanted',  'method' => 'post')) }}
+<fieldset>
+    <legend>Search for Skills Wanted by Ventures</legend>
+
+    <p>Search for skills that are currently wanted by ventures. Clicking on a venture in the search result will take
+        you to a list of ventures
+        searching for that skill. Click on the venture to read about it.</p>
+
+
+    {{ Form::open(array('url' => 'searchSkillsWanted',  'method' => 'post')) }}
 
 {{ Form::label('skill', 'Search for skills that are wanted by ventures', array('class' => 'form-label')) }}
 {{ Form::text('skillWanted', $searchedSkill, array('class'=>'input-block-level', 'placeholder'=>'search')) }}
@@ -134,6 +169,10 @@
 
 
 {{ Form::close() }}
+
+
+
+
 
 @if(isset($skillsWanted))
 <p>Please click on a result to see a list of users with that skill</p>
@@ -163,7 +202,7 @@
 
 @endif
 
-
+</fieldset>
 @endsection
 
 

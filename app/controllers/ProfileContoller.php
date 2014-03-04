@@ -69,7 +69,10 @@ class ProfileController extends BaseController
             $user->bio_details = Input::get('bioDetails');
             $user->career_status = Input::get('careerStatus');
             $user->institution = Input::get('institution');
-            $user->investment_offered = Input::get('investmentOffered');
+            if (Input::get('investmentOffered'))
+            {
+            $user->investment_offered = 1;}
+                else{$user->investment_offered = 0;}
 
 
             //Intervention/Image package To resixe images - investigate
@@ -117,7 +120,7 @@ class ProfileController extends BaseController
             return $view;
 
 
-            //return $skill_offers;
+            //return $user->investment_offered;
             //return $file->getClientOriginalName();
 
 

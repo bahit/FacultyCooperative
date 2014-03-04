@@ -13,6 +13,12 @@
 <p> {{$profile->name}}'s career status: {{$profile->career_status}} </p>
 <p> {{$profile->name}}'s institution: {{$profile->institution}} </p>
 
+@if($profile->investmentOffered=1)
+<p>{{$profile->name}} is willing to offer investment</p>
+@else
+<p>{{$profile->name}} is not willing to offer investment</p>
+@endif
+
 <p> {{$profile->name}}'s Offers the following skills - <em>
         Needs some nicer arrangement!!
         </em></p>
@@ -30,13 +36,11 @@
 
 @endforeach
 
-
-<p> {{$profile->name}}'s investment offered: {{$profile->investment_offered}} <em>This is a boolean value and
-        needs hooking to a checkbox </em></p>
+<br>
 
 
 
 <p><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></p>
 
-
+<br>
 @endsection

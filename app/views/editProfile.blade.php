@@ -52,7 +52,8 @@
 <!--I think a public profile should not talk about investment amount - just a boolean yes/no here -->
 {{ Form::label('investmentOffered', 'Are you willing to offer investment to potential ventures', array('class' => 'formlabel')) }}
 {{ Form::checkbox('investmentOffered', 'yes', $profile->investmentOffered) }}
-<em>!!not added yet !!</em>
+
+
 <br>
 <br>
 

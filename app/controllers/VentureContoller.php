@@ -5,13 +5,12 @@ class VentureController extends BaseController
 	public function viewVenture($id)
     {
       	$venture = Venture::find($id);
-		$team_leader = User::find($venture->user_id);
 
-		$team_members = DB::table('users')
-            ->join('team_members', 'users.id', '=', 'team_members.user_id')
-			
-			->where('team_members.venture_id', '=', $id)
-            
+
+		$teams = DB::table('users')
+            ->join('teams', 'users.id', '=', 'teams.user_id')
+			->where('teams.venture_id', '=', $id)
+            ->orderBy('position', 'asc')
             ->get();
 			
 		$skillsWanted = DB::table('skills')
@@ -21,9 +20,8 @@ class VentureController extends BaseController
 		
 		
 		$view = View::make('viewVenture', array('venture' => $venture,
-                            'team_leader' => $team_leader,
-                              'skillsWanted' => $skillsWanted,
-							'team_members' => $team_members));
+                           'skillsWanted' => $skillsWanted,
+							'teams' => $teams));
 		return $view;
         //return $skillsWanted;
     }
@@ -50,7 +48,7 @@ class VentureController extends BaseController
         $venture->title  = Input::get('title');
 
         //TODO
-        $venture->user_id = 2;  //THIS needs changing to id of authenticated - logged in user
+       //write logged in user to team table as leader of newly created venture
         $venture->save();
 
         $view = View::make('createVenture', array('venture' => $venture, 'success'=>'success'));

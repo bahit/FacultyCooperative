@@ -17,15 +17,27 @@
 <h2>Team members</h2>
 
 
-@foreach($team_members as $team_member)
+@foreach($teams as $team)
 <li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team_member->image}}' width="80px"/>
+    <img src='../images/{{$team->image}}' width="80px"/>
 
-    <a href="../publicProfile/{{$team_member->user_id}}">{{$team_member->name}}</a></li>
+    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
+
+
+
+    @if($team->position==2)
+          <strong>Team Leader</strong>
+    @endif
+
+    @if($team->position==1)
+              <strong>Team Mentor</strong>
+    @endif
+
+</li>
 
 @endforeach
 
-<p>The team leader is {{$team_leader->name}}</p>
+
 
 <h2>Skills wanted by this venture</h2>
 

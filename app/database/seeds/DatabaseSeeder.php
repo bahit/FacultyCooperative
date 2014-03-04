@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call('UserTableSeeder');
         $this->call('SkillOfferTableSeeder');
         $this->call('SkillWantedTableSeeder');
-        $this->call('TeamMemberTableSeeder');
+        $this->call('TeamTableSeeder');
         $this->call('VentureTableSeeder');
         $this->call('MessageTableSeeder');
     }
@@ -297,6 +297,7 @@ class UserTableSeeder extends Seeder
             'email' => 'bob@essex.ac.uk',
             'password' => 'password',
             'name' => 'Dr Bob Oldman',
+            'image' => 'profile8.jpg',
             'bio_details' => 'I am a historian. What did the Pharaoh say when he saw the pyramid? Mummy’s home.',
             'career_status' => 'Academic',
             'institution' => 'Essex University',
@@ -410,15 +411,23 @@ class SkillWantedTableSeeder extends Seeder
 
 }
 
-class TeamMemberTableSeeder extends Seeder
+class TeamTableSeeder extends Seeder
 {
 
     public function run()
     {
-        DB::table('team_members')->truncate();
+        DB::table('teams')->truncate();
 
-        TeamMember::create(array('venture_id' => '1', 'user_id' => '1'));
-        TeamMember::create(array('venture_id' => '1', 'user_id' => '2'));
+        Team::create(array('venture_id' => '1', 'user_id' => '1', 'position'=>'2'));
+        Team::create(array('venture_id' => '1', 'user_id' => '7', 'position'=>'1'));
+        Team::create(array('venture_id' => '1', 'user_id' => '6'));
+        Team::create(array('venture_id' => '1', 'user_id' => '2'));
+
+
+        Team::create(array('venture_id' => '2', 'user_id' => '3', 'position'=>'2'));
+        Team::create(array('venture_id' => '2', 'user_id' => '8', 'position'=>'1'));
+        Team::create(array('venture_id' => '2', 'user_id' => '2'));
+        Team::create(array('venture_id' => '2', 'user_id' => '4'));
 
 
     }
@@ -434,7 +443,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'The IT Dance Company',
-            'user_id' => '1',
             'logo' => 'logo1.jpg',
             'description' => 'A funky fusion of PHP and dance. We are going to be so rich',
             'funding_target' => '300',
@@ -444,7 +452,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'The Robot Fish',
-            'user_id' => '2',
             'logo' => 'fish.jpg',
             'description' => 'A robot fish designed to scare all the other fish in the pond',
             'funding_target' => '800',
@@ -454,7 +461,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Boogle',
-            'user_id' => '3',
             'logo' => 'boogle.png',
             'description' => 'Do not be evil',
             'funding_target' => '999999999',
@@ -464,7 +470,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Sliced Apple',
-            'user_id' => '4',
             'logo' => 'logo4.jpg',
             'description' => 'Change the world',
             'funding_target' => '999999999',
@@ -474,7 +479,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Microshift',
-            'user_id' => '5',
             'logo' => 'tp.jpg',
             'description' => 'Be what is next',
             'funding_target' => '999999999',
@@ -485,7 +489,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Facebucket',
-            'user_id' => '7',
             'logo' => 'facebucket.jpg',
             'description' => 'Facebook is a social utility that connects you with the people around you',
             'funding_target' => '999999999',
@@ -495,8 +498,7 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Tenpercent',
-            'user_id' => '8',
-            'logo' => 'logo8.png',
+             'logo' => 'logo8.png',
             'description' => 'To be the most respected internet company',
             'funding_target' => '99999999',
             'funding_secured' => '100000'
@@ -505,7 +507,6 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Swallows and Amazon',
-            'user_id' => '9',
             'logo' => 'logo9.jpg',
             'description' => '…and You are Done',
             'funding_target' => '999999999',

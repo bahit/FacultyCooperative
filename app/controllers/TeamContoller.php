@@ -9,17 +9,17 @@ class TeamController extends BaseController
     {
         $venture = Venture::find($id);
 
-        $team_leader = User::find($venture->user_id);
+        //$team_leader = User::find($venture->user_id);
 
-        $team_members = DB::table('users')
-            ->join('team_members', 'users.id', '=', 'team_members.user_id')
-             ->where('team_members.venture_id', '=', $id) ->get();
+        $teams = DB::table('users')
+            ->join('teams', 'users.id', '=', 'teams.user_id')
+             ->where('teams.venture_id', '=', $id) ->get();
 
 
 
         $view = View::make('editTeam', array('venture' => $venture,
-            'team_leader' => $team_leader,
-            'team_members' => $team_members));
+            //'team_leader' => $team_leader,
+            'teams' => $teams));
 
 
         return $view;

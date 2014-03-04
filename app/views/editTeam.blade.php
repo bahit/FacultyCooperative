@@ -15,34 +15,34 @@
 <p><em>This is a UNFINISHED</em></p>
 
 <!--
-{{ Form::open(array('url' => 'updateVentureTeam/'.$venture->id, 'files' => true, 'method' => 'post')) }}
+@{{ Form::open(array('url' => 'updateVentureTeam/'.$venture->id, 'files' => true, 'method' => 'post')) }}
 
-{{ Form::label('leader', 'Leader', array('class' => 'form-label')) }}
-{{ Form::text('leader', $team_leader->email, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
+@{{ Form::label('leader', 'Leader', array('class' => 'form-label')) }}
+@{{ Form::text('leader', $team_leader->email, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
 <br>
 
 
 
 
 
-{{ Form::submit('Update your Team',array('class' => 'form-button')) }}
+@{{ Form::submit('Update your Team',array('class' => 'form-button')) }}
 
 
-{{ Form::close() }}
+@{{ Form::close() }}
 
 -->
-@foreach($team_members as $team_member)
+@foreach($teams as $team)
 <li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team_member->image}}' width="80px"/>
+    <img src='../images/{{$team->image}}' width="80px"/>
 
-    <a href="../publicProfile/{{$team_member->user_id}}">{{$team_member->name}}</a></li>
+    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
 
 <button>Delete from Team</button>
-
+</li>
 
 @endforeach
 
-<p>The team leader is {{$team_leader->name}}</p>
+
 
 
 @endsection

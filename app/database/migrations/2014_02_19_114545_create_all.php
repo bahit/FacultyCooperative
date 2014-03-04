@@ -19,7 +19,7 @@ class CreateAll extends Migration
         Schema::dropIfExists('skill_offers');
         Schema::dropIfExists('skill_wanteds');
         Schema::dropIfExists('ventures');
-        Schema::dropIfExists('team_members');
+        Schema::dropIfExists('teams');
         Schema::dropIfExists('messages');
 
 
@@ -71,7 +71,6 @@ class CreateAll extends Migration
             $t->increments('id');
             $t->string('title');
             $t->string('logo')->default('default.jpg');
-            $t->string('user_id'); //creator of venture, team leader
             $t->text('description');
             //$t->string('blog_id');  //link to blog - social area
             $t->integer('funding_target');
@@ -79,13 +78,15 @@ class CreateAll extends Migration
             $t->timestamps();
         });
 
-        Schema::create('team_members', function ($t) {
+        Schema::create('teams', function ($t) {
 
             //one venture can have many team members
+            //1=mentor, 2=leader, 3=member
 
             $t->increments('id');
             $t->integer('venture_id'); //foreign key
             $t->integer('user_id'); //foreign key
+            $t->integer('position')->default(3); //1=mentor, 2=leader, 3=member
             $t->timestamps();
         });
 

@@ -1,5 +1,5 @@
 @section("footer")
-<footer>
-  <div class="container"><br><br><em>something here to make a nice footer please Irina ;-)</em></div>
-</footer>
+  <div class="footer">
+    <p>&copy; FacultyCooperative 2014</p><p class="pull-right"><a href="#">Back to top</a></p>
+  </div>
 @show

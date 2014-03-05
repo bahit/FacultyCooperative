@@ -40,8 +40,8 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li>{{ HTML::link('users/register', 'Register') }}</li>
-              <li>{{ HTML::link('users/login', 'Login') }}</li>
+              <li>{{ HTML::link('/register', 'Register') }}</li>
+              <li>{{ HTML::link('/login', 'Login') }}</li>
             </ul>
             </div><!--/.nav-collapse -->
           </div>

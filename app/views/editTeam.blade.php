@@ -4,6 +4,12 @@
 
 <h2>Team Management Page for @{{$venture->title}}</h2>
 
+<p><a href=''>Add member to team</a></p>
+
+<p><a href=''>Remove member from team</a></p>
+
+<p><a href=''>Edit members position in team</a></p>
+
 @if(isset($success))
 <!--hateful inline style temporary!-->
 <h4 style="background-color:red;">Thank you - your Team has been updated</h4>
@@ -82,7 +88,7 @@
 
     @foreach($users as $key => $users)
 
-    <p><a href='publicProfile/{{$users->id}}'>View {{$users->name}}'s profile</a></p>
+    <p><a href='addUserToTeam/{{$users->id}}'>Add {{$users->name}} to the team</a></p>
 
     @endforeach
     @endif

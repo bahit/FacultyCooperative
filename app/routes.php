@@ -91,6 +91,13 @@ Route::post('searchUserToAdd', 'TeamController@searchUserToAdd');
 Route::post('editTeamUser/{id}', 'TeamController@editTeamUser');
 ///
 
+
+///////////////////////
+Route::post('addUserToTeam/{id}', 'TeamController@addUserToTeam');
+
+
+///////////////////////
+
 Route::get('test', 'AjaxTestController@test');
 
 Route::post('testPost', 'AjaxTestController@testPost');

@@ -7,9 +7,11 @@ class TeamController extends BaseController
     public function editTeam($id)
 
     {
+
+        $editPosition=true;
         $venture = Venture::find($id);
 
-        //$team_leader = User::find($venture->user_id);
+
 
         $teams = DB::table('users')
             ->join('teams', 'users.id', '=', 'teams.user_id')
@@ -18,7 +20,7 @@ class TeamController extends BaseController
 
 
         $view = View::make('editTeam', array('venture' => $venture,
-            //'team_leader' => $team_leader,
+            'editPosition' => $editPosition,
             'teams' => $teams));
 
 
@@ -28,8 +30,47 @@ class TeamController extends BaseController
     }
 
 
+    public function editTeamUser($id)
+
+    {
 
 
+        $position  = Input::get('position');
+        $team = Team::find($id);
+
+        $team->position = $position;
+
+        $team->save();
+
+
+
+
+        $view = View::make('editTeam', array('success' => 'success'));
+           return $view;
+        // return $team;
+    }
+
+
+
+    public function searchUserToAdd()
+
+    {
+
+
+        $search  = Input::get('search');
+
+        $users = User::whereRaw('name LIKE ?', array("%".$search."%"))->get();
+
+        $view = View::make('editTeam', array('users' => $users,
+            'count' => count($users),
+            'searchedFor' => $search));
+        return $view;
+       // return $users;
+    }
+
+
+
+/*
 public function updateTeam($id)
 	
     {
@@ -85,6 +126,6 @@ public function updateTeam($id)
 
 	}
 
-
+*/
 
 }

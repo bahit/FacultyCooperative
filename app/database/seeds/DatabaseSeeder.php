@@ -403,9 +403,28 @@ class SkillWantedTableSeeder extends Seeder
     {
         DB::table('skill_wanteds')->truncate();
 
-        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '1'));
-        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '4')); //venture 1 needs a dancer
-
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '18'));
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '23'));
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '26'));
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '153'));
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '154'));
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '155'));
+        SkillWanted::create(array('venture_id' => '2', 'skill_id' => '1'));
+        SkillWanted::create(array('venture_id' => '2', 'skill_id' => '12'));
+        SkillWanted::create(array('venture_id' => '2', 'skill_id' => '30'));
+        SkillWanted::create(array('venture_id' => '2', 'skill_id' => '122'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '8'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '14'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '26'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '42'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '47'));
+        SkillWanted::create(array('venture_id' => '3', 'skill_id' => '48'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '8'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '17'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '40'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '48'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '49'));
+        SkillWanted::create(array('venture_id' => '6', 'skill_id' => '166'));
 
     }
 
@@ -418,16 +437,25 @@ class TeamTableSeeder extends Seeder
     {
         DB::table('teams')->truncate();
 
-        Team::create(array('venture_id' => '1', 'user_id' => '1', 'position'=>'2'));
-        Team::create(array('venture_id' => '1', 'user_id' => '7', 'position'=>'1'));
+        Team::create(array('venture_id' => '1', 'user_id' => '1', 'position' => '2'));
+        Team::create(array('venture_id' => '1', 'user_id' => '7', 'position' => '1'));
         Team::create(array('venture_id' => '1', 'user_id' => '6'));
         Team::create(array('venture_id' => '1', 'user_id' => '2'));
 
-
-        Team::create(array('venture_id' => '2', 'user_id' => '3', 'position'=>'2'));
-        Team::create(array('venture_id' => '2', 'user_id' => '8', 'position'=>'1'));
+        Team::create(array('venture_id' => '2', 'user_id' => '3', 'position' => '2'));
+        Team::create(array('venture_id' => '2', 'user_id' => '8', 'position' => '1'));
         Team::create(array('venture_id' => '2', 'user_id' => '2'));
         Team::create(array('venture_id' => '2', 'user_id' => '4'));
+
+        Team::create(array('venture_id' => '6', 'user_id' => '3', 'position' => '2'));
+        Team::create(array('venture_id' => '6', 'user_id' => '8', 'position' => '1'));
+        Team::create(array('venture_id' => '6', 'user_id' => '1'));
+
+
+        Team::create(array('venture_id' => '3', 'user_id' => '5', 'position' => '2'));
+        Team::create(array('venture_id' => '3', 'user_id' => '6'));
+        Team::create(array('venture_id' => '3', 'user_id' => '7'));
+
 
 
     }
@@ -486,7 +514,6 @@ class VentureTableSeeder extends Seeder
         ));
 
 
-
         Venture::create(array(
             'title' => 'Facebucket',
             'logo' => 'facebucket.jpg',
@@ -498,7 +525,7 @@ class VentureTableSeeder extends Seeder
 
         Venture::create(array(
             'title' => 'Tenpercent',
-             'logo' => 'logo8.png',
+            'logo' => 'logo8.png',
             'description' => 'To be the most respected internet company',
             'funding_target' => '99999999',
             'funding_secured' => '100000'

@@ -1,46 +1,50 @@
 @extends('main')
 @section('content')
 
-<h1>View Public profile</h1>
+<h2>{{$profile->name}}'s Public Profile Page</h2>
 
-<h2>About {{$profile->name}}</h2>
+
 
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
 <img src='../images/{{$profile->image}}' width="200px"/>
 
-<p> {{$profile->name}}'s details: {{$profile->bio_details}} </p>
+<h3>About</h3>
+
+<p>{{$profile->bio_details}} </p>
 <p> {{$profile->name}}'s career status: {{$profile->career_status}} </p>
 <p> {{$profile->name}}'s institution: {{$profile->institution}} </p>
 
+
 @if($profile->investmentOffered=1)
-<p>{{$profile->name}} is willing to offer investment</p>
+<h4>{{$profile->name}} is willing to offer investment</h4>
 @else
-<p>{{$profile->name}} is not willing to offer investment</p>
+<h4>{{$profile->name}} is not willing to offer investment</h4>
 @endif
 
-<p> {{$profile->name}}'s Offers the following skills - <em>
-        Needs some nicer arrangement!!
-        </em></p>
-
-
-@foreach($skillOffer as  $skillOffer)
+<h3> {{$profile->name}} Offers the following skills: </h3>
 
 
 
+{{$category=''}}
+@foreach($skillOffer as $skill)
 
-<li>Category: {{$skillOffer->category}} Skill: {{$skillOffer->skill_name}}</li>
+@if ($category<>$skill->category)
+<h4>{{$skill->category}}</h4>
+@endif
 
+<li>{{$skill->skill_name}}</li>
 
-
-
+<?php $category=$skill->category ?>
 @endforeach
+
+
 
 <br>
 
 
 
-<p><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></p>
+<h3><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
 
 <br>
 @endsection

@@ -86,6 +86,9 @@ Route::post('addMessage/{id}', 'MessageController@addMessage');
 
 Route::get('readMessage/{id}', 'MessageController@readMessage');
 
+Route::post('searchUserToAdd', 'TeamController@searchUserToAdd');
+
+Route::post('editTeamUser/{id}', 'TeamController@editTeamUser');
 ///
 
 Route::get('test', 'AjaxTestController@test');

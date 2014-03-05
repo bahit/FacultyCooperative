@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h1>Edit Team for {{$venture->title}}</h1>
+<h2>Team Management Page for @{{$venture->title}}</h2>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
@@ -13,39 +13,83 @@
 <!--This picks up errors from validation-->
 {{ HTML::ul($errors->all()) }}
 <p><em>This is a UNFINISHED</em></p>
-
-<!--
-@{{ Form::open(array('url' => 'updateVentureTeam/'.$venture->id, 'files' => true, 'method' => 'post')) }}
-
-@{{ Form::label('leader', 'Leader', array('class' => 'form-label')) }}
-@{{ Form::text('leader', $team_leader->email, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
-<br>
+<h3>Edit team member status or remove member from team</h3>
 
 
 
 
+@if(isset($editPosition))
 
-@{{ Form::submit('Update your Team',array('class' => 'form-button')) }}
-
-
-@{{ Form::close() }}
-
--->
 @foreach($teams as $team)
 <li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
     <img src='../images/{{$team->image}}' width="80px"/>
 
     <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
 
-<button>Delete from Team</button>
+
+
+
+    {{ Form::open(array('url' => 'editTeamUser/'.$team->id,  'method' => 'post')) }}
+
+    {{ Form::select('position', array(
+
+    '1' => 'Team Mentor',
+    '2' => 'Team Leader',
+    '3' => 'Team Member'
+
+    ),$team->position) }}
+
+
+
+    {{ Form::submit('Change Team Member Position',array('class' => 'form-button')) }}
+
+
+    {{ Form::close() }}
+
+
+    <button>Delete from Team</button>
+
+
+
 </li>
 
 @endforeach
 
+@endif
+
+<h3>Add a new member to team</h3>
+
+<fieldset>
+    <legend>Search for Faculty Cooperative user to add to team</legend>
+
+    <p>Search for any user of the Faculty Cooperative by any part of their name</p>
+
+    {{ Form::open(array('url' => 'searchUserToAdd',  'method' => 'post')) }}
+
+    {{ Form::label('search', 'user name', array('class' => 'form-label')) }}
+    {{ Form::text('search', '', array('class'=>'input-block-level', 'placeholder'=>'search')) }}
+
+
+    {{ Form::submit('Search',array('class' => 'form-button')) }}
+
+
+    {{ Form::close() }}
+
+
+    @if(isset($users))
+
+    <p>Search results {{$count}}</p>
+
+    @foreach($users as $key => $users)
+
+    <p><a href='publicProfile/{{$users->id}}'>View {{$users->name}}'s profile</a></p>
+
+    @endforeach
+    @endif
 
 
 
-@endsection
+    @endsection
 
 
 

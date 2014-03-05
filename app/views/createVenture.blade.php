@@ -6,11 +6,12 @@
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
+<!--Please someone style this page-->
 <h4 style="background-color:red;">Thank you - your venture has been created</h4>
 
 <h4><a href="../public/editVenture/{{$venture->id}}" >Follow this link to add details to your venture page now</a></h4>
 
-@endif
+@else
 
 <!--This picks up errors from validation-->
 {{ HTML::ul($errors->all()) }}
@@ -22,13 +23,13 @@
 {{ Form::text('title', '', array('class'=>'input-block-level', 'placeholder'=>'title')) }}
 <br>
 
-
+<br>
 
 {{ Form::submit('Create your Venture ',array('class' => 'form-button')) }}
 
 
 {{ Form::close() }}
-
+@endif
 
 @endsection
 

@@ -103,46 +103,7 @@ public function searchUserNames()
 
     }
 
-    ////////////////////////////////////////
 
-
-
-
-/*
-    public function searchSkillsWantedXXXXXX($id)
-
-    {
-
-        // $search  = Input::get('skill');
-
-//search for user with right skill
-
-//SELECT * FROM users JOIN skill_offers WHERE skill_offers.user_id = users.id AND skill_offers.skill_id=1
-
-
-
-        $venturesWithSkillWanted =  DB::table('users')
-            ->join('skill_wanteds', 'users.id', '=', 'skill_wanteds.user_id')
-            ->where('skill_wanteds.skill_id', '=', $id)
-            ->get();
-
-        $chosenSkill = Skill::find($id);
-
-        $view = View::make('search',
-            array('venturesWithSkillWanted' => $venturesWithSkillWanted,
-                'chosenSkillWanted' => $chosenSkill
-            ));
-
-
-        return $view;
-        //return $usersWithSkill;
-
-
-
-    }
-
-
-*/
 
 
     public function searchSkillsOffered()
@@ -177,8 +138,6 @@ public function searchUserNames()
 
 
         $search  = Input::get('skillWanted');
-
-        //$skills = Skill::whereRaw('skill_name LIKE ?', array("%".$search."%"))->get();
 
         $skillsWanted =  DB::table('skills')
             ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')

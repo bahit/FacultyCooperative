@@ -3,6 +3,7 @@
 // Catch All function inside UsersController
 Route::controller('users', 'UsersController');
 
+
 Route::any('/register', [
   "as" => "register",
   "uses" => "UsersController@getRegister"
@@ -107,5 +108,3 @@ Route::post('messageBodyAjax', 'MessageController@messageBodyAjax');
 
 //Route::get('clicked/{id}', 'SearchController@clicked');
 //Route::resource('profiles', 'ProfileController');
-
-//searchSkillsWanted

@@ -90,7 +90,7 @@ legend {
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 350px;
-  background-color: #777;
+  /*background-color: #777; */
 }
 .carousel-inner > .item > img {
   position: absolute;
@@ -98,6 +98,7 @@ legend {
   left: 0;
   min-width: 100%;
   height: 350px;
+ /* background-color:white; */
 }
 
 

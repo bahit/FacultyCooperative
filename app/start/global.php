@@ -80,3 +80,6 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+// Load custom validator
+require app_path().'/validators.php';

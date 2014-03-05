@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-        <!-- Scripts are placed here -->
-        {{ HTML::script('js/jquery.min.js') }}
-        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
-
         <title>
             @section('title')
             Faculty Cooperative
@@ -21,6 +16,9 @@
     <body>
         <!-- Container -->
         <div class="container">
+            @if(Session::has('message'))
+                <p class="alert alert-warning">{{ Session::get('message') }}</p>
+            @endif
         
             @include("header")
 
@@ -31,6 +29,10 @@
             @include("footer")
         
         </div>
-
+        <!-- Scripts are placed here so plage loads quicker-->
+        {{ HTML::script('js/jquery.min.js') }}
+        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+        <!-- Helper script for putting placeholder image: more info on usage https://github.com/imsky/holder -->
+        {{ HTML::script('js/docs.min.js') }}
     </body>
 </html>

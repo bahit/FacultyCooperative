@@ -212,7 +212,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'sthomag@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Sarah Thomas',
             'image' => 'profile1.jpg',
             'bio_details' => 'I am skilled at making tea',
@@ -224,7 +224,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'xchenad@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Chen Xiaofeng',
             'image' => 'profile2.jpg',
             'bio_details' => 'Work hard, Play hard!',
@@ -236,7 +236,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'iheras@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Irina Herascu',
             'image' => 'profile3.jpg',
             'bio_details' => 'I am from Romania, and I am good at Photoshop',
@@ -248,7 +248,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'bhamid@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Bahit Hamit',
             'image' => 'profile4.png',
             'bio_details' => 'Hi, everyone. My name is Bahit, I am from Brunei, and I am good at programming in PHP',
@@ -260,7 +260,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'eaoals@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Alshuaibi Enaam A O',
             'bio_details' => 'Hi, everyone. My name is Enaam, I like smiling',
             'career_status' => 'Postgraduate',
@@ -271,7 +271,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'kperry@hotmail.com',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Katy Perry',
             'image' => 'katyperry.jpg',
             'bio_details' => 'I am Katy Perry, I am a singer!Welcome to my personal website:www.katyperry.com',
@@ -283,7 +283,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'bgates@hotmail.com',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Bill Gates',
             'image' => 'billgates.jpg',
             'bio_details' => 'Hello every, I am Bill,I am the richest man in the world!',
@@ -295,7 +295,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'bob@essex.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Dr Bob Oldman',
             'image' => 'profile8.jpg',
             'bio_details' => 'I am a historian. What did the Pharaoh say when he saw the pyramid? Mummy’s home.',
@@ -307,7 +307,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'jim@shister.ac.uk',
-            'password' => 'password',
+            'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Jim Lawman',
             'bio_details' => 'I want to help students with legal work in return for equity',
             'career_status' => 'Professional',

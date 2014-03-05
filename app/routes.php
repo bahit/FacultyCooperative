@@ -1,5 +1,22 @@
 <?php
 
+// Catch All function inside UsersController
+Route::controller('users', 'UsersController');
+
+Route::any('/register', [
+  "as" => "register",
+  "uses" => "UsersController@getRegister"
+  ]);
+
+Route::any('/login', [
+    "as"   => "login",
+    "uses" => "UsersController@getLogin"
+  ]);
+
+Route::any('/logout', [
+    "as"   => "logout",
+    "uses" => "UsersController@getLogout"
+  ]);
 
 
 Route::get('/', function()
@@ -11,10 +28,6 @@ Route::get('home', function()
 {
     return View::make('home');
 });
-
-
-
-
 
 
 Route::get('search', function()

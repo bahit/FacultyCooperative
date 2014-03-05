@@ -1,6 +1,150 @@
 <?php
 
+use Illuminate\Support\MessageBag;
+
 class UsersController extends BaseController {
+
+	protected $layout = "main";
+
+	// CSRF (cross-site request forgeries) Filter on post
+	public function __construct() {
+		$this->beforeFilter('csrf', array('on'=>'post'));
+		
+		// Allow only authorised user to open Dashboard
+		$this->beforeFilter('auth', array('only'=>array('getDashboard')));
+	}
+
+	/**
+	 * Open create user
+	 *
+	 * 
+	 */
+	public function postCreate() {
+		// Validator parameter $rules are found inside User model
+		$validator = Validator::make(Input::all(), User::$rules);
+ 
+    if ($validator->passes()) {
+        // validation has passed, save user in DB
+	    	$user = new User;
+		    $user->name = Input::get('name');
+		    $user->email = Input::get('email');
+		    $user->password = Hash::make(Input::get('password'));
+		    $user->save();
+		 
+		    return Redirect::to('users/login')->with('message', 'Thanks for registering!');
+    } else {
+        // validation has failed, display error messages
+        return Redirect::to('users/register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();    
+    }
+	}
+         
+	
+
+	/**
+	 * Open register user login
+	 *
+	 * 
+	 */
+	public function getRegister() 
+	{
+    $this->layout->content = View::make('users.register');
+	}
+
+	/**
+	 * Open view login
+	 *
+	 * 
+	 */
+	public function getLogin() {
+    $this->layout->content = View::make('users.login');
+	}
+
+	/**
+	 * Open view logout
+	 *
+	 * 
+	 */
+	public function getLogout() {
+    Auth::logout();
+    return Redirect::to('users/login')->with('message', 'Your are now logged out!');
+	}
+
+
+
+	/**
+	 * Signin in user into FacultyCooperative
+	 *
+	 * 
+	 */
+	public function postSignin() {
+    if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
+    	return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+		} else {
+    	return Redirect::to('users/login')
+        ->with('message', 'Your username/password combination was incorrect')
+        ->withInput();
+		}
+	}
+
+	/**
+	 * Open Dashboard view
+	 * 
+	 */
+	public function getDashboard() {
+     $this->layout->content = View::make('users.dashboard');
+	}
+
+	/**
+	 * Open view login
+	 *
+	 * @return Response
+	 */
+	public function loginAction()
+  {
+		$errors = new MessageBag();
+
+    if ($old = Input::old("errors"))
+    {
+        $errors = $old;
+    }
+
+    $data = [
+        "errors" => $errors
+    ];
+
+		if (Input::server("REQUEST_METHOD") == "POST")
+    {
+        $validator = Validator::make(Input::all(), [
+            "email" => "required",
+            "password" => "required"
+        ]);
+        if ($validator->passes())
+        {
+        	$credentials = [
+            "email" => Input::get("email"),
+            "password" => Input::get("password")
+          ];
+
+          // At the moment this is not working... 
+	        if (Auth::attempt($credentials))
+	        {
+	            return Redirect::route("publicProfile/1");
+	        }
+        }
+
+        $data["errors"] = new MessageBag([
+            "password" => [
+                "Username and/or password invalid."
+            ]
+        ]);
+
+        $data["email"] = Input::get("email");
+            return Redirect::route("login")
+                ->withInput($data);
+    }
+    
+    return View::make("login", $data);
+  }
 
 	/**
 	 * Display a listing of the resource.

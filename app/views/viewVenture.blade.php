@@ -41,14 +41,19 @@
 
 <h2>Skills wanted by this venture</h2>
 
+{{$category=''}}
+@foreach($skillsWanted as $skill)
 
-@foreach($skillsWanted as $skillsWanted)
+@if ($category<>$skill->category)
+<h4>{{$skill->category}}</h4>
+@endif
 
-<li>Skill category: {{$skillsWanted->category}} Skill: {{$skillsWanted->skill_name}}</li>
+<li>{{$skill->skill_name}}</li>
+
+<?php $category=$skill->category ?>
 @endforeach
 
 
 @endsection
-
 
 

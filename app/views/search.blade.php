@@ -133,9 +133,11 @@
 
 @foreach($usersWithSkill as $userWith)
 
-<p><!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$userWith->image}}' width="80px"/>
-    <a href='../publicProfile/{{$userWith->user_id}}'>View {{$userWith->name}}'s profile</a></p>
+<li><!--SEE profile controller - need to resize image when saved!!!  ST -->
+
+    <a href='../publicProfile/{{$userWith->user_id}}'>
+        <img src='../images/{{$userWith->image}}' width="80px"/>
+        View {{$userWith->name}}'s profile</a></li>
 
 
 @endforeach
@@ -193,8 +195,11 @@
 
 @foreach($venturesWantingSkill as $venturesWanting)
 
-<p><a href='../viewVenture/{{$venturesWanting->venture_id}}'>
-        View {{$venturesWanting->title}}'s profile</a></p>
+
+    <li>
+    <a href='../viewVenture/{{$venturesWanting->venture_id}}'>
+        <img src='../images/{{$venturesWanting->logo}}' width="80px"/>
+        View {{$venturesWanting->title}}'s profile</a></li>
 
 
 @endforeach

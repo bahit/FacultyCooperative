@@ -70,62 +70,16 @@ class TeamController extends BaseController
 
 
 
-/*
-public function updateTeam($id)
-	
+    public function addUserToTeam($id)
     {
-        //TODO
-        //no validation or error checking here - needs adding!!!
-        //
+        $team = new Team;
+        $team->venture_id = '';
+        $team->user_id = '';
+        $team->pisition=3;
 
-        $venture = Venture::find($id);
-        $venture->title  = Input::get('title');
-        $venture->description  = Input::get('description');
-        $venture->funding_target    = Input::get('funding_target');
-        $venture->funding_secured  = Input::get('funding_secured');
+       // $team->save();
 
-
-        //Intervention/Image package
-        //To resixe images - investigate
-        // TODO
-        //
-        if (Input::hasFile('logo'))
-        {
-            Input::file('logo')->move(base_path() .'/public/images/','logo'.$id.'.jpg');
-            $venture->logo = 'logo'.$id.'.jpg';
-        }
-
-        $venture->save();
-
-
-
-
-        //clear user skills as results only sent for boxes checked
-        SkillWanted::where('venture_id', '=', $id)->delete();
-
-        $skill_wanteds = Input::get('skillsCB');
-
-        //loops checkbox array and writes to DB
-        foreach ($skill_wanteds as $skill_id) {
-            $skill_wanted = new SkillWanted;
-
-            $skill_wanted->venture_id = $id;
-            $skill_wanted->skill_id = $skill_id;
-
-            $skill_wanted->save();
-        }
-
-
-        $skills =  VentureController::skillWantedChecklistInit($id);
-
-
-        $venture = Venture::find($id);
-        $view = View::make('editVenture',
-            array('venture' => $venture,'success'=>'yes','skills'=>$skills));
-        return $view;
-
-	}
-
-*/
+        return 'done';
+    }
 
 }

@@ -15,18 +15,18 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>The Faculty Cooperative</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p>Are you a student with an idea for a project? Have you got skills from any area of study, or are you looking to fund the next big thing? If your answer is "yes", then the "Faculty Cooperative" is the best place to start!</p>
+              
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="images/banner2.png" width="1140" height="350" alt="Skills" />
+          <img src="images/banner4.png" width="1140" height="350" alt="Skills" />
 <div class="container">
         <div class="carousel-caption">
               <h1>Everyone is different</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <p>Search for people that have the skills you need, and...</br></br></p>
+              
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Build your own team</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <p>Add your new team members and start working on your new venture!</br></br></p>
+              
             </div>
           </div>
         </div>

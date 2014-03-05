@@ -54,6 +54,11 @@
 @endforeach
 
 
+@if($auth)
+<h3>You are a team leader for this venture</h3>
+<h3><a href='../editVenture/{{$venture->id}}'> click here to edit this venture</a></h3>
+@endif
+
 @endsection
 
 

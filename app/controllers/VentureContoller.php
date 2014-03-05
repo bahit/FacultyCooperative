@@ -19,9 +19,12 @@ class VentureController extends BaseController
             ->get();
 
 
+        $auth = VentureController::isAuthUserTeamLeader($id);
+
         $view = View::make('viewVenture', array('venture' => $venture,
             'skillsWanted' => $skillsWanted,
-            'teams' => $teams));
+            'teams' => $teams,
+            'auth' => $auth));
         return $view;
         //return $skillsWanted;
     }
@@ -29,29 +32,20 @@ class VentureController extends BaseController
     public function editVenture($id)
 
     {
-        $auth=false;
-
-        if(isset(Auth::user()->id)){
-            $authId = Auth::user()->id;
 
 
-        $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id) )->get();
-
-        foreach ($teamLeaders as $teamLeader){
-            if ($teamLeader->id==$authId) {$auth=true;}
-        }
-
-        }
-
-        if($auth){
-        $venture = Venture::find($id);
+        $auth = VentureController::isAuthUserTeamLeader($id);
 
 
-        $skills = VentureController::skillWantedChecklistInit($id);
-        $view = View::make('editVenture', array('venture' => $venture, 'skills' => $skills));
+        if ($auth) {
+            $venture = Venture::find($id);
 
-        return $view;
-        //return $teamLeaders;
+
+            $skills = VentureController::skillWantedChecklistInit($id);
+            $view = View::make('editVenture', array('venture' => $venture, 'skills' => $skills));
+
+            return $view;
+            //return $teamLeaders;
 
 
         } else {
@@ -180,4 +174,27 @@ class VentureController extends BaseController
         ////
 
     }
+
+    public function isAuthUserTeamLeader($id)
+    {
+        $auth = false;
+
+        if (isset(Auth::user()->id)) {
+            $authId = Auth::user()->id;
+
+
+            $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
+
+            foreach ($teamLeaders as $teamLeader) {
+                if ($teamLeader->id == $authId) {
+                    $auth = true;
+                }
+            }
+
+        }
+
+        return $auth;
+
+    }
+
 }

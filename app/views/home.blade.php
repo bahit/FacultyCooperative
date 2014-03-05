@@ -22,7 +22,8 @@
 
 <p><a href="createVenture">This link will allow a logged in user to create a new venture</a></p>
 
-<p><a href="editVenture/1">This link should take you to edit venture id 1</a></p>
+<p><a href="editVenture/1">This link should take you to edit venture id 1 BUT
+        only if you are logged in as team leader ie you are logged in as Sarah Thomas</a></p>
 
 <p><a href="editTeam/1">This link should take you to edit the team for venture id 1</a></p>
 

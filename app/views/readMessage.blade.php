@@ -1,38 +1,5 @@
 @extends('main')
 @section('content')
-
-
-
-
-<script>
-    $(document).ready(function(){
-
-        $( ".result" ).hide();
-
-        $("button").click(function(){
-            var bid = this.id;
-            //alert("Data: " + bid);
-            $.post("/FacultyCooperative/public/messageBodyAjax",
-                {
-                    "bid":bid
-
-
-                },
-                function(data,status){
-
-                    $( ".result" ).hide();
-
-                    $( ".new"+bid ).hide();
-                    $( ".a"+bid ).slideDown( "slow", function() {
-                        // Animation complete.
-                    });
-
-
-                });
-        });
-    });
-</script>
-
 <h3>Read your messages {{$user->name}}</h3>
 
 <!--SEE profile controller - need to resize image when saved!!!
@@ -79,6 +46,37 @@
 
 
 @endsection
+
+@section("script")
+    <script>
+    $(document).ready(function(){
+
+        $( ".result" ).hide();
+
+        $("button").click(function(){
+            var bid = this.id;
+            //alert("Data: " + bid);
+            $.post("/FacultyCooperative/public/messageBodyAjax",
+                {
+                    "bid":bid
+
+
+                },
+                function(data,status){
+
+                    $( ".result" ).hide();
+
+                    $( ".new"+bid ).hide();
+                    $( ".a"+bid ).slideDown( "slow", function() {
+                        // Animation complete.
+                    });
+
+
+                });
+        });
+    });
+</script>
+@stop
 
 
 

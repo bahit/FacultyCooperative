@@ -27,7 +27,8 @@ legend {
     border-bottom:none;
 }
 
-.navbar-inverse .navbar-brand{
+
+.navbar-inverse .navbar-brand, .green{
   color: #39DBAC;
 }
 

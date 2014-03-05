@@ -1,8 +1,8 @@
 @extends('main')
 @section('content')
 
-@include('carousel')
-@include('marketing')
+@include('layout/carousel')
+@include('layout/marketing')
 <div class="welcome">
 
     <h1>You have arrived.</h1>

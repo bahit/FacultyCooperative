@@ -20,13 +20,13 @@
                 <p class="alert alert-warning">{{ Session::get('message') }}</p>
             @endif
         
-            @include("header")
+            @include("layout/header")
 
 
             <!-- Content -->
             @yield('content')
 
-            @include("footer")
+            @include("layout/footer")
         
         </div>
         <!-- Scripts are placed here so plage loads quicker-->
@@ -34,5 +34,6 @@
         {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
         <!-- Helper script for putting placeholder image: more info on usage https://github.com/imsky/holder -->
         {{ HTML::script('js/docs.min.js') }}
+        @yield('script')
     </body>
 </html>

@@ -29,6 +29,21 @@ class VentureController extends BaseController
     public function editVenture($id)
 
     {
+        $auth=false;
+
+        if(isset(Auth::user()->id)){
+            $authId = Auth::user()->id;
+
+
+        $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id) )->get();
+
+        foreach ($teamLeaders as $teamLeader){
+            if ($teamLeader->id==$authId) {$auth=true;}
+        }
+
+        }
+
+        if($auth){
         $venture = Venture::find($id);
 
 
@@ -36,7 +51,15 @@ class VentureController extends BaseController
         $view = View::make('editVenture', array('venture' => $venture, 'skills' => $skills));
 
         return $view;
-        //return $skills;
+        //return $teamLeaders;
+
+
+        } else {
+
+            //error message needs improving
+            return 'not a team leader - this needs a proper error response!';
+
+        }
 
     }
 

@@ -30,6 +30,6 @@
 
 <p><a href="sendMessage/1">This link should send a message to user id 1</a></p>
 
-<p><a href="readMessage/1">This link should let user id 1 read their messages</a></p>
+<p><a href="readMessage">This link should allow the logged in user to read their messages</a></p>
 
 @endsection

@@ -84,7 +84,7 @@ Route::get('sendMessage/{id}', 'MessageController@sendMessage');
 
 Route::post('addMessage/{id}', 'MessageController@addMessage');
 
-Route::get('readMessage/{id}', 'MessageController@readMessage');
+Route::get('readMessage', 'MessageController@readMessage');
 
 Route::post('searchUserToAdd', 'TeamController@searchUserToAdd');
 

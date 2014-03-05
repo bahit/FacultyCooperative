@@ -4,6 +4,8 @@
 
 <h3>Send Message to {{$user->name}}</h3>
 
+
+
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
 <img src='../images/{{$user->image}}' width="100px"/>
 

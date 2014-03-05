@@ -1,19 +1,18 @@
 <?php
 
-class MessageController extends BaseController {
+class MessageController extends BaseController
+{
 
 
-
-	public function sendMessage($id)
-	{
+    public function sendMessage($id)
+    {
 
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user));
         return $view;
 
 
-	}
-
+    }
 
 
     public function addMessage($id)
@@ -23,64 +22,70 @@ class MessageController extends BaseController {
         $validator = Message::validate(Input::all());
 
 
-
         if ($validator->fails()) {
 
             Input::flash();
 
             return Redirect::to('sendMessage/' . $id)
                 ->withErrors($validator);
-        }
-        else
-        {
+        } else {
 
 
+            $message = new Message;
+            $message->to_user_id = $id;
 
-        $message = new Message;
-        $message->to_user_id = $id;
 
-        //need some authentication - who's logged in for who message is from!!
-        //*****************************************************************
-        $message->from_user_id = '3';
-        $message->body = Input::get('body');
-        $message->subject = Input::get('subject');
+//$id = Auth::user()->id;
+//$currentuser = User::find($id);
+//echo $currentuser->name;
+//echo $id;
 
-        $message->save();
+            $message->from_user_id = Auth::user()->id;
+            $message->body = Input::get('body');
+            $message->subject = Input::get('subject');
 
-        Input::flash();
+            $message->save();
 
-        $user = User::find($id);
-        $view = View::make('sendMessage', array('user' => $user,'success' => 'success'));
+            Input::flash();
 
-        return $view;
-       // return $m;
+            $user = User::find($id);
+            $view = View::make('sendMessage', array('user' => $user, 'success' => 'success'));
+
+            return $view;
+            // return $m;
         }
 
     }
 
 
-    public function readMessage($id)
+    public function readMessage()
     {
 
+        if (isset(Auth::user()->id)) {
+            $id = Auth::user()->id;
 
-        $user = User::find($id);
-
-
-
-        $readMessages = DB::table('users')
-            ->join('messages', 'messages.from_user_id', '=', 'users.id')
-            ->where('to_user_id', '=', $id)
-            ->orderBy('messages.created_at', 'DESC')
-            ->get();
+            $user = User::find($id);
 
 
-        $view = View::make('readMessage', array('user' => $user
+            $readMessages = DB::table('users')
+                ->join('messages', 'messages.from_user_id', '=', 'users.id')
+                ->where('to_user_id', '=', $id)
+                ->orderBy('messages.created_at', 'DESC')
+                ->get();
 
-        //$view = View::make('readMessageWithAjax', array('user' => $user
-            ,'readMessages'=>$readMessages
-        //,'message'=>$message
-        ));
-        return $view;
+
+            $view = View::make('readMessage', array('user' => $user
+
+                //$view = View::make('readMessageWithAjax', array('user' => $user
+            , 'readMessages' => $readMessages
+                //,'message'=>$message
+            ));
+            return $view;
+
+
+        } else {
+            return Redirect::to('login');
+        }
 
 
     }
@@ -88,10 +93,10 @@ class MessageController extends BaseController {
     public function messageBodyAjax()
     {
         $message = Message::find(Input::get('bid'));
-        $message->read_flag=true;
+        $message->read_flag = true;
         $message->save();
 
-       // return $message;
+        // return $message;
         return;
     }
 

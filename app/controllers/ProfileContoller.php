@@ -47,10 +47,10 @@ class ProfileController extends BaseController
 
     }
 
-    public function updateProfile($id)
+    public function updateProfile()
 
     {
-
+        $id = Auth::user()->id;
        //////////////////
         //This should go in model - see Message model for example
         $rules = array(

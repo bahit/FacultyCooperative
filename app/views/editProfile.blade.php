@@ -16,7 +16,7 @@
 {{ HTML::ul($errors->all()) }}
 
 
-{{ Form::open(array('url' => 'updateProfile/'.$profile->id, 'files' => true, 'method' => 'post')) }}
+{{ Form::open(array('url' => 'updateProfile', 'files' => true, 'method' => 'post')) }}
 
 {{ Form::label('name', 'Name', array('class' => 'form-label')) }}
 {{ Form::text('name', $profile->name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}

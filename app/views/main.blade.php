@@ -5,6 +5,8 @@
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery.min.js') }}
         {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+        <!-- Helper script for putting placeholder image: more info on usage https://github.com/imsky/holder -->
+        {{ HTML::script('js/docs.min.js') }}
 
         <title>
             @section('title')
@@ -34,11 +36,7 @@
             @include("layout/footer")
         
         </div>
-        <!-- Scripts are placed here so plage loads quicker-->
-        {{ HTML::script('js/jquery.min.js') }}
-        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
-        <!-- Helper script for putting placeholder image: more info on usage https://github.com/imsky/holder -->
-        {{ HTML::script('js/docs.min.js') }}
+        
         @yield('script')
     </body>
 </html>

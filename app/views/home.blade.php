@@ -15,7 +15,7 @@
 
 <p><a href="publicProfile/1">This link should take you to view profile for user id 1</a></p>
 
-<p><a href="editProfile/1">This link should take you to edit profile for user id 1</a></p>
+<p><a href="editProfile">This link should take you to edit profile of the logged in user</a></p>
 
 
 <p><a href="viewVenture/1">This link should take you to view venture id 1</a></p>

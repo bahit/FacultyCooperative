@@ -23,7 +23,7 @@
 <br>
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../images/{{$profile->image}}' width="200px"/>
+<img src='../public/images/{{$profile->image}}' width="200px"/>
 {{Form::file('image')}}
 
 <br>

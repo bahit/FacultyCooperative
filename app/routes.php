@@ -46,7 +46,7 @@ Route::post('createVenture', 'VentureController@createVenture');
 
 Route::get('publicProfile/{id}', 'ProfileController@showPublicProfile');
 
-Route::get('editProfile/{id}', 'ProfileController@editProfile');
+Route::get('editProfile', 'ProfileController@editProfile');
 
 Route::post('updateProfile/{id}', 'ProfileController@updateProfile');
 

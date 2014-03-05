@@ -25,17 +25,24 @@ class ProfileController extends BaseController
     }
 
 
-    public function editProfile($id)
+    public function editProfile()
 
     {
-        $profile = User::find($id);
+        if (isset(Auth::user()->id)) {
+            $id = Auth::user()->id;
+
+
+            $profile = User::find($id);
 
         $skills = ProfileController::skillOfferChecklistInit($id);
 
         $view = View::make('editProfile', array('profile' => $profile, 'skills' => $skills));
 
         return $view;
-       //return $skills;
+        } else {
+            return Redirect::to('login');
+        }
+
 
 
     }

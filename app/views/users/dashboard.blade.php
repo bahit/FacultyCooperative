@@ -10,14 +10,14 @@
           <li><a href="#">Export</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><a href="">Nav item</a></li>
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-          <li><a href="">More navigation</a></li>
+          <li class="active"><a href="#">Personal Profile</a></li>
+          <li><a href="#">View/Edite Profile</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Another nav item</a></li>
+          <li><a href="#">More navigation</a></li>
         </ul>
-        <ul class="nav nav-sidebar">
-          <li><a href="">Nav item again</a></li>
+        <ul class="nav nav-sidebar">s
+           <li class="active"><a href="#">Ventures</a></li>
           <li><a href="">One more nav</a></li>
           <li><a href="">Another nav item</a></li>
         </ul>
@@ -27,23 +27,23 @@
         <div class="row placeholders">
           <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Ventures</h4>
+            <span class="text-muted">View or Create Venture</span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Team</h4>
+            <span class="text-muted">latest team news</span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Skills</h4>
+            <span class="text-muted"></span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Search</h4>
+            <span class="text-muted">looking for members, ventures or skills</span>
           </div>
         </div>
         <h2 class="sub-header">Section title</h2>

@@ -7,10 +7,17 @@ class MessageController extends BaseController
     public function sendMessage($id)
     {
 
+
+        if (isset(Auth::user()->id)) {
+
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user));
         return $view;
-
+        }
+        else
+        {
+            return Redirect::to('login');
+        }
 
     }
 

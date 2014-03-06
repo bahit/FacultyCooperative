@@ -25,6 +25,10 @@
 
           <h3><a href="../createVenture">Create a new venture</a></h3>
 
+          <h3><a href="../readMessage">Read your messages</a></h3>
+
+
+
 
           @if($teamInvolvement)
           <h3>Team Memberships</h3>

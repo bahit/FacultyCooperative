@@ -2,13 +2,8 @@
 @section('content')
 
 
-<h2>Team Management Page for @{{$venture->title}}</h2>
+<h2>Team Management Page for {{$venture->title}}</h2>
 
-<p><a href=''>Add member to team</a></p>
-
-<p><a href=''>Remove member from team</a></p>
-
-<p><a href=''>Edit members position in team</a></p>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
@@ -19,23 +14,22 @@
 <!--This picks up errors from validation-->
 {{ HTML::ul($errors->all()) }}
 <p><em>This is a UNFINISHED</em></p>
-<h3>Edit team member status or remove member from team</h3>
 
 
 
 
-@if(isset($editPosition))
+
+
+
+<h3>Edit team member status</h3>
 
 @foreach($teams as $team)
 <li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team->image}}' width="80px"/>
-
-    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
-
-
 
 
     {{ Form::open(array('url' => 'editTeamUser/'.$team->id,  'method' => 'post')) }}
+
+    <img src='/FacultyCooperative/public/images/{{$team->image}}' width="80px"/>{{$team->name}}
 
     {{ Form::select('position', array(
 
@@ -47,13 +41,13 @@
 
 
 
-    {{ Form::submit('Change Team Member Position',array('class' => 'form-button')) }}
+    {{ Form::submit('update',array('class' => 'form-button')) }}
 
 
     {{ Form::close() }}
 
 
-    <button>Delete from Team</button>
+
 
 
 
@@ -61,7 +55,7 @@
 
 @endforeach
 
-@endif
+
 
 <h3>Add a new member to team</h3>
 
@@ -70,7 +64,7 @@
 
     <p>Search for any user of the Faculty Cooperative by any part of their name</p>
 
-    {{ Form::open(array('url' => 'searchUserToAdd',  'method' => 'post')) }}
+    {{ Form::open(array('url' => 'searchUserToAdd/'.$venture->id,  'method' => 'post')) }}
 
     {{ Form::label('search', 'user name', array('class' => 'form-label')) }}
     {{ Form::text('search', '', array('class'=>'input-block-level', 'placeholder'=>'search')) }}
@@ -88,7 +82,7 @@
 
     @foreach($users as $key => $users)
 
-    <p><a href='addUserToTeam/{{$users->id}}'>Add {{$users->name}} to the team</a></p>
+    <p><a href='../addUserToTeam/{{$users->id}}/1'>Add {{$users->name}} to the team</a></p>
 
     @endforeach
     @endif

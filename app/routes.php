@@ -87,14 +87,14 @@ Route::post('addMessage/{id}', 'MessageController@addMessage');
 
 Route::get('readMessage', 'MessageController@readMessage');
 
-Route::post('searchUserToAdd', 'TeamController@searchUserToAdd');
+Route::post('searchUserToAdd/{id}', 'TeamController@searchUserToAdd');
 
 Route::post('editTeamUser/{id}', 'TeamController@editTeamUser');
 ///
 
 
 ///////////////////////
-Route::post('addUserToTeam/{id}', 'TeamController@addUserToTeam');
+Route::get('addUserToTeam/{id}/{vid}', 'TeamController@addUserToTeam');
 
 
 ///////////////////////

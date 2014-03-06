@@ -6,11 +6,8 @@ class TeamController extends BaseController
     public function editTeam($id)
 
     {
-
-
-
-        $auth = TeamController::isAuthUserTeamLeader($id);
-
+        $vc = new VentureController;
+        $auth = $vc->isAuthUserTeamLeader($id);
 
         if ($auth) {
 
@@ -32,9 +29,6 @@ class TeamController extends BaseController
 
 
         }
-
-
-
     }
 
 
@@ -133,6 +127,7 @@ class TeamController extends BaseController
 
     }
 
+    /*
     public function isAuthUserTeamLeader($id)
     {
         $auth = false;
@@ -154,4 +149,5 @@ class TeamController extends BaseController
         return $auth;
 
     }
+    */
 }

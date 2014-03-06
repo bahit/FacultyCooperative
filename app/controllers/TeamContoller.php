@@ -1,32 +1,24 @@
 <?php
 class TeamController extends BaseController
 {
-    
 
 
     public function editTeam($id)
 
     {
 
-       // $editPosition=true;
         $venture = Venture::find($id);
 
 
         $teams = TeamController::getTeamMembers($id);
 
-        //$teams = DB::table('users')
-            //->join('teams', 'users.id', '=', 'teams.user_id')
-            // ->where('teams.venture_id', '=', $id) ->get();
-
-
 
         $view = View::make('editTeam', array('venture' => $venture,
-           // 'editPosition' => $editPosition,
             'teams' => $teams));
 
 
         return $view;
-        //return $skills;
+
 
     }
 
@@ -34,36 +26,44 @@ class TeamController extends BaseController
     public function editTeamUser($id)
 
     {
-
-
-        $position  = Input::get('position');
+        $position = Input::get('position');
         $team = Team::find($id);
-
-        $team->position = $position;
-
-        $team->save();
-
         $venture = Venture::find($team->venture_id);
 
-        $teams = TeamController::getTeamMembers($team->venture_id);
+        if (Input::get('delete') == 'delete') {
+            $team->delete();
+        } else {
+            $position = Input::get('position');
+            $team->position = $position;
+
+            $team->save();
+        }
+
+
+
+
+        $teams = TeamController::getTeamMembers($venture->id);
+
+        if (Input::get('delete') == 'delete') {
+            $team->delete();
+        }
 
 
         $view = View::make('editTeam', array('success' => 'success',
-                                    'venture'=>$venture,'teams'=>$teams));
-           return $view;
-        // return $team;
+            'venture' => $venture, 'teams' => $teams));
+        return $view;
+        //return $delete;
     }
 
 
-
-    public function searchUserToAdd($id)  //venture id
+    public function searchUserToAdd($id) //venture id
 
     {
 
 
-        $search  = Input::get('search');
+        $search = Input::get('search');
 
-        $users = User::whereRaw('name LIKE ?', array("%".$search."%"))->get();
+        $users = User::whereRaw('name LIKE ?', array("%" . $search . "%"))->get();
 
         $venture = Venture::find($id);
 
@@ -74,27 +74,27 @@ class TeamController extends BaseController
             'count' => count($users),
             'searchedFor' => $search,
             'venture' => $venture,
-            'teams'=>$teams));
+            'teams' => $teams));
         return $view;
         //return $teams;
     }
 
 
-
     public function addUserToTeam($id, $vid)
     {
         //test if already on team
-        $test = Team::whereRaw('venture_id > ? and user_id = ?', array($vid, $id))->get();
+        $test = Team::whereRaw('venture_id = ? and user_id = ?', array($vid, $id))->count();
 
-        if(!$test)
-        {
-        $team = new Team;
-        $team->venture_id = $vid;
-        $team->user_id = $id;
-        $team->position=3;
+        if ($test == 0) {
+            $team = new Team;
+            $team->venture_id = $vid;
+            $team->user_id = $id;
+            $team->position = 3; //team member
 
-        $team->save();
+            $team->save();
+
         }
+
 
         $venture = Venture::find($vid);
 
@@ -102,7 +102,7 @@ class TeamController extends BaseController
 
         $view = View::make('editTeam', array(
             'venture' => $venture,
-            'teams'=>$teams));
+            'teams' => $teams));
         return $view;
 
         //return $test;
@@ -112,7 +112,7 @@ class TeamController extends BaseController
     {
         $teams = DB::table('users')
             ->join('teams', 'users.id', '=', 'teams.user_id')
-            ->where('teams.venture_id', '=', $id) ->get();
+            ->where('teams.venture_id', '=', $id)->get();
 
         return $teams;
 

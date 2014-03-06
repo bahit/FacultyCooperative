@@ -27,6 +27,7 @@ class VentureController extends BaseController
             'auth' => $auth));
         return $view;
         //return $skillsWanted;
+        ////.............................
     }
 
     public function editVenture($id)

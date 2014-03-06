@@ -5,6 +5,8 @@
 
 <h2>About {{$venture->title}}</h2>
 
+
+
 <p><img src='../images/{{$venture->logo}}' width="300px"/></p>
 
 <p>{{$venture->description}}</p>
@@ -57,6 +59,7 @@
 @if($auth)
 <h3>You are a team leader for this venture</h3>
 <h3><a href='../editVenture/{{$venture->id}}'> click here to edit this venture</a></h3>
+<h3><a href='../editTeam/{{$venture->id}}'> click here to edit the team for this venture</a></h3>
 @endif
 
 @endsection

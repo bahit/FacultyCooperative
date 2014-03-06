@@ -7,9 +7,14 @@ class TeamController extends BaseController
 
     {
 
+
+
+        $auth = TeamController::isAuthUserTeamLeader($id);
+
+
+        if ($auth) {
+
         $venture = Venture::find($id);
-
-
         $teams = TeamController::getTeamMembers($id);
 
 
@@ -18,6 +23,16 @@ class TeamController extends BaseController
 
 
         return $view;
+        }
+        else
+        {
+
+         //error message needs improving
+        return 'not a team leader - this needs a proper error response!';
+
+
+        }
+
 
 
     }
@@ -118,4 +133,25 @@ class TeamController extends BaseController
 
     }
 
+    public function isAuthUserTeamLeader($id)
+    {
+        $auth = false;
+
+        if (isset(Auth::user()->id)) {
+            $authId = Auth::user()->id;
+
+
+            $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
+
+            foreach ($teamLeaders as $teamLeader) {
+                if ($teamLeader->user_id == $authId) {
+                    $auth = true;
+                }
+            }
+
+        }
+
+        return $auth;
+
+    }
 }

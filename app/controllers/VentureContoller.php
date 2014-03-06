@@ -26,8 +26,8 @@ class VentureController extends BaseController
             'teams' => $teams,
             'auth' => $auth));
         return $view;
-        //return $skillsWanted;
-        ////.............................
+       // return $auth;
+
     }
 
     public function editVenture($id)
@@ -187,7 +187,7 @@ class VentureController extends BaseController
             $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
 
             foreach ($teamLeaders as $teamLeader) {
-                if ($teamLeader->id == $authId) {
+                if ($teamLeader->user_id == $authId) {
                     $auth = true;
                 }
             }
@@ -195,6 +195,7 @@ class VentureController extends BaseController
         }
 
         return $auth;
+        //return $teamLeaders;
 
     }
 

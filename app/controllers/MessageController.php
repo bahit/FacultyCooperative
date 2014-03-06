@@ -33,13 +33,6 @@ class MessageController extends BaseController
 
             $message = new Message;
             $message->to_user_id = $id;
-
-
-//$id = Auth::user()->id;
-//$currentuser = User::find($id);
-//echo $currentuser->name;
-//echo $id;
-
             $message->from_user_id = Auth::user()->id;
             $message->body = Input::get('body');
             $message->subject = Input::get('subject');
@@ -75,10 +68,8 @@ class MessageController extends BaseController
 
 
             $view = View::make('readMessage', array('user' => $user
+                            , 'readMessages' => $readMessages
 
-                //$view = View::make('readMessageWithAjax', array('user' => $user
-            , 'readMessages' => $readMessages
-                //,'message'=>$message
             ));
             return $view;
 

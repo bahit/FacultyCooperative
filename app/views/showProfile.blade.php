@@ -42,6 +42,14 @@
 
 <br>
 
+@if($teamInvolvement)
+<h3>Team Memberships</h3>
+<p>{{$profile->name}} is involved with the following ventures</p>
+@foreach($teamInvolvement as $team)
+<li><a href='../viewVenture/{{$team->venture_id}}'>{{$team->title}}</a></li>
+
+@endforeach
+@endif
 
 
 <h3><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>

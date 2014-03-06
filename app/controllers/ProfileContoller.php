@@ -5,23 +5,23 @@ class ProfileController extends BaseController
     public function showPublicProfile($id)
     {
         $profile = User::find($id);
-        //$skillOffer = SkillOffer::whereRaw('user_id = ?', array($id))->get();
-
-        //SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
-
 
         $skillOffer = DB::table('skills')
             ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
             ->where('skill_offers.user_id', '=', $id)
             ->get();
 
+        $teamInvolvement = DB::table('teams')
+            ->join('ventures', 'ventures.id', '=', 'teams.venture_id')
+            ->where('teams.user_id', '=', $id)
+            ->get();
 
         $view = View::make('showProfile', array('profile' => $profile,
-            'skillOffer' => $skillOffer));
+            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement));
 
 
         return $view;
-        //return $skillOffer;
+        //return $teamInvolvement;
     }
 
 
@@ -52,7 +52,7 @@ class ProfileController extends BaseController
     {
         $id = Auth::user()->id;
        //////////////////
-        //This should go in model - see Message model for example
+        //This should go in MODEL!!!! - see Message model for example
         $rules = array(
             'name' => 'required',
             'bioDetails' => 'required|max:200'

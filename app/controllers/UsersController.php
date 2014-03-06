@@ -78,8 +78,24 @@ class UsersController extends BaseController {
 	 */
 	public function postSignin() {
     if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
-    	return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
-		} else {
+
+
+    	//return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+
+        $teamInvolvement = DB::table('teams')
+            ->join('ventures', 'ventures.id', '=', 'teams.venture_id')
+            ->where('teams.user_id', '=', $id)
+            ->get();
+
+        $view = View::make('users/dashboard', array('user' => $user, 'teamInvolvement' => $teamInvolvement));
+        return $view;
+
+
+
+        } else {
     	return Redirect::to('users/login')
         ->with('message', 'Your username/password combination was incorrect')
         ->withInput();

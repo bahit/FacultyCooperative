@@ -31,6 +31,12 @@ Route::get('home', function()
 });
 
 
+Route::get('hello', function()
+{
+    return View::make('hello');
+});
+
+
 Route::get('search', function()
 {
 	return View::make('search');
@@ -108,3 +114,10 @@ Route::post('messageBodyAjax', 'MessageController@messageBodyAjax');
 
 //Route::get('clicked/{id}', 'SearchController@clicked');
 //Route::resource('profiles', 'ProfileController');
+
+Route::get('/image2/{size}/{file}','ImageController@getImage');
+
+//Route::get('image2/{size}/{file}', function()
+//{
+  //  return 'balls';
+//});

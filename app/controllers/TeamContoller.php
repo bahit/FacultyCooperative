@@ -127,27 +127,5 @@ class TeamController extends BaseController
 
     }
 
-    /*
-    public function isAuthUserTeamLeader($id)
-    {
-        $auth = false;
 
-        if (isset(Auth::user()->id)) {
-            $authId = Auth::user()->id;
-
-
-            $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
-
-            foreach ($teamLeaders as $teamLeader) {
-                if ($teamLeader->user_id == $authId) {
-                    $auth = true;
-                }
-            }
-
-        }
-
-        return $auth;
-
-    }
-    */
 }

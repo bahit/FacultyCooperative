@@ -67,11 +67,7 @@ class MessageController extends BaseController
             $user = User::find($id);
 
 
-            $readMessages = DB::table('users')
-                ->join('messages', 'messages.from_user_id', '=', 'users.id')
-                ->where('to_user_id', '=', $id)
-                ->orderBy('messages.created_at', 'DESC')
-                ->get();
+            $readMessages = Message::readMessages($id);
 
 
             $view = View::make('readMessage', array('user' => $user

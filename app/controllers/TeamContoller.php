@@ -12,7 +12,7 @@ class TeamController extends BaseController
         if ($auth) {
 
         $venture = Venture::find($id);
-        $teams = TeamController::getTeamMembers($id);
+        $teams = Team::getTeamMembers($id);
 
 
         $view = View::make('editTeam', array('venture' => $venture,
@@ -51,7 +51,7 @@ class TeamController extends BaseController
 
 
 
-        $teams = TeamController::getTeamMembers($venture->id);
+        $teams = Team::getTeamMembers($venture->id);
 
         if (Input::get('delete') == 'delete') {
             $team->delete();
@@ -76,7 +76,7 @@ class TeamController extends BaseController
 
         $venture = Venture::find($id);
 
-        $teams = TeamController::getTeamMembers($id);
+        $teams = Team::getTeamMembers($id);
 
 
         $view = View::make('editTeam', array('users' => $users,
@@ -107,7 +107,7 @@ class TeamController extends BaseController
 
         $venture = Venture::find($vid);
 
-        $teams = TeamController::getTeamMembers($vid);
+        $teams = Team::getTeamMembers($vid);
 
         $view = View::make('editTeam', array(
             'venture' => $venture,
@@ -117,6 +117,7 @@ class TeamController extends BaseController
         //return $test;
     }
 
+    /*
     public function getTeamMembers($id)
     {
         $teams = DB::table('users')
@@ -127,5 +128,5 @@ class TeamController extends BaseController
 
     }
 
-
+*/
 }

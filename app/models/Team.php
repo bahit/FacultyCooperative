@@ -24,4 +24,15 @@ class Team extends Eloquent
         return $teams;
     }
 
+
+
+    public static function getTeamMembers($id)
+    {
+        $teams = DB::table('users')
+            ->join('teams', 'users.id', '=', 'teams.user_id')
+            ->where('teams.venture_id', '=', $id)->get();
+
+        return $teams;
+    }
+
 }

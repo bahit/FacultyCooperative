@@ -2,8 +2,8 @@
 @section('content')
 
 
-<h2>Team Management Page for {{$venture->title}}</h2>
-
+<h2>Team Management Page</h2>
+<h2><a href='/FacultyCooperative/public/viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->

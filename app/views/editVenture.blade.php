@@ -4,6 +4,8 @@
 
 <h1>Edit Venture</h1>
 
+<h2><a href='/FacultyCooperative/public/viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
+
 @if(isset($success))
 <!--hateful inline style temporary!-->
 <h4 style="background-color:red;">Thank you - your venture has been updated</h4>

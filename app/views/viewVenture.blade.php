@@ -21,9 +21,9 @@
 
 @foreach($teams as $team)
 <li> <!--auto resize -->
-    <img src='../image2/thumb/{{$team->image}}' />
 
-    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
+
+    <a href="../publicProfile/{{$team->user_id}}"><img src='../image2/thumb/{{$team->image}}' /> {{$team->name}}</a>
 
 
 

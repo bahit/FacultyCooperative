@@ -12,9 +12,11 @@
 
 
         <h1>This image is resized</h1>
-        10
-        <img src="/image2/small/fish.jpg">
-        11
+        
+        <a href='../public/image2/big/fish.jpg'>kfjgfkgdfg<a>
+     
+        <img src="../public/image2/small/fish.jpg">
+       
 
 
 

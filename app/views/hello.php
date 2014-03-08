@@ -12,11 +12,17 @@
 
 
         <h1>This image is resized</h1>
+<<<<<<< HEAD
         
         <a href='../public/image2/big/fish.jpg'>kfjgfkgdfg<a>
      
         <img src="../public/image2/small/fish.jpg">
        
+=======
+        10
+        <img src="image2/thumb/logo1.jpg">
+        11
+>>>>>>> FETCH_HEAD
 
 
 

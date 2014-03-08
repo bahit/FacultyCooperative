@@ -20,8 +20,8 @@
 
 
 @foreach($teams as $team)
-<li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team->image}}' width="80px"/>
+<li> <!--auto resize -->
+    <img src='../image2/thumb/{{$team->image}}' />
 
     <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
 

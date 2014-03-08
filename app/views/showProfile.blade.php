@@ -6,8 +6,10 @@
 
 
 
-<!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../images/{{$profile->image}}' width="200px"/>
+<!--Auto resize route  ST -->
+<img src='../image2/medium/{{$profile->image}}' />
+
+
 
 <h3>About</h3>
 

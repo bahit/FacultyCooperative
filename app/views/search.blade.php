@@ -2,9 +2,10 @@
 @section('content')
 
 
-<h2>Search Page</h2>
-
-<h3>Search for People, Ventures, Skills Offered and Skills Wanted</h3>
+<div class="sbanner">
+    <h2> Welcome to the search page!</h2>
+    <p>Search for People, Ventures, Skills Offered and Skills Wanted</p>
+</div>
 
 <!--This picks up errors from validation
 {{ HTML::ul($errors->all()) }}-->
@@ -17,18 +18,25 @@
 <fieldset>
     <legend>Search for user by name</legend>
 
-    <p>Search for any user of the Faculty Cooperative by any part of their name</p>
-
-{{ Form::open(array('url' => 'searchUserNames',  'method' => 'post')) }}
-
-{{ Form::label('search', 'user name', array('class' => 'form-label')) }}
-{{ Form::text('search', $searchedFor, array('class'=>'input-block-level', 'placeholder'=>'search')) }}
 
 
-{{ Form::submit('Search',array('class' => 'form-button')) }}
+{{ Form::open(array('url' => 'searchUserNames',  'method' => 'post',
+    'class'=>'navbar-form')) }}
+
+    <div class="left">
+    <div class="form-group">
 
 
-{{ Form::close() }}
+
+{{ Form::text('search', $searchedFor, array('class'=>'input-block-level',
+    'placeholder'=>'search', 'class'=>'form-control')) }}
+</div>
+{{ Form::submit('Search',array('class' => 'form-button','class'=>'btn btn-warning')) }}
+    </div>
+    <div class="right">
+
+        <p>Search for any user of the Faculty Cooperative by any part of their name</p>
+
 
 
 
@@ -43,7 +51,9 @@
 
 @endforeach
 @endif
+    </div>
 
+    {{ Form::close() }}
 
 </fieldset>
 <!--  begin search venture by name   -->

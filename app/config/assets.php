@@ -1,9 +1,6 @@
 <?php
 
-//return array(
-    //'images2' => 'app/assets/images/'
-    //'images2' => '../public/images/'
-//);
+
 
 
 
@@ -15,15 +12,19 @@ return array(
             'input' => '../public/images/',
 
             //'output' => 'app/storage/cache/images'
-            'output' => '../public/images/'
+            'output' => '../public/images/generated'
 
 
         ),
 
         'sizes' => array(
-            'small' => array(
-                'width' => 150,
-                'height' => 100
+            'thumb' => array(
+                'width' => 70,
+                'height' => 70
+            ),
+            'medium' => array(
+                'width' => 300,
+                'height' => 200
             ),
             'big' => array(
                 'width' => 600,

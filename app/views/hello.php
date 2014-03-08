@@ -13,7 +13,7 @@
 
         <h1>This image is resized</h1>
         10
-        <img src="image2/small/fish.jpg">
+        <img src="image2/thumb/logo1.jpg">
         11
 
 

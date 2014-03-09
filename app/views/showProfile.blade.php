@@ -49,7 +49,53 @@
    	  </div>
     </div>
     
+    <div class="col-md-8 left-block">
+    	<div class="info-block">
+        	<div class="info-text">
+        		<h2>{{$profile->name}}'s Public Profile Page</h2></br>
+                <h3>About</h3>
+            	<p>{{$profile->bio_details}} </p>
+				<p> {{$profile->name}}'s career status: {{$profile->career_status}} </p>
+				<p> {{$profile->name}}'s institution: {{$profile->institution}} </p>
+                @if($profile->investmentOffered=1)
+				<h4>{{$profile->name}} is willing to offer investment</h4>
+				@else
+				<h4>{{$profile->name}} is not willing to offer investment</h4>
+				@endif
+                </br>
+            </div>
+     	<ul class="social-icon">
+        	<li><a class="social twitter" href="">Google+</a></li>
+            <li><a class="social google_plus" href="">@Twitter</a></li>
+            <li><a class="social facebook" href="">Facebook</a></li>
+            <li><a class="social skype" href="">Skype</a></li>
+     
+     	</ul>
+     
+    	</div>
+    
+    </div>
 </div>
+
+
+<h3> {{$profile->name}} Offers the following skills: </h3>
+
+
+
+{{$category=''}}
+@foreach($skillOffer as $skill)
+
+@if ($category<>$skill->category)
+<h4>{{$skill->category}}</h4>
+@endif
+
+<li>{{$skill->skill_name}}</li>
+
+<?php $category=$skill->category ?>
+@endforeach
+
+
+
 
 <h2>{{$profile->name}}'s Public Profile Page</h2>
 

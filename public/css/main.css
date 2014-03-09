@@ -419,3 +419,61 @@ p {
     padding-bottom: 0px;
     position: relative;
     top: 4px;
+}
+
+.info-block {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.info-block .info-text {
+    margin-bottom: 20px;
+    padding-right: 240px;
+}
+
+.social {
+    padding-left: 32px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    color: #383941;
+    position: relative;
+}
+
+.social.twitter:before {
+    background: url(../images/social-btn.png) no-repeat scroll left -25px transparent;
+}
+
+.social:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 0px;
+	top: 0px;
+}
+
+.social-icon {
+    list-style: none outside none;
+}
+
+.social-icon li {
+    display: inline-block;
+    width: 135px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.social.google_plus:before {
+    background: url(../images/social-btn.png) no-repeat scroll left top transparent;
+}
+
+.social.facebook:before {
+    background: url('../images/social-btn.png') no-repeat scroll left -49px transparent;
+}
+
+.social.skype:before {
+    background: url('../images/social-btn.png') no-repeat scroll left bottom transparent;
+}
+

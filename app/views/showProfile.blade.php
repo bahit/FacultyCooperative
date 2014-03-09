@@ -1,6 +1,56 @@
 @extends('main')
 @section('content')
 
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#">Overview</a>
+        </li>
+    	<li>
+			<a href="#">Account</a>
+        </li>
+        <li>
+			<a href="#">Ventures</a>
+        </li>
+	</ul>
+</div>
+<div class="row show-grid">
+	<div class="col-md-4">
+    	<div class="thumbnail">
+
+    	<img src='../images/{{$profile->image}}' />
+		<ul class="list-group custom-set">
+       	  <li class="list-group-item">
+        		<span class="glyphicon glyphicon-briefcase"></span>
+       
+						Ventures
+          </li>
+          <li class="list-group-item">
+        		<span class="glyphicon glyphicon-envelope"></span>
+     
+				<a href="../sendMessage/{{$profile->id}}">
+						Send a message
+                        </a>
+          </li>
+          <li class="list-group-item">
+          		<p class="glyphicon-friends">
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="glyphicon glyphicon-user"></span>
+                </p>
+
+						Teams
+          </li>
+            <li class="list-group-item">
+            	<span class="glyphicon glyphicon-cog"></span>
+                		
+                        Edit
+            </li>
+          </ul>
+   	  </div>
+    </div>
+    
+</div>
+
 <h2>{{$profile->name}}'s Public Profile Page</h2>
 
 
@@ -57,4 +107,5 @@
 <h3><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
 
 <br>
+
 @endsection

@@ -103,7 +103,7 @@
 
 
 <!--Auto resize route  ST -->
-<img src='../image2/medium/{{$profile->image}}' />
+<img src='../image2/big/{{$profile->image}}' />
 
 
 

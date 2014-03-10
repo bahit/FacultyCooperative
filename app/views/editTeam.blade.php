@@ -17,12 +17,10 @@
 <h3>Edit team member status</h3>
 
 @foreach($teams as $team)
-<li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-
-
+<li>
     {{ Form::open(array('url' => 'editTeamUser/'.$team->id, 'method' => 'post')) }}
 
-    <img src='/FacultyCooperative/public/images/{{$team->image}}' width="80px"/>{{$team->name}}
+    <img src='/FacultyCooperative/public/image2/thumb/{{$team->image}}' />{{$team->name}}
 
     {{ Form::select('position', array(
 

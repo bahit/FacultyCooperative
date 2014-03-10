@@ -7,7 +7,7 @@
 
 
 
-<p><img src='../images/{{$venture->logo}}' width="300px"/></p>
+<p><img src='../image2/big/{{$venture->logo}}' /></p>
 
 <p>{{$venture->description}}</p>
 

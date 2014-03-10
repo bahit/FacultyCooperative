@@ -27,8 +27,8 @@ return array(
                 'height' => 200
             ),
             'big' => array(
-                'width' => 600,
-                'height' => 400
+                'width' => 500,
+                'height' => 300
             )
         )
     )

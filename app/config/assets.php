@@ -29,6 +29,10 @@ return array(
             'big' => array(
                 'width' => 500,
                 'height' => 300
+            ),
+            'profile' => array(
+                'width' => 300,
+                'height' => 300
             )
         )
     )

@@ -18,7 +18,7 @@
 	<div class="col-md-4">
     	<div class="thumbnail">
 
-    	<img src='../images/{{$profile->image}}' />
+    	<img src='../image2/profile/{{$profile->image}}' />
 		<ul class="list-group custom-set">
        	  <li class="list-group-item">
         		<span class="glyphicon glyphicon-briefcase"></span>
@@ -103,7 +103,7 @@
 
 
 <!--Auto resize route  ST -->
-<img src='../image2/big/{{$profile->image}}' />
+<img src='../image2/profile/{{$profile->image}}' />
 
 
 

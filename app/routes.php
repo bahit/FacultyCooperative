@@ -36,6 +36,11 @@ Route::get('hello', function()
     return View::make('hello');
 });
 
+Route::get('faq', function()
+{
+return View::make('faq');
+});
+
 
 Route::get('search', function()
 {

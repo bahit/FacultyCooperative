@@ -477,3 +477,23 @@ p {
     background: url('../images/social-btn.png') no-repeat scroll left bottom transparent;
 }
 
+/* FAQ Page
+-------------------------------------------------- */
+#faq {
+    position:relative;
+}
+#faq h4	{
+    cursor:pointer;
+    color: #225ecc;
+}
+#faq h4.active	{
+    color: #225ecc;
+}
+#faq div   {
+    position:relative;
+
+}
+#faq div p	{
+    padding:0; margin-bottom:15px;
+
+}

@@ -21,14 +21,14 @@
 {{ Form::open(array('url' => 'searchUserNames',  'method' => 'post',
     'class'=>'navbar-form')) }}
 
-    <div class="left">
+    <div class="search-left">
     	<div class="form-group">
 		{{ Form::text('search', $searchedFor, array('class'=>'input-block-level', 'placeholder'=>'search', 'class'=>'form-control')) }}
 		</div>
 		{{ Form::submit('Search',array('class' => 'form-button','class'=>'btn btn-warning')) }}
     </div>
     
-    <div class="right">
+    <div class="search-right">
 		<p>Search for any user of the Faculty Cooperative by any part of their name</p>
 
 @if(isset($users))
@@ -58,14 +58,14 @@
 
 	{{ Form::open(array('url' => 'searchVentureTitles', 'method' => 'post', 'class'=>'navbar-form')) }}
 
-	<div class="left">
+	<div class="search-left">
     	<div class="form-group">
 		{{ Form::text('venture', $searchedVenture, array('class'=>'input-block-level', 'placeholder'=>'search', 'class'=>'form-control')) }}
 		</div>
 	{{ Form::submit('Search',array('class' => 'form-button', 'class'=>'btn btn-primary')) }}
 	</div>
 
-	<div class="right">
+	<div class="search-right">
 
 <p>Search for current ventures by any match in their titles</p>
 
@@ -103,7 +103,7 @@
 
 {{ Form::open(array('url' => 'searchSkillsOffered',  'method' => 'post', 'class'=>'navbar-form')) }}
 
-	<div class="left">
+	<div class="search-left">
     	<div class="form-group">
 
 			{{ Form::text('skill', $searchedSkill, array('class'=>'input-block-level', 'placeholder'=>'search',  'class'=>'form-control')) }}
@@ -113,7 +113,7 @@
 
 	</div>
 
-<div class="right">
+	<div class="search-right">
 
  <p>Search for skills that are currently offered by users. Clicking in the skill in the result will take you to a list of users
     with that skill. Click on the user to contact them.</p>
@@ -167,7 +167,7 @@
 
     {{ Form::open(array('url' => 'searchSkillsWanted',  'method' => 'post', 'class'=>'navbar-form')) }}
     
-    <div class="left">
+    <div class="search-left">
     	<div class="form-group">
 			{{ Form::text('skillWanted', $searchedSkill, array('class'=>'input-block-level', 'placeholder'=>'search', 'class'=>'form-control')) }}
 		</div>
@@ -176,7 +176,7 @@
 
 {{ Form::close() }}
 
-<div class="right">
+<div class="search-right">
 <p>Search for skills that are currently wanted by ventures. Clicking on a venture in the search result will take
         you to a list of ventures
         searching for that skill. Click on the venture to read about it.</p>

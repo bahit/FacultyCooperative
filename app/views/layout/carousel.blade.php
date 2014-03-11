@@ -22,7 +22,7 @@
         </div>
         <div class="item">
           <img src="images/banner4.png" width="1140" height="350" alt="Skills" />
-<div class="container">
+		<div class="container">
         <div class="carousel-caption">
               <h1>Everyone is different</h1>
               <p>Search for people that have the skills you need, and...</br></br></p>

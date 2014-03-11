@@ -57,7 +57,7 @@ class ProfileController extends BaseController
 
         if ($validator->fails()) {
 
-            return Redirect::to('editProfile/' . $id)
+            return Redirect::to('editProfile')
                 ->withErrors($validator);
 
 
@@ -76,8 +76,6 @@ class ProfileController extends BaseController
             }
 
 
-            //Intervention/Image package To resixe images - investigate
-            // TODO
             //
             if (Input::hasFile('image')) {
                 Input::file('image')->move(base_path() . '/public/images/', 'profile' . $id . '.jpg');
@@ -120,8 +118,6 @@ class ProfileController extends BaseController
             return $view;
 
 
-            //return $user->investment_offered;
-            //return $file->getClientOriginalName();
 
 
         }

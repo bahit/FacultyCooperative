@@ -11,9 +11,10 @@
 
 <p>{{$venture->description}}</p>
 
+@if($venture->funding_target>0)
 <h3>This venture is {{number_format($venture->funding_secured/$venture->funding_target*100,0)}}% funded</h3>
 <em>!! This would look much nicer as a little graphic - could be done with css??  !!</em>
-
+@endif
 
 
 <h2>Team members</h2>

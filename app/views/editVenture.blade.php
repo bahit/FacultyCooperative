@@ -38,12 +38,12 @@
 <br>
 <em>!!Just in &pound's for now but we could add currency conversion if time allowed!!</em>
 {{ Form::label('funding_target', 'Funding target £', array('class' => 'form-label')) }}
-{{ Form::text('funding_target', $venture->funding_target, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
+{{ Form::text('funding_target', $venture->funding_target, array('class'=>'input-block-level', 'placeholder'=>'')) }}
 
 <br>
 
 {{ Form::label('funding_secured', 'Funding already secured £', array('class' => 'form-label')) }}
-{{ Form::text('funding_secured', $venture->funding_secured, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
+{{ Form::text('funding_secured', $venture->funding_secured, array('class'=>'input-block-level', 'placeholder'=>'')) }}
 
 <br>
 

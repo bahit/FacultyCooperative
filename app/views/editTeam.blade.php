@@ -3,7 +3,7 @@
 
 
 <h2>Team Management Page</h2>
-<h2><a href='/FacultyCooperative/public/viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
+<h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
@@ -20,7 +20,7 @@
 <li>
     {{ Form::open(array('url' => 'editTeamUser/'.$team->id, 'method' => 'post')) }}
 
-    <img src='/FacultyCooperative/public/image2/thumb/{{$team->image}}' />{{$team->name}}
+    <img src='../image2/thumb/{{$team->image}}' />{{$team->name}}
 
     {{ Form::select('position', array(
 

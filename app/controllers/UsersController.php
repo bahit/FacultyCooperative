@@ -85,10 +85,7 @@ class UsersController extends BaseController {
         $user = User::find($id);
 
 
-        $teamInvolvement = DB::table('teams')
-            ->join('ventures', 'ventures.id', '=', 'teams.venture_id')
-            ->where('teams.user_id', '=', $id)
-            ->get();
+        $teamInvolvement = Team::getTeamInvolvement($id);
 
         $view = View::make('users/dashboard', array('user' => $user, 'teamInvolvement' => $teamInvolvement));
         return $view;
@@ -101,6 +98,25 @@ class UsersController extends BaseController {
         ->withInput();
 		}
 	}
+
+
+
+    public function dashboard() {
+
+    //return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+            $id = Auth::user()->id;
+            $user = User::find($id);
+
+
+        $teamInvolvement = Team::getTeamInvolvement($id);
+
+
+           $view = View::make('users/dashboard', array('user' => $user, 'teamInvolvement' => $teamInvolvement));
+           return $view;
+
+
+    }
+
 
 	/**
 	 * Open Dashboard view

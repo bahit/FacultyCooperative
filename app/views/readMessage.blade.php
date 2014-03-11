@@ -4,7 +4,7 @@
 
 <!--SEE profile controller - need to resize image when saved!!!
   Path a problem here ST -->
-<p><img src='/FacultyCooperative/public/images/{{$user->image}}' width="100px"/></p>
+<p><img src='../image2/profile/{{$user->image}}' width="100px"/></p>
 
 
 @if(isset($readMessages))
@@ -31,9 +31,9 @@
 
     <div class='result a{{$readMessage->id}}'>
     <div class='body'><p>{{$readMessage->body}}</p></div>
-    <p><img src='/FacultyCooperative/public/images/{{$readMessage->image}}' width="100px"/></p>
+    <p><img src='../image2/thumb/{{$readMessage->image}}' width="100px"/></p>
 
-    <p><a href='/FacultyCooperative/public/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
+    <p><a href='../sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
 
     </div>
 
@@ -56,7 +56,7 @@
         $("button").click(function(){
             var bid = this.id;
             //alert("Data: " + bid);
-            $.post("/FacultyCooperative/public/messageBodyAjax",
+            $.post("../messageBodyAjax",
                 {
                     "bid":bid
 

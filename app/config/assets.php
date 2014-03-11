@@ -22,6 +22,10 @@ return array(
                 'width' => 70,
                 'height' => 70
             ),
+            'tiny' => array(
+                'width' => 50,
+                'height' => 50
+            ),
             'medium' => array(
                 'width' => 300,
                 'height' => 200

@@ -19,6 +19,8 @@ Route::any('/logout', [
     "uses" => "UsersController@getLogout"
   ]);
 
+Route::get('dashboard', 'UsersController@dashboard');
+
 
 Route::get('/', function()
 {

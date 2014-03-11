@@ -4,7 +4,7 @@
 
 <h1>Edit Venture</h1>
 
-<h2><a href='/FacultyCooperative/public/viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
+<h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
@@ -25,7 +25,7 @@
 <br>
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../images/{{$venture->logo}}' width="300px"/>
+<img src='../image2/big/{{$venture->logo}}' width="300px"/>
 {{Form::file('logo')}}
 
 <br>

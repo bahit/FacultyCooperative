@@ -10,14 +10,14 @@ class VentureController extends BaseController
 
         $skillsWanted = SkillWanted::getSkillsWanted($id);
 
-       $auth = VentureController::isAuthUserTeamLeader($id);
+        $auth = VentureController::isAuthUserTeamLeader($id);
 
         $view = View::make('viewVenture', array('venture' => $venture,
             'skillsWanted' => $skillsWanted,
             'teams' => $teams,
             'auth' => $auth));
         return $view;
-       // return $auth;
+        // return $auth;
 
     }
 
@@ -107,18 +107,21 @@ class VentureController extends BaseController
         //clear user skills as results only sent for boxes checked
         SkillWanted::where('venture_id', '=', $id)->delete();
 
+
         $skill_wanteds = Input::get('skillsCB');
 
         //loops checkbox array and writes to DB
-        foreach ($skill_wanteds as $skill_id) {
-            $skill_wanted = new SkillWanted;
 
-            $skill_wanted->venture_id = $id;
-            $skill_wanted->skill_id = $skill_id;
+        if ($skill_wanteds) {
+            foreach ($skill_wanteds as $skill_id) {
+                $skill_wanted = new SkillWanted;
 
-            $skill_wanted->save();
+                $skill_wanted->venture_id = $id;
+                $skill_wanted->skill_id = $skill_id;
+
+                $skill_wanted->save();
+            }
         }
-
 
         $skills = VentureController::skillWantedChecklistInit($id);
 
@@ -138,8 +141,6 @@ class VentureController extends BaseController
         //getting checkboxes to correct state
 
         $skillWantedList = SkillWanted::skillWantedList($id);
-
-
 
 
         $skillsList = Skill::all();

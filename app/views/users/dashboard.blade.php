@@ -13,6 +13,8 @@
 
           <h3><a href="../editProfile">Update your profile</a></h3>
 
+          <h3><a href="../publicProfile/{{$user->id}}">View your public profile</a></h3>
+
           <h3><a href="../createVenture">Create a new venture</a></h3>
 
           <h3><a href="../readMessage">Read your messages</a></h3>
@@ -28,6 +30,19 @@
 
           @endforeach
           @endif
+
+
+          @if(count($venturesWantingUsersSkills)>0)
+          <h3>These Ventures May be Interested in your Skills</h3>
+
+          @foreach($venturesWantingUsersSkills as $venture)
+          <li><a href='../viewVenture/{{$venture->venture_id}}'>{{$venture->title}}</a></li>
+
+          @endforeach
+          @endif
+
+
+
 
 
 

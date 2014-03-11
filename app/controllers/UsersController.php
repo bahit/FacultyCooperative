@@ -87,7 +87,13 @@ class UsersController extends BaseController {
 
         $teamInvolvement = Team::getTeamInvolvement($id);
 
-        $view = View::make('users/dashboard', array('user' => $user, 'teamInvolvement' => $teamInvolvement));
+        $venturesWantingUsersSkills = SkillOffer::venturesWantingUsersSkills($id);
+
+        $view = View::make('users/dashboard', array('user' => $user,
+            'teamInvolvement' => $teamInvolvement,
+            'venturesWantingUsersSkills' => $venturesWantingUsersSkills
+        ));
+
         return $view;
 
 
@@ -110,9 +116,15 @@ class UsersController extends BaseController {
 
         $teamInvolvement = Team::getTeamInvolvement($id);
 
+        $venturesWantingUsersSkills = SkillOffer::venturesWantingUsersSkills($id);
 
-           $view = View::make('users/dashboard', array('user' => $user, 'teamInvolvement' => $teamInvolvement));
-           return $view;
+           $view = View::make('users/dashboard', array('user' => $user,
+           'teamInvolvement' => $teamInvolvement,
+           'venturesWantingUsersSkills' => $venturesWantingUsersSkills
+           ));
+
+        return $view;
+        //return $venturesWantingUsersSkills;
 
 
     }

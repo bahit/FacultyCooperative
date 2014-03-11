@@ -22,18 +22,17 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav  ">
-                            <li>{{ HTML::link('home', 'Home') }}</li>
-                            <li>{{ HTML::link('search', 'Search') }}</li>
-                            <li>{{ HTML::link('faq', 'FAQs') }}</li>
-
+                            <li class="{{Request::path() == 'home' ? 'active' : '';}}">{{ HTML::link('home', 'Home')  }}</li>
+                            <li class="{{Request::path() == 'search' ? 'active' : '';}}">{{ HTML::link('search', 'Search') }}</li>
+                            <li class="{{Request::path() == 'faq' ? 'active' : '';}}">{{ HTML::link('faq', 'FAQs') }}</li>
 
 
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @if(!Auth::check())
-                            <li>{{ HTML::link('/register', 'Register') }}</li>
-                            <li>{{ HTML::link('/login', 'Login') }}</li>
+                            <li class="{{Request::path() == 'register' ? 'active' : '';}}">{{ HTML::link('/register', 'Register') }}</li>
+                            <li class="{{Request::path() == 'login' ? 'active' : '';}}">{{ HTML::link('/login', 'Login') }}</li>
 
                             @else
 
@@ -41,8 +40,8 @@
                             $id = Auth::user()->id;
                             $user = User::find($id);?>
                             <li><img src='../image2/tiny/{{$user->image}}'/></li>
-                            <li>{{ HTML::link('dashboard', 'Dashboard') }}</li>
-                            <li>{{ HTML::link('/logout', 'Logout') }}</li>
+                            <li class="{{Request::path() == 'dashboard' ? 'active' : '';}}">{{ HTML::link('dashboard', 'Dashboard') }}</li>
+                            <li class="{{Request::path() == '/logout' ? 'active' : '';}}">{{ HTML::link('/logout', 'Logout') }}</li>
 
                             @endif
                         </ul>

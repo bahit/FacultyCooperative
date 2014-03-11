@@ -24,7 +24,7 @@
             <ul class="nav navbar-nav">
               <li class="active">{{ HTML::link('home', 'Home') }}</li>
               <li class="active">{{ HTML::link('search', 'Search') }}</li>
-              <li><a href="#about">About</a></li>
+              <li><a href="faq">FAQs</a></li>
               <li><a href="#contact">Contact</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>

@@ -31,6 +31,17 @@ Route::get('home', function()
 });
 
 
+Route::get('hello', function()
+{
+    return View::make('hello');
+});
+
+Route::get('faq', function()
+{
+return View::make('faq');
+});
+
+
 Route::get('search', function()
 {
 	return View::make('search');
@@ -87,14 +98,14 @@ Route::post('addMessage/{id}', 'MessageController@addMessage');
 
 Route::get('readMessage', 'MessageController@readMessage');
 
-Route::post('searchUserToAdd', 'TeamController@searchUserToAdd');
+Route::post('searchUserToAdd/{id}', 'TeamController@searchUserToAdd');
 
 Route::post('editTeamUser/{id}', 'TeamController@editTeamUser');
 ///
 
 
 ///////////////////////
-Route::post('addUserToTeam/{id}', 'TeamController@addUserToTeam');
+Route::get('addUserToTeam/{id}/{vid}', 'TeamController@addUserToTeam');
 
 
 ///////////////////////
@@ -108,3 +119,10 @@ Route::post('messageBodyAjax', 'MessageController@messageBodyAjax');
 
 //Route::get('clicked/{id}', 'SearchController@clicked');
 //Route::resource('profiles', 'ProfileController');
+
+Route::get('/image2/{size}/{file}','ImageController@getImage');
+
+//Route::get('image2/{size}/{file}', function()
+//{
+  //  return 'balls';
+//});

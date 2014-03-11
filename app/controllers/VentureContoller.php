@@ -6,28 +6,19 @@ class VentureController extends BaseController
     {
         $venture = Venture::find($id);
 
+        $teams = Team::getTeams($id);
 
-        $teams = DB::table('users')
-            ->join('teams', 'users.id', '=', 'teams.user_id')
-            ->where('teams.venture_id', '=', $id)
-            ->orderBy('position', 'asc')
-            ->get();
+        $skillsWanted = SkillWanted::getSkillsWanted($id);
 
-        $skillsWanted = DB::table('skills')
-            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
-            ->where('skill_wanteds.venture_id', '=', $id)
-            ->get();
-
-
-        $auth = VentureController::isAuthUserTeamLeader($id);
+       $auth = VentureController::isAuthUserTeamLeader($id);
 
         $view = View::make('viewVenture', array('venture' => $venture,
             'skillsWanted' => $skillsWanted,
             'teams' => $teams,
             'auth' => $auth));
         return $view;
-        //return $skillsWanted;
-        ////.............................
+       // return $auth;
+
     }
 
     public function editVenture($id)
@@ -146,18 +137,16 @@ class VentureController extends BaseController
         ///
         //getting checkboxes to correct state
 
-        $skill_wanteds = DB::table('skills')
-            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
-            ->where('skill_wanteds.venture_id', '=', $id)
-            ->lists('skill_wanteds.skill_id');
-        // ->get();
+        $skillWantedList = SkillWanted::skillWantedList($id);
+
+
 
 
         $skillsList = Skill::all();
         foreach ($skillsList as $skill) {
 
 
-            if (in_array($skill->id, $skill_wanteds)) {
+            if (in_array($skill->id, $skillWantedList)) {
                 $checked = 'checked';
             } else {
                 $checked = 'unchecked';
@@ -187,7 +176,7 @@ class VentureController extends BaseController
             $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
 
             foreach ($teamLeaders as $teamLeader) {
-                if ($teamLeader->id == $authId) {
+                if ($teamLeader->user_id == $authId) {
                     $auth = true;
                 }
             }
@@ -195,6 +184,7 @@ class VentureController extends BaseController
         }
 
         return $auth;
+        //return $teamLeaders;
 
     }
 

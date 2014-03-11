@@ -5,7 +5,9 @@
 
 <h2>About {{$venture->title}}</h2>
 
-<p><img src='../images/{{$venture->logo}}' width="300px"/></p>
+
+
+<p><img src='../image2/big/{{$venture->logo}}' /></p>
 
 <p>{{$venture->description}}</p>
 
@@ -18,10 +20,10 @@
 
 
 @foreach($teams as $team)
-<li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team->image}}' width="80px"/>
+<li> <!--auto resize -->
 
-    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
+
+    <a href="../publicProfile/{{$team->user_id}}"><img src='../image2/thumb/{{$team->image}}' /> {{$team->name}}</a>
 
 
 
@@ -57,6 +59,7 @@
 @if($auth)
 <h3>You are a team leader for this venture</h3>
 <h3><a href='../editVenture/{{$venture->id}}'> click here to edit this venture</a></h3>
+<h3><a href='../editTeam/{{$venture->id}}'> click here to edit the team for this venture</a></h3>
 @endif
 
 @endsection

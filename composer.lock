@@ -216,7 +216,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
+                    "email": "ircmaxell@php.net",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],
@@ -865,7 +865,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Chris Corbyn"
@@ -1652,16 +1654,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "f0149677968893333b416afa48b6d5f804a7bc35"
+                "reference": "f4bdb309f899b7a5e476e61f14979a5a166b2aa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/f0149677968893333b416afa48b6d5f804a7bc35",
-                "reference": "f0149677968893333b416afa48b6d5f804a7bc35",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/f4bdb309f899b7a5e476e61f14979a5a166b2aa6",
+                "reference": "f4bdb309f899b7a5e476e61f14979a5a166b2aa6",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.1.*",
+                "illuminate/support": "~4.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -1691,7 +1693,7 @@
                     "role": "Developer"
                 }
             ],
-            "time": "2014-03-06 14:37:24"
+            "time": "2014-03-10 20:57:40"
         }
     ],
     "packages-dev": [

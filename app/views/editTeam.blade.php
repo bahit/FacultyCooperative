@@ -17,10 +17,10 @@
 <h3>Edit team member status</h3>
 
 @foreach($teams as $team)
-<li>
+<li class="thumb-list">
     {{ Form::open(array('url' => 'editTeamUser/'.$team->id, 'method' => 'post')) }}
 
-    <img src='../image2/thumb/{{$team->image}}' />{{$team->name}}
+    <img src='/image2/thumb/{{$team->image}}' />{{$team->name}}
 
     {{ Form::select('position', array(
 

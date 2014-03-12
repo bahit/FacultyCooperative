@@ -109,7 +109,7 @@ class UsersController extends BaseController {
 
     public function dashboard() {
 
-    //return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+
             $id = Auth::user()->id;
             $user = User::find($id);
 
@@ -124,7 +124,7 @@ class UsersController extends BaseController {
            ));
 
         return $view;
-        //return $venturesWantingUsersSkills;
+        return $venturesWantingUsersSkills;
 
 
     }

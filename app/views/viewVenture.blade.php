@@ -53,8 +53,8 @@
                 
                 <h3>Team members:</h3>
                 @foreach($teams as $team)
-                <li> <!--auto resize -->
-                	<a href="../publicProfile/{{$team->user_id}}"><img src='../image2/thumb/{{$team->image}}' /> {{$team->name}}</a>
+                <li class="thumb-list"> <!--auto resize -->
+                	<a href="../publicProfile/{{$team->user_id}}"><img src='../image2/thumb/{{$team->image}}' />{{$team->name}}</a>
                 	@if($team->position==2)
           			<strong>Team Leader</strong>
     				@endif

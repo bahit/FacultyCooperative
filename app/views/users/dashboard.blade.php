@@ -5,7 +5,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active">
         <a href="#">
-			<span class="glyphicon glyphicon-user"></span> Profile
+			<span class="glyphicon glyphicon-user"></span> Dashboard
         </a></li>
     	
 	</ul>
@@ -14,7 +14,7 @@
 <div class="row show-grid">
 	<div class="col-md-4">
     	<div class="thumbnail">
-		<img src='../image2/profile/{{$user->image}}' />
+		<img src='/image2/profile/{{$user->image}}' />
     	
 		<ul class="list-group custom-set">
         <li class="list-group-item">
@@ -27,16 +27,16 @@
           </li>
         <li class="list-group-item">
         		<span class="glyphicon glyphicon-envelope"></span>
-    			<a href="../readMessage">Read your messages</a>
+    			<a href="/readMessage">Read your messages</a>
           </li>
           <li class="list-group-item">
         		<span class="glyphicon glyphicon-briefcase"></span>
-                <a href="../createVenture">Create a new venture</a>
+                <a href="/createVenture">Create a new venture</a>
                
           </li>
           <li class="list-group-item">
                 <span class="glyphicon glyphicon-user"></span>
-						<a href="../publicProfile/{{$user->id}}">View your public profile</a>
+						<a href="/publicProfile/{{$user->id}}">View your public profile</a>
           </li>
           
        	  </ul>
@@ -53,7 +53,10 @@
           	<h3>Team Memberships</h3>
           	<p>You are involved with the following ventures:</p>
           	@foreach($teamInvolvement as $team)
-          	<li><a href='../viewVenture/{{$team->venture_id}}'>{{$team->title}}</a></li>
+          	<li class="thumb-list">
+
+                <a href='/viewVenture/{{$team->venture_id}}'>
+                    <img src='/image2/tiny/{{$team->logo}}' />{{$team->title}}</a></li>
 
           	@endforeach
           	@endif
@@ -63,7 +66,9 @@
           	<h3>These ventures may be interested in your skills:</h3>
 
           	@foreach($venturesWantingUsersSkills as $venture)
-          	<li><a href='../viewVenture/{{$venture->venture_id}}'>{{$venture->title}}</a></li>
+          	<li class="thumb-list">
+                <a href='/viewVenture/{{$venture->venture_id}}'>
+                    <img src='/image2/tiny/{{$venture->logo}}' />{{$venture->title}}</a></li>
 
           	@endforeach
           	@endif

@@ -464,7 +464,10 @@ p {
 
 .social-icon {
     list-style: none outside none;
+    marign-left: 0; padding-left: 0;
 }
+
+
 
 .social-icon li {
     display: inline-block;
@@ -484,6 +487,25 @@ p {
 .social.skype:before {
     background: url('../images/social-btn.png') no-repeat scroll left bottom transparent;
 }
+
+
+.thumb-list {
+        list-style: none outside none;
+        marign-left: 0; padding-left: 0;
+    }
+
+
+.thumb-list img{
+    padding: 3px 20px 3px 0px;
+
+}
+
+.thumb-list a{
+    font-weight: bold;
+    font-size: 1.3em;
+
+}
+
 
 /* FAQ Page
 -------------------------------------------------- */

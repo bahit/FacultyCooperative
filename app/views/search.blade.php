@@ -37,7 +37,9 @@
 
 @foreach($users as $key => $users)
 
-<p><a href='publicProfile/{{$users->id}}'>View {{$users->name}}'s profile</a></p>
+        <li class="thumb-list">
+<a href='publicProfile/{{$users->id}}'><img src='/image2/tiny/{{$users->image}}' />View {{$users->name}}'s profile</a>
+            </li>
 
 @endforeach
 @endif
@@ -75,7 +77,12 @@
 
 @foreach($ventures as $key => $ventures)
 
-<p><a href='viewVenture/{{$ventures->id}}'>View {{$ventures->title}}'s page</a></p>
+        <li class="thumb-list">
+
+            <a href='viewVenture/{{$ventures->id}}'>
+                <img src='/image2/tiny/{{$ventures->logo}}' />View {{$ventures->title}}'s page</a>
+
+        </li>
 
 @endforeach
 @endif
@@ -138,10 +145,10 @@
 
 @foreach($usersWithSkill as $userWith)
 
-<li><!--SEE profile controller - need to resize image when saved!!!  ST -->
+        <li class="thumb-list">
 
-    <a href='../publicProfile/{{$userWith->user_id}}'>
-        <img src='../images/{{$userWith->image}}' width="80px"/>
+    <a href='/publicProfile/{{$userWith->user_id}}'>
+        <img src='/image2/tiny/{{$userWith->image}}' />
         View {{$userWith->name}}'s profile</a></li>
 
 
@@ -202,9 +209,9 @@
 @foreach($venturesWantingSkill as $venturesWanting)
 
 
-    <li>
-    <a href='../viewVenture/{{$venturesWanting->venture_id}}'>
-        <img src='../images/{{$venturesWanting->logo}}' width="80px"/>
+    <li class="thumb-list">
+    <a href='/viewVenture/{{$venturesWanting->venture_id}}'>
+        <img src='/image2/tiny/{{$venturesWanting->logo}}' />
         View {{$venturesWanting->title}}'s profile</a></li>
 
 

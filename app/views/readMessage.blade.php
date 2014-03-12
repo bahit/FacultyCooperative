@@ -30,9 +30,9 @@
 
     <div class='result a{{$readMessage->id}}'>
     <div class='body'><p>{{$readMessage->body}}</p></div>
-    <p><img src='../image2/thumb/{{$readMessage->image}}' width="100px"/></p>
+    <p><img src='/image2/thumb/{{$readMessage->image}}' width="100px"/></p>
 
-    <p><a href='../sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
+    <p><a href='/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
 
     </div>
 

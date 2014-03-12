@@ -14,7 +14,7 @@
 	<div class="col-md-4">
     	<div class="thumbnail">
 
-    	<img src='../image2/profile/{{$profile->image}}' />
+    	<img src='/image2/profile/{{$profile->image}}' />
 		<ul class="list-group custom-set">
         <!--<li class="list-group-item">
         		<span class="glyphicon glyphicon-envelope"></span>
@@ -80,7 +80,11 @@
 				<h4>{{$profile->name}} is not willing to offer investment</h4>
 				@endif
                 </br>
+
+                <h3> <span class="glyphicon glyphicon-envelope"></span> <a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
             </div>
+            </br>
+
      	<ul class="social-icon">
         	<li><a class="social twitter" href="">Google+</a></li>
             <li><a class="social google_plus" href="">@Twitter</a></li>
@@ -88,13 +92,14 @@
             <li><a class="social skype" href="">Skype</a></li>
      
      	</ul>
+
      
     	</div>
     
     </div>
 </div>
 <!--
-<h3><a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
+
 
 <br>
 -->

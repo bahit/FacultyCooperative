@@ -57,9 +57,18 @@ class VentureController extends BaseController
     public function createVenture()
 
     {
-
+		 
 
         if (isset(Auth::user()->id)) {
+        	$validator = Venture::validate(Input::all());
+        	if ($validator->fails()) {
+
+            Input::flash();
+
+            return Redirect::to('createVenture')
+                ->withErrors($validator);
+                }
+                
             $id = Auth::user()->id;
 
             $venture = new Venture;
@@ -86,9 +95,14 @@ class VentureController extends BaseController
     public function updateVenture($id)
 
     {
-        //TODO
-        //no validation or error checking here - needs adding!!!
-        //
+            $validator = Venture::validate(Input::all());
+        	if ($validator->fails()) {
+
+            Input::flash();
+
+            return Redirect::to('editVenture/' . $id)
+                ->withErrors($validator);
+                }
 
         $venture = Venture::find($id);
         $venture->title = Input::get('title');

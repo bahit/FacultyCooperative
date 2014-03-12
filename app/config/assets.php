@@ -9,10 +9,10 @@ return array(
 
         'paths' => array(
             //'input' => 'app/assets/images',
-            'input' => '../public/images/',
+            'input' => 'images/',
 
             //'output' => 'app/storage/cache/images'
-            'output' => '../public/images/generated'
+            'output' => 'images/generated'
 
 
         ),

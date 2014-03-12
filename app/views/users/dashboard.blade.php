@@ -14,7 +14,7 @@
 <div class="row show-grid">
 	<div class="col-md-4">
     	<div class="thumbnail">
-		<img src='../images/{{$user->image}}' width="200px"/>
+		<img src='../image2/profile/{{$user->image}}' />
     	
 		<ul class="list-group custom-set">
         <li class="list-group-item">

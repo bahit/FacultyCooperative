@@ -25,7 +25,7 @@
 <br>
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../image2/big/{{$venture->logo}}' width="300px"/>
+<img src='../image2/profile/{{$venture->logo}}' />
 {{Form::file('logo')}}
 
 <br>

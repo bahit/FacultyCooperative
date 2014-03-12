@@ -14,7 +14,7 @@
 <div class="row show-grid">
 	<div class="col-md-4">
     	<div class="thumbnail">
-		<p><img src='../image2/big/{{$venture->logo}}' /></p>
+		 <img src='../image2/profile/{{$venture->logo}}' />
 		<ul class="list-group custom-set">
         	<li class="list-group-item">
    		  	<span class="glyphicon glyphicon-gbp"></span>

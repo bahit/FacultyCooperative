@@ -1,53 +1,77 @@
 @extends("main")
 @section("content")
-  <div class="container-fluid">
-    <div class="row">
+
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="active">
+        <a href="#">
+			<span class="glyphicon glyphicon-user"></span> Profile
+        </a></li>
+    	
+	</ul>
+</div>
+
+<div class="row show-grid">
+	<div class="col-md-4">
+    	<div class="thumbnail">
+		<img src='../images/{{$user->image}}' width="200px"/>
+    	
+		<ul class="list-group custom-set">
+        <li class="list-group-item">
+          		<p class="glyphicon-friends">
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="glyphicon glyphicon-user"></span>
+                </p>
+
+						<a href="../editProfile">Update your profile</a>
+          </li>
+        <li class="list-group-item">
+        		<span class="glyphicon glyphicon-envelope"></span>
+    			<a href="../readMessage">Read your messages</a>
+          </li>
+          <li class="list-group-item">
+        		<span class="glyphicon glyphicon-briefcase"></span>
+                <a href="../createVenture">Create a new venture</a>
+               
+          </li>
+          <li class="list-group-item">
+                <span class="glyphicon glyphicon-user"></span>
+						<a href="../publicProfile/{{$user->id}}">View your public profile</a>
+          </li>
+          
+       	  </ul>
+    	</div>
+    
+    </div>
 
 
+<div class="col-md-8 left-block">
+    	<div class="info-block">
+        	<div class="info-text">
+            <h1 class="page-header">Hello {{$user->name}}!</h1>
+            @if($teamInvolvement)
+          	<h3>Team Memberships</h3>
+          	<p>You are involved with the following ventures:</p>
+          	@foreach($teamInvolvement as $team)
+          	<li><a href='../viewVenture/{{$team->venture_id}}'>{{$team->title}}</a></li>
 
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Hello {{$user->name}}</h1>
-
-
-         <p> <img src='../images/{{$user->image}}' width="200px"/></p>
-
-          <h3><a href="../editProfile">Update your profile</a></h3>
-
-          <h3><a href="../publicProfile/{{$user->id}}">View your public profile</a></h3>
-
-          <h3><a href="../createVenture">Create a new venture</a></h3>
-
-          <h3><a href="../readMessage">Read your messages</a></h3>
+          	@endforeach
+          	@endif
 
 
+          	@if(count($venturesWantingUsersSkills)>0)
+          	<h3>These ventures may be interested in your skills:</h3>
 
+          	@foreach($venturesWantingUsersSkills as $venture)
+          	<li><a href='../viewVenture/{{$venture->venture_id}}'>{{$venture->title}}</a></li>
 
-          @if($teamInvolvement)
-          <h3>Team Memberships</h3>
-          <p>You are involved with the following ventures</p>
-          @foreach($teamInvolvement as $team)
-          <li><a href='../viewVenture/{{$team->venture_id}}'>{{$team->title}}</a></li>
-
-          @endforeach
-          @endif
-
-
-          @if(count($venturesWantingUsersSkills)>0)
-          <h3>These Ventures May be Interested in your Skills</h3>
-
-          @foreach($venturesWantingUsersSkills as $venture)
-          <li><a href='../viewVenture/{{$venture->venture_id}}'>{{$venture->title}}</a></li>
-
-          @endforeach
-          @endif
-
-
-
-
-
-
-        </div>
-      </div>
+          	@endforeach
+          	@endif
+            
+            </div>
+     
+    	</div>
+    
     </div>
   </div>
 

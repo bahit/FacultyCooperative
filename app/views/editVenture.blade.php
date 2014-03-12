@@ -32,7 +32,7 @@
 
 <br>
 
-{{ Form::label('description', 'Describe the venture') }}
+{{ Form::label('description', 'Describe the venture') }}<br>
 {{ Form::textarea('description', $venture->description, array('class'=>'input-block-level')) }}
 <br>
 <br>

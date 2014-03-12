@@ -88,7 +88,7 @@ class SkillTableSeeder extends Seeder
         Skill::create(array('category' => 'Medical Sciences', 'skill_name' => 'Chemotherapy'));
         Skill::create(array('category' => 'Medical Sciences', 'skill_name' => 'Toxicology'));
         Skill::create(array('category' => 'Marketing', 'skill_name' => 'Advertising'));
-        Skill::create(array('category' => 'Marketing', 'skill_name' => 'Priduct Launches'));
+        Skill::create(array('category' => 'Marketing', 'skill_name' => 'Product Launches'));
         Skill::create(array('category' => 'Marketing', 'skill_name' => 'International Business'));
         Skill::create(array('category' => 'Business Skills', 'skill_name' => 'Entrepreneurial'));
         Skill::create(array('category' => 'Business Skills', 'skill_name' => 'Administration'));
@@ -426,6 +426,12 @@ class SkillWantedTableSeeder extends Seeder
         SkillWanted::create(array('venture_id' => '6', 'skill_id' => '48'));
         SkillWanted::create(array('venture_id' => '6', 'skill_id' => '49'));
         SkillWanted::create(array('venture_id' => '6', 'skill_id' => '166'));
+        SkillWanted::create(array('venture_id' => '9', 'skill_id' => '58'));
+        SkillWanted::create(array('venture_id' => '9', 'skill_id' => '122'));
+        SkillWanted::create(array('venture_id' => '9', 'skill_id' => '131'));
+        SkillWanted::create(array('venture_id' => '9', 'skill_id' => '166'));
+
+
 
     }
 
@@ -456,6 +462,9 @@ class TeamTableSeeder extends Seeder
         Team::create(array('venture_id' => '3', 'user_id' => '5', 'position' => '2'));
         Team::create(array('venture_id' => '3', 'user_id' => '6'));
         Team::create(array('venture_id' => '3', 'user_id' => '7'));
+
+        Team::create(array('venture_id' => '9', 'user_id' => '1', 'position' => '2'));
+        Team::create(array('venture_id' => '9', 'user_id' => '2'));
 
 
 
@@ -491,9 +500,9 @@ class VentureTableSeeder extends Seeder
         Venture::create(array(
             'title' => 'Boogle',
             'logo' => 'boogle.png',
-            'description' => 'Do not be evil',
-            'funding_target' => '999999999',
-            'funding_secured' => '1000000'
+            'description' => 'Do not be evil - and pay taxes',
+            'funding_target' => '60000',
+            'funding_secured' => '50000'
         ));
 
 
@@ -511,7 +520,7 @@ class VentureTableSeeder extends Seeder
             'logo' => 'tp.jpg',
             'description' => 'Be what is next',
             'funding_target' => '999999999',
-            'funding_secured' => '1000000'
+            'funding_secured' => '10000000'
         ));
 
 
@@ -519,8 +528,8 @@ class VentureTableSeeder extends Seeder
             'title' => 'Facebucket',
             'logo' => 'facebucket.jpg',
             'description' => 'Facebook is a social utility that connects you with the people around you',
-            'funding_target' => '999999999',
-            'funding_secured' => '1000000'
+            'funding_target' => '8000',
+            'funding_secured' => '6000'
         ));
 
 
@@ -539,6 +548,17 @@ class VentureTableSeeder extends Seeder
             'description' => '…and You are Done',
             'funding_target' => '999999999',
             'funding_secured' => '1000000'
+        ));
+
+        Venture::create(array(
+            'title' => 'What does the Fox Say',
+            'logo' => 'fox.jpg',
+            'description' => 'Dog goes woof, Cat goes meow
+                                Bird goes tweet and mouse goes squeek
+                                Cow goes moo, Frog goes croak
+                                and the elephant goes toot',
+            'funding_target' => '200000',
+            'funding_secured' => '15000'
         ));
 
 

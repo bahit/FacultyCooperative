@@ -5,23 +5,17 @@ class ProfileController extends BaseController
     public function showPublicProfile($id)
     {
         $profile = User::find($id);
-        //$skillOffer = SkillOffer::whereRaw('user_id = ?', array($id))->get();
 
-        //SELECT * FROM skillOffers JOIN skills WHERE skillOffers.skillId = skills.skillId
+        $skillOffer= SkillOffer::getSkillOffer($id);
 
-
-        $skillOffer = DB::table('skills')
-            ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
-            ->where('skill_offers.user_id', '=', $id)
-            ->get();
-
+        $teamInvolvement = Team::getTeamInvolvement($id);
 
         $view = View::make('showProfile', array('profile' => $profile,
-            'skillOffer' => $skillOffer));
+            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement));
 
 
         return $view;
-        //return $skillOffer;
+        //return $teamInvolvement;
     }
 
 
@@ -34,15 +28,14 @@ class ProfileController extends BaseController
 
             $profile = User::find($id);
 
-        $skills = ProfileController::skillOfferChecklistInit($id);
+            $skills = ProfileController::skillOfferChecklistInit($id);
 
-        $view = View::make('editProfile', array('profile' => $profile, 'skills' => $skills));
+            $view = View::make('editProfile', array('profile' => $profile, 'skills' => $skills));
 
-        return $view;
+            return $view;
         } else {
             return Redirect::to('login');
         }
-
 
 
     }
@@ -51,8 +44,8 @@ class ProfileController extends BaseController
 
     {
         $id = Auth::user()->id;
-       //////////////////
-        //This should go in model - see Message model for example
+        //////////////////
+        //This should go in MODEL!!!! - see Message model for example
         $rules = array(
             'name' => 'required',
             'bioDetails' => 'required|max:200'
@@ -64,7 +57,7 @@ class ProfileController extends BaseController
 
         if ($validator->fails()) {
 
-            return Redirect::to('editProfile/' . $id)
+            return Redirect::to('editProfile')
                 ->withErrors($validator);
 
 
@@ -76,14 +69,13 @@ class ProfileController extends BaseController
             $user->bio_details = Input::get('bioDetails');
             $user->career_status = Input::get('careerStatus');
             $user->institution = Input::get('institution');
-            if (Input::get('investmentOffered'))
-            {
-            $user->investment_offered = 1;}
-                else{$user->investment_offered = 0;}
+            if (Input::get('investmentOffered')) {
+                $user->investment_offered = 1;
+            } else {
+                $user->investment_offered = 0;
+            }
 
 
-            //Intervention/Image package To resixe images - investigate
-            // TODO
             //
             if (Input::hasFile('image')) {
                 Input::file('image')->move(base_path() . '/public/images/', 'profile' . $id . '.jpg');
@@ -112,7 +104,6 @@ class ProfileController extends BaseController
             }
 
 
-
             //////////////
             $skills = ProfileController::skillOfferChecklistInit($id);
 
@@ -127,8 +118,6 @@ class ProfileController extends BaseController
             return $view;
 
 
-            //return $user->investment_offered;
-            //return $file->getClientOriginalName();
 
 
         }
@@ -140,24 +129,19 @@ class ProfileController extends BaseController
     public function skillOfferChecklistInit($id)
 
     {
-        ///
-        //getting checkboxes to correct state
 
-        $skill_offers =  DB::table('skills')
-            ->join('skill_offers', 'skills.id', '=', 'skill_offers.skill_id')
-            ->where('skill_offers.user_id', '=', $id)
-            ->lists('skill_offers.skill_id');
-        // ->get();
 
+        $skillOfferList = SkillOffer::getSkillOfferList($id);
 
         $skillsList = Skill::all();
         foreach ($skillsList as $skill) {
 
 
-            if (in_array($skill->id, $skill_offers)) {
-                $checked='checked';
+            if (in_array($skill->id, $skillOfferList)) {
+                $checked = 'checked';
+            } else {
+                $checked = 'unchecked';
             }
-            else{$checked='unchecked';}
 
 
             $skills[] = array('id' => $skill->id,

@@ -2,40 +2,25 @@
 @section('content')
 
 
-<h2>Team Management Page for @{{$venture->title}}</h2>
-
-<p><a href=''>Add member to team</a></p>
-
-<p><a href=''>Remove member from team</a></p>
-
-<p><a href=''>Edit members position in team</a></p>
+<h2>Team Management Page</h2>
+<h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
 <h4 style="background-color:red;">Thank you - your Team has been updated</h4>
-
 @endif
+
 
 <!--This picks up errors from validation-->
 {{ HTML::ul($errors->all()) }}
-<p><em>This is a UNFINISHED</em></p>
-<h3>Edit team member status or remove member from team</h3>
 
-
-
-
-@if(isset($editPosition))
+<h3>Edit team member status</h3>
 
 @foreach($teams as $team)
-<li> <!--SEE profile controller - need to resize image when saved!!!  ST -->
-    <img src='../images/{{$team->image}}' width="80px"/>
+<li class="thumb-list">
+    {{ Form::open(array('url' => 'editTeamUser/'.$team->id, 'method' => 'post')) }}
 
-    <a href="../publicProfile/{{$team->user_id}}">{{$team->name}}</a>
-
-
-
-
-    {{ Form::open(array('url' => 'editTeamUser/'.$team->id,  'method' => 'post')) }}
+    <img src='/image2/thumb/{{$team->image}}' />{{$team->name}}
 
     {{ Form::select('position', array(
 
@@ -45,23 +30,18 @@
 
     ),$team->position) }}
 
+    Delete Member: {{ Form::checkbox('delete', 'delete') }}
 
-
-    {{ Form::submit('Change Team Member Position',array('class' => 'form-button')) }}
+    {{ Form::submit('update',array('class' => 'form-button')) }}
 
 
     {{ Form::close() }}
-
-
-    <button>Delete from Team</button>
-
 
 
 </li>
 
 @endforeach
 
-@endif
 
 <h3>Add a new member to team</h3>
 
@@ -70,10 +50,11 @@
 
     <p>Search for any user of the Faculty Cooperative by any part of their name</p>
 
-    {{ Form::open(array('url' => 'searchUserToAdd',  'method' => 'post')) }}
+    {{ Form::open(array('url' => 'searchUserToAdd/'.$venture->id, 'method' => 'post')) }}
 
     {{ Form::label('search', 'user name', array('class' => 'form-label')) }}
     {{ Form::text('search', '', array('class'=>'input-block-level', 'placeholder'=>'search')) }}
+
 
 
     {{ Form::submit('Search',array('class' => 'form-button')) }}
@@ -88,14 +69,14 @@
 
     @foreach($users as $key => $users)
 
-    <p><a href='addUserToTeam/{{$users->id}}'>Add {{$users->name}} to the team</a></p>
+    <p><a href='../addUserToTeam/{{$users->id}}/{{$venture->id}}'>Add {{$users->name}} to the team</a></p>
 
     @endforeach
     @endif
 
+</fieldset>
 
-
-    @endsection
+@endsection
 
 
 

@@ -6,18 +6,9 @@ class VentureController extends BaseController
     {
         $venture = Venture::find($id);
 
+        $teams = Team::getTeams($id);
 
-        $teams = DB::table('users')
-            ->join('teams', 'users.id', '=', 'teams.user_id')
-            ->where('teams.venture_id', '=', $id)
-            ->orderBy('position', 'asc')
-            ->get();
-
-        $skillsWanted = DB::table('skills')
-            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
-            ->where('skill_wanteds.venture_id', '=', $id)
-            ->get();
-
+        $skillsWanted = SkillWanted::getSkillsWanted($id);
 
         $auth = VentureController::isAuthUserTeamLeader($id);
 
@@ -26,8 +17,8 @@ class VentureController extends BaseController
             'teams' => $teams,
             'auth' => $auth));
         return $view;
-        //return $skillsWanted;
-        ////.............................
+        // return $auth;
+
     }
 
     public function editVenture($id)
@@ -116,18 +107,21 @@ class VentureController extends BaseController
         //clear user skills as results only sent for boxes checked
         SkillWanted::where('venture_id', '=', $id)->delete();
 
+
         $skill_wanteds = Input::get('skillsCB');
 
         //loops checkbox array and writes to DB
-        foreach ($skill_wanteds as $skill_id) {
-            $skill_wanted = new SkillWanted;
 
-            $skill_wanted->venture_id = $id;
-            $skill_wanted->skill_id = $skill_id;
+        if ($skill_wanteds) {
+            foreach ($skill_wanteds as $skill_id) {
+                $skill_wanted = new SkillWanted;
 
-            $skill_wanted->save();
+                $skill_wanted->venture_id = $id;
+                $skill_wanted->skill_id = $skill_id;
+
+                $skill_wanted->save();
+            }
         }
-
 
         $skills = VentureController::skillWantedChecklistInit($id);
 
@@ -146,18 +140,14 @@ class VentureController extends BaseController
         ///
         //getting checkboxes to correct state
 
-        $skill_wanteds = DB::table('skills')
-            ->join('skill_wanteds', 'skills.id', '=', 'skill_wanteds.skill_id')
-            ->where('skill_wanteds.venture_id', '=', $id)
-            ->lists('skill_wanteds.skill_id');
-        // ->get();
+        $skillWantedList = SkillWanted::skillWantedList($id);
 
 
         $skillsList = Skill::all();
         foreach ($skillsList as $skill) {
 
 
-            if (in_array($skill->id, $skill_wanteds)) {
+            if (in_array($skill->id, $skillWantedList)) {
                 $checked = 'checked';
             } else {
                 $checked = 'unchecked';
@@ -187,7 +177,7 @@ class VentureController extends BaseController
             $teamLeaders = Team::whereRaw('venture_id = ? and position=2', array($id))->get();
 
             foreach ($teamLeaders as $teamLeader) {
-                if ($teamLeader->id == $authId) {
+                if ($teamLeader->user_id == $authId) {
                     $auth = true;
                 }
             }
@@ -195,6 +185,7 @@ class VentureController extends BaseController
         }
 
         return $auth;
+        //return $teamLeaders;
 
     }
 

@@ -78,13 +78,57 @@ class UsersController extends BaseController {
 	 */
 	public function postSignin() {
     if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
-    	return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
-		} else {
+
+
+    	//return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+
+        $teamInvolvement = Team::getTeamInvolvement($id);
+
+        $venturesWantingUsersSkills = SkillOffer::venturesWantingUsersSkills($id);
+
+        $view = View::make('users/dashboard', array('user' => $user,
+            'teamInvolvement' => $teamInvolvement,
+            'venturesWantingUsersSkills' => $venturesWantingUsersSkills
+        ));
+
+        return $view;
+
+
+
+        } else {
     	return Redirect::to('users/login')
         ->with('message', 'Your username/password combination was incorrect')
         ->withInput();
 		}
 	}
+
+
+
+    public function dashboard() {
+
+
+            $id = Auth::user()->id;
+            $user = User::find($id);
+
+
+        $teamInvolvement = Team::getTeamInvolvement($id);
+
+        $venturesWantingUsersSkills = SkillOffer::venturesWantingUsersSkills($id);
+
+           $view = View::make('users/dashboard', array('user' => $user,
+           'teamInvolvement' => $teamInvolvement,
+           'venturesWantingUsersSkills' => $venturesWantingUsersSkills
+           ));
+
+        return $view;
+        return $venturesWantingUsersSkills;
+
+
+    }
+
 
 	/**
 	 * Open Dashboard view

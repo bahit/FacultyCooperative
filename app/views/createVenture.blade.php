@@ -9,7 +9,7 @@
 <!--Please someone style this page-->
 <h4 style="background-color:red;">Thank you - your venture has been created</h4>
 
-<h4><a href="../public/editVenture/{{$venture->id}}" >Follow this link to add details to your venture page now</a></h4>
+<h4><a href="../editVenture/{{$venture->id}}" >Follow this link to add details to your venture page now</a></h4>
 
 @else
 

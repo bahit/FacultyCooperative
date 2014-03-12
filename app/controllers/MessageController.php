@@ -7,10 +7,17 @@ class MessageController extends BaseController
     public function sendMessage($id)
     {
 
+
+        if (isset(Auth::user()->id)) {
+
         $user = User::find($id);
         $view = View::make('sendMessage', array('user' => $user));
         return $view;
-
+        }
+        else
+        {
+            return Redirect::to('login');
+        }
 
     }
 
@@ -33,13 +40,6 @@ class MessageController extends BaseController
 
             $message = new Message;
             $message->to_user_id = $id;
-
-
-//$id = Auth::user()->id;
-//$currentuser = User::find($id);
-//echo $currentuser->name;
-//echo $id;
-
             $message->from_user_id = Auth::user()->id;
             $message->body = Input::get('body');
             $message->subject = Input::get('subject');
@@ -67,18 +67,12 @@ class MessageController extends BaseController
             $user = User::find($id);
 
 
-            $readMessages = DB::table('users')
-                ->join('messages', 'messages.from_user_id', '=', 'users.id')
-                ->where('to_user_id', '=', $id)
-                ->orderBy('messages.created_at', 'DESC')
-                ->get();
+            $readMessages = Message::readMessages($id);
 
 
             $view = View::make('readMessage', array('user' => $user
+                            , 'readMessages' => $readMessages
 
-                //$view = View::make('readMessageWithAjax', array('user' => $user
-            , 'readMessages' => $readMessages
-                //,'message'=>$message
             ));
             return $view;
 

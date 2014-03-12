@@ -195,6 +195,12 @@ legend {
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
+/*Removed carousel and added padding-top to have some space with nav bar*/
+@media (max-width: 767px) {
+  .marketing {
+    padding-top: 15px;
+  }
+}
 /* Pad the edges of the mobile views a bit */
 .marketing {
   padding-right: 15px;

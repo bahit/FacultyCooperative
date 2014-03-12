@@ -6,6 +6,10 @@ class VentureController extends BaseController
     {
         $venture = Venture::find($id);
 
+        if ($venture == null) {
+            App::abort(404);
+        }
+
         $teams = Team::getTeams($id);
 
         $skillsWanted = SkillWanted::getSkillsWanted($id);
@@ -43,7 +47,8 @@ class VentureController extends BaseController
         } else {
 
             //error message needs improving
-            return 'not a team leader - this needs a proper error response!';
+            // return 'not a team leader - this needs a proper error response!';
+            App::abort(403);
 
         }
 

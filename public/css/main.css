@@ -524,3 +524,32 @@ p {
     box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.15) inset;
     -moz-box-sizing: border-box;
     transition: width 0.6s ease 0s;
+}
+
+/* Read message
+-------------------------------------------------- */
+
+.msgbanner{
+	width: 1140px;
+	height: 150px;
+	background: url(../images/msgbanner.png);
+	color: #ffffff;
+	padding: 0px 0px 0px 0px;
+  	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	margin: 0 0 2.5em 0;
+	overflow:hidden;
+	}
+	
+.msg-img{
+	padding: 10px 0px 0px 20px;
+	float:left;
+	}
+
+.msg-text{
+	padding: 10px 0px 0px 20px;
+	float:left;
+	}
+
+.msg-content{
+	background: url(../images/transp.png);
+	}

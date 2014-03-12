@@ -37,10 +37,10 @@
 <!--We might want to populate these pull down boxes from the database-->
 {{ Form::select('careerStatus', array(
 'default' => $profile->career_status,
-'academicProfessional' => 'Academic Professional',
-'businessProfessiona' => 'Business Professional',
-'postgraduateStudent' => 'Postgraduate Student',
-'undergraduateStudent' => 'Undergraduate Student'
+'Academic Professional' => 'Academic Professional',
+'Business Professional' => 'Business Professional',
+'Postgraduate Student' => 'Postgraduate Student',
+'Undergraduate Student' => 'Undergraduate Student'
 ),'default') }}
 
 <br>

@@ -275,7 +275,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Katy Perry',
             'image' => 'katyperry.jpg',
             'bio_details' => 'I am Katy Perry, I am a singer!Welcome to my personal website:www.katyperry.com',
-            'career_status' => 'Singer,Actress',
+            'career_status' => 'Business Professional',
             'institution' => 'None',
             'investment_offered' => '1'
         ));
@@ -287,7 +287,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Bill Gates',
             'image' => 'billgates.jpg',
             'bio_details' => 'Hello every, I am Bill,I am the richest man in the world!',
-            'career_status' => 'Technology Advisor of Microsoft, Co-Chair of the Bill & Melinda Gates Foundation,CEO of Cascade Investment,Chairman of Corbis',
+            'career_status' => 'Business Professional',
             'institution' => 'Harvard University',
             'investment_offered' => '1'
         ));
@@ -310,9 +310,10 @@ class UserTableSeeder extends Seeder
             'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Jim Lawman',
             'bio_details' => 'I want to help students with legal work in return for equity',
-            'career_status' => 'Professional',
+            'career_status' => 'Business Professional',
             'institution' => 'Shister and Shister Law Firm',
-            'investment_offered' => '0'
+            'image' => 'profile9.jpg',
+            'investment_offered' => '1'
         ));
 
     }
@@ -570,7 +571,7 @@ class MessageTableSeeder extends Seeder
 
         Message::create(array(
             'subject' => 'We need a designer',
-            'from_user_id' => '3',
+            'from_user_id' => '4',
             'to_user_id' => '1',
             'body' => "Can you design something for us - if so please reply",
         ));

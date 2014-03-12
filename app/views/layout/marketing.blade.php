@@ -10,20 +10,31 @@
         <div class="col-lg-4">
           <img class="img-circle" ><img src="images/icon_light.png" width="140" height="140" alt="lightbulb" />
 <h2>Have great ideas?</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">Sign up now! &raquo;</a></p>
+          <h4>These guys do!</h4>
+            <p>Use our search page to see what ventures are using the Faculty Cooperative and see if you
+            have the skills or investment to offer that could make you part of their team</p>
+
+
+          <p><a class="btn btn-default" href="search" role="button">Search now! &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" <img src="images/icon_skills.png" width="140" height="140" alt="skills">
           <h2>Posssess skills?</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">Sign up now! &raquo;</a></p>
+           <h4>Tell us what you can do</h4>
+
+          <p>When you register our system will automatically match your skills to ventures that
+          are seeking those skills. This could be the start of something big. Let the team building begin.</p>
+          <p><a class="btn btn-default" href="register" role="button">Register now! &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" <img src="images/icon_invest.png" width="140" height="140" alt="investment">
           <h2>Looking to invest?</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Sign up now! &raquo;</a></p>
+            <h4>We need mentors ...</h4>
+          <p>...and money. Some of the best ideas come from the university ecosystem. Invest in our
+              entrepreneurs and get in early on the next big thing!
+
+          </p>
+          <p><a class="btn btn-default" href="register" role="button">Register now! &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
   </div>

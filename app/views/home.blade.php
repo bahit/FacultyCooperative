@@ -3,15 +3,10 @@
 
 @include('layout/carousel')
 @include('layout/marketing')
-<div class="welcome">
 
-    <h1>You have arrived.</h1>
-</div>
+<!--
 
-
-<h2>Hello Group 1</h2>
-
-<h3> <em>!!Test Links - All need hooking up to some sort of system !! </em></h3>
+//Test Links
 
 <p><a href="publicProfile/1">This link should take you to view profile for user id 1</a></p>
 
@@ -32,5 +27,7 @@
 <p><a href="sendMessage/1">This link should send a message to user id 1</a></p>
 
 <p><a href="readMessage">This link should allow the logged in user to read their messages</a></p>
+
+-->
 
 @endsection

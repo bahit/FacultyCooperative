@@ -41,13 +41,16 @@ class Image {
         // We can read the output path from our configuration file.
         $outputDir = Config::get('assets.images.paths.output');
 
+       $outputDir = $outputDir.'/'.$sizeString;
+
         // Create an output file path from the size and the filename.
-        $outputFile = $outputDir . '/' . $sizeString . '_' . $filename;
+       // $outputFile = $outputDir . '/' . $sizeString . '_' . $filename;
+        $outputFile = $outputDir . '/' .  $filename;
 
         // If the resized file already exists we will just return it.
-        if (File::isFile($outputFile)) {
-            return File::get($outputFile);
-        }
+       // if (File::isFile($outputFile)) {
+        //    return File::get($outputFile);
+       // }
 
         // File doesn't exist yet, so we will resize the original.
         $inputDir = Config::get('assets.images.paths.input');

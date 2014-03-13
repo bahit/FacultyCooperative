@@ -24,7 +24,7 @@
 {{ Form::text('name', $profile->name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
 <br>
 
-<!--SEE profile controller - need to resize image when saved!!!  ST -->
+
 <img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
 {{Form::file('image')}}
 

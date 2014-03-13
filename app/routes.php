@@ -124,7 +124,3 @@ Route::post('messageBodyAjax', 'MessageController@messageBodyAjax');
 
 Route::get('image2/{size}/{file}','ImageController@getImage');
 
-//Route::get('image2/{size}/{file}', function()
-//{
-  //  return 'balls';
-//});

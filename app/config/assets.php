@@ -9,13 +9,10 @@ return array(
 
         'paths' => array(
 
-           // 'input' => '../FacultyCooperative/public/images',
-            //http://localhost/FacultyCooperative/public/image2/profile/profile10.jpg
-
             'input' => 'images',
 
-          // 'output' => '../FacultyCooperative/public/images/generated'
-            'output' => 'images/generated',
+
+            'output' => 'image2',
 
 
         ),

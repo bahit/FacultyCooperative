@@ -78,13 +78,31 @@ class ProfileController extends BaseController
 
             //
             if (Input::hasFile('image')) {
+
+                //workaround for image library not working for some of team - would not be required for production server
+                //otherwise images wont update
+                if (file_exists(base_path() .'/public/image2/profile/'.'profile' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/profile/'.'profile' . $id . '.jpg');
+                }
+
+                if (file_exists(base_path() .'/public/image2/thumb/'.'profile' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/thumb/'.'profile' . $id . '.jpg');
+                }
+
+                if (file_exists(base_path() .'/public/image2/tiny/'.'profile' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/tiny/'.'profile' . $id . '.jpg');
+                }
+               // Image::resize('profile' . $id . '.jpg','profile');
+
                 Input::file('image')->move(base_path() . '/public/images/', 'profile' . $id . '.jpg');
+               // Input::file('image')->move(URL::to('') . '/images/', 'profile' . $id . '.jpg');
                 $user->image = 'profile' . $id . '.jpg';
             }
 
             $user->save();
 
             //TODO
+            //
             //no validation or error checking
 
 

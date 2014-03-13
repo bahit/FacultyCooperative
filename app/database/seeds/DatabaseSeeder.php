@@ -214,7 +214,7 @@ class UserTableSeeder extends Seeder
             'email' => 'sthomag@essex.ac.uk',
             'password' => '$2y$10$Y1OpejW903JRADxyqQy/jeqI59jlG/FMtQNdyMS.ZxrStO7R/8WyK',
             'name' => 'Sarah Thomas',
-            'image' => 'profile1.jpg',
+            'image' => 'profileXX1.jpg',
             'bio_details' => 'I am skilled at making tea',
             'career_status' => 'Postgraduate',
             'institution' => 'Essex University',

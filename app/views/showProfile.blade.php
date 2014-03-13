@@ -1,22 +1,6 @@
 @extends('main')
 @section('content')
 
-{{public_path()}}<br>
-{{Request::url()}}<br>
-{{Route::getCurrentRoute()->getPath()}}<br><br>
-
-{{URL::to('')}}
-
-<br><br>
-
-<?php
-$url = Request::url();
-
-print_r(parse_url($url));
-echo '<br>';
-
-echo parse_url($url, PHP_URL_PATH);
-?>
 
 
 <div class="container">

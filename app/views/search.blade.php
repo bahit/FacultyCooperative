@@ -38,7 +38,7 @@
 @foreach($users as $key => $users)
 
         <li class="thumb-list">
-<a href='publicProfile/{{$users->id}}'><img src='{{URL::to('')}}/image2/tiny/{{$users->image}}' />View {{$users->name}}'s profile</a>
+<a href='{{URL::to('')}}/publicProfile/{{$users->id}}'><img src='{{URL::to('')}}/image2/tiny/{{$users->image}}' />View {{$users->name}}'s profile</a>
             </li>
 
 @endforeach
@@ -79,7 +79,7 @@
 
         <li class="thumb-list">
 
-            <a href='viewVenture/{{$ventures->id}}'>
+            <a href='{{URL::to('')}}/viewVenture/{{$ventures->id}}'>
                 <img src='{{URL::to('')}}/image2/tiny/{{$ventures->logo}}' />View {{$ventures->title}}'s page</a>
 
         </li>
@@ -131,7 +131,7 @@
 
 @foreach($skills as  $skills)
 
-    <p><a href='searchSkills/{{$skills->id}}'>View users with skill {{$skills->category}}: {{$skills->skill_name}} </a></p>
+    <p><a href='{{URL::to('')}}/searchSkills/{{$skills->id}}'>View users with skill {{$skills->category}}: {{$skills->skill_name}} </a></p>
 
 
 
@@ -147,7 +147,7 @@
 
         <li class="thumb-list">
 
-    <a href='/publicProfile/{{$userWith->user_id}}'>
+    <a href='{{URL::to('')}}/publicProfile/{{$userWith->user_id}}'>
         <img src='{{URL::to('')}}/image2/tiny/{{$userWith->image}}' />
         View {{$userWith->name}}'s profile</a></li>
 
@@ -194,7 +194,7 @@
 
 @foreach($skillsWanted as  $skills)
 
-<p><a href='venturesWantingSkill/{{$skills->id}}'>View ventures that want skill {{$skills->category}}: {{$skills->skill_name}} </a></p>
+<p><a href='{{URL::to('')}}/venturesWantingSkill/{{$skills->id}}'>View ventures that want skill {{$skills->category}}: {{$skills->skill_name}} </a></p>
 
 
 

@@ -1,19 +1,18 @@
 @extends('main')
 @section('content')
-
+<!-- seems to be a bug effecting alignment of first item on page so this is a work around -->
+<div style="visibility: hidden">&nbsp; </div>
 
 <h3>Send Message to {{$user->name}}</h3>
 
 
-
-<!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../images/{{$user->image}}' width="100px"/>
+<img src='{{URL::to('')}}/image2/thumb/{{$user->image}}' />
 
 
 
 @if(isset($success))
-<!--hateful inline style temporary!-->
-<h4 style="background-color:red;">Thank you - your message has been sent</h4>
+
+<h4 class="alert alert-success">Thank you - your message has been sent</h4>
 
 @endif
 
@@ -25,11 +24,11 @@
 
 <br>
 
-{{ Form::label('subject', 'Subject') }}
+{{ Form::label('subject', 'Subject') }}<br>
 {{ Form::text('subject', '', array('class'=>'input-block-level')) }}
 {{ $errors->first('subject')}}
 <br><br>
-{{ Form::label('body', 'Message') }}
+{{ Form::label('body', 'Message') }}<br>
 {{ Form::textarea('body', '', array('class'=>'input-block-level')) }}
 {{ $errors->first('body')}}
 <br>

@@ -3,7 +3,7 @@
 
 <div class="msgbanner">
 	<div class="msg-img">
-		<img src='../image2/profile/{{$user->image}}' width="100px"/>
+		<img src='{{URL::to('')}}/image2/profile/{{$user->image}}' width="100px"/>
     </div>
 	<div class="msg-text">
     	<h2> {{$user->name}}'s messages</h2>
@@ -30,9 +30,9 @@
 
     <div class='result a{{$readMessage->id}}'>
     <div class='body'><p>{{$readMessage->body}}</p></div>
-    <p><img src='/image2/thumb/{{$readMessage->image}}' width="100px"/></p>
+    <p><img src='{{URL::to('')}}/image2/thumb/{{$readMessage->image}}' width="100px"/></p>
 
-    <p><a href='/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
+    <p><a href='{{URL::to('')}}/sendMessage/{{$readMessage->from_user_id}}'> REPLY NOW</a></p>
 
     </div>
 
@@ -57,7 +57,7 @@
         $("button").click(function(){
             var bid = this.id;
             //alert("Data: " + bid);
-            $.post("../messageBodyAjax",
+            $.post("{{URL::to('')}}/messageBodyAjax",
                 {
                     "bid":bid
 

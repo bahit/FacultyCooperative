@@ -23,20 +23,20 @@
                 <span class="glyphicon glyphicon-user"></span>
                 </p>
 
-						<a href="../editProfile">Update your profile</a>
+						<a href="{{URL::to('')}}//editProfile">Update your profile</a>
           </li>
         <li class="list-group-item">
         		<span class="glyphicon glyphicon-envelope"></span>
-    			<a href="/readMessage">Read your messages</a>
+    			<a href="{{URL::to('')}}/readMessage">Read your messages</a>
           </li>
           <li class="list-group-item">
         		<span class="glyphicon glyphicon-briefcase"></span>
-                <a href="/createVenture">Create a new venture</a>
+                <a href="{{URL::to('')}}/createVenture">Create a new venture</a>
                
           </li>
           <li class="list-group-item">
                 <span class="glyphicon glyphicon-user"></span>
-						<a href="/publicProfile/{{$user->id}}">View your public profile</a>
+						<a href="{{URL::to('')}}/publicProfile/{{$user->id}}">View your public profile</a>
           </li>
           
        	  </ul>
@@ -55,7 +55,7 @@
           	@foreach($teamInvolvement as $team)
           	<li class="thumb-list">
 
-                <a href='/viewVenture/{{$team->venture_id}}'>
+                <a href='{{URL::to('')}}/viewVenture/{{$team->venture_id}}'>
                     <img src='{{URL::to('')}}/image2/tiny/{{$team->logo}}' />{{$team->title}}</a></li>
 
           	@endforeach
@@ -67,7 +67,7 @@
 
           	@foreach($venturesWantingUsersSkills as $venture)
           	<li class="thumb-list">
-                <a href='/viewVenture/{{$venture->venture_id}}'>
+                <a href='{{URL::to('')}}/viewVenture/{{$venture->venture_id}}'>
                     <img src='{{URL::to('')}}/image2/tiny/{{$venture->logo}}' />{{$venture->title}}</a></li>
 
           	@endforeach

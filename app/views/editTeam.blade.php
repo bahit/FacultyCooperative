@@ -1,13 +1,17 @@
 @extends('main')
 @section('content')
 
+<!-- seems to be a bug effecting alignment of first item on page so this is a work around -->
+<div style="visibility: hidden">&nbsp; </div>
+
 
 <h2>Team Management Page</h2>
 <h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
-<!--hateful inline style temporary!-->
-<h4 style="background-color:red;">Thank you - your Team has been updated</h4>
+
+
+<h4 class="alert alert-success">Thank you - your Team has been updated</h4>
 @endif
 
 
@@ -20,7 +24,7 @@
 <li class="thumb-list">
     {{ Form::open(array('url' => 'editTeamUser/'.$team->id, 'method' => 'post')) }}
 
-    <img src='/image2/thumb/{{$team->image}}' />{{$team->name}}
+    <img src='{{URL::to('')}}/image2/thumb/{{$team->image}}' />{{$team->name}}
 
     {{ Form::select('position', array(
 

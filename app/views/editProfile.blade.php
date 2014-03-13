@@ -1,6 +1,8 @@
 @extends('main')
 @section('content')
 
+<!-- seems to be a bug effecting alignment of first item on page so this is a work around -->
+<div style="visibility: hidden">&nbsp; </div>
 
 <h1>Edit your Profile, {{$profile->name}}</h1>
 
@@ -8,8 +10,8 @@
 <h4>When a new user is registered a default profile should be created for them. They can then edit it with this
     form</h4>
 @else
-<!--hateful inline style temporary!-->
-<h4 style="background-color:red;">Thank you - your profile has been updated</h4>
+
+<h4 class="alert alert-success">Thank you - your profile has been updated</h4>
 @endif
 
 <!--This picks up errors from validation-->
@@ -23,12 +25,12 @@
 <br>
 
 <!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../image2/profile/{{$profile->image}}' />
+<img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
 {{Form::file('image')}}
 
 <br>
 
-{{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}
+{{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}<br>
 {{ Form::textarea('bioDetails', $profile->bio_details, array('class'=>'input-block-level')) }}
 
 <br>

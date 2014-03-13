@@ -8,9 +8,9 @@
 
 @if(isset($success))
 <!--hateful inline style temporary!-->
-<h4 style="background-color:red;">Thank you - your venture has been updated</h4>
+<h4 class="alert alert-success">Thank you - your venture has been updated</h4>
 
-<h4><a href="../viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
+<h4 class="alert alert-success"><a href="../viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
 
 @endif
 
@@ -18,74 +18,113 @@
 {{ HTML::ul($errors->all()) }}
 
 
-{{ Form::open(array('url' => 'updateVenture/'.$venture->id, 'files' => true, 'method' => 'post')) }}
+<!-- Start of form -->
+{{ Form::open(array('url' => 'updateVenture/'.$venture->id, 'files' => true, 'method' => 'post', 'class' => 'form-horizontal')) }}
+  
+  <fieldset>
 
-{{ Form::label('title', 'Title', array('class' => 'form-label')) }}
-{{ Form::text('title', $venture->title, array('class'=>'input-block-level', 'placeholder'=>'title')) }}
-<br>
+  <!-- Main Form Name -->
+  <legend>Venture Details</legend>
 
-<!--SEE profile controller - need to resize image when saved!!!  ST -->
-<img src='../image2/profile/{{$venture->logo}}' />
-{{Form::file('logo')}}
+  <!-- Title Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="title">Title</label>  
+    <div class="col-md-4">
+    {{ Form::text('title', $venture->title, array('class'=>'form-control input-md', 'placeholder'=>'Venture Title', 'required' => '')) }}
+    <span class="help-block">The name of the venture</span>  
+    </div>
+  </div>
 
-<br>
+  <!-- Image File Button --> 
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="logo">Image</label>
+    <div class="col-md-4">
+      <input id="logo" name="logo" class="input-file" type="file">
+    </div>
+  </div>
 
-<br>
+  <!--SEE profile controller - need to resize image when saved!!!  ST -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Selecterd Image">Selected Image</label>
+    <div class="col-md-4">
+      <img src='../image2/profile/{{$venture->logo}}' />
+    </div>
+  </div>
 
-{{ Form::label('description', 'Describe the venture') }}<br>
-{{ Form::textarea('description', $venture->description, array('class'=>'input-block-level')) }}
-<br>
-<br>
-<em>!!Just in &pound's for now but we could add currency conversion if time allowed!!</em>
-{{ Form::label('funding_target', 'Funding target £', array('class' => 'form-label')) }}
-{{ Form::text('funding_target', $venture->funding_target, array('class'=>'input-block-level', 'placeholder'=>'')) }}
+  <!-- Description Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="description">Describe the Venture</label>
+    <div class="col-md-4">                     
+      {{ Form::textarea('description', $venture->description, array('class'=>'form-control')) }}
+    </div>
+  </div>
 
-<br>
+  <!-- Funding Target Prepended text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="funding_target">Funding Target</label>
+    <div class="col-md-4">
+      <div class="input-group">
+        <span class="input-group-addon">£</span>
+        {{ Form::text('funding_target', $venture->funding_target, array('class'=>'form-control', 'placeholder'=>'£', 'required' => '')) }}
+      </div>
+      <p class="help-block">The amount required for successful funding</p>
+    </div>
+  </div>
 
-{{ Form::label('funding_secured', 'Funding already secured £', array('class' => 'form-label')) }}
-{{ Form::text('funding_secured', $venture->funding_secured, array('class'=>'input-block-level', 'placeholder'=>'')) }}
+  <!-- Secured Funding Prepended text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="funding_target">Funding Target</label>
+    <div class="col-md-4">
+      <div class="input-group">
+        <span class="input-group-addon">£</span>
+        {{ Form::text('funding_secured', $venture->funding_secured, array('class'=>'form-control', 'placeholder'=>'£', 'required' => '')) }}
+      </div>
+      <p class="help-block">The amount of funding secured</p>
+    </div>
+  </div>
 
-<br>
+  {{ Form::submit('Update your Venture Page',array('class' => 'btn btn-primary')) }}
 
+  </fieldset>
 
+<fieldset>
 
-
-<h3>What skills does your venture seek?</h3>
-
-
+<!-- Skills Form Name -->
+<legend>What skills does your venture seek?</legend>
 
 @if(isset($skills))
 
-{{$category=''}}
+  {{$category=''}}
 
-@foreach($skills as $key => $skill)
+  @foreach($skills as $key => $skill)
 
-@if ($category<>$skill["category"])
-<h4>{{$skill["category"]}}</h4>
+    @if ($category<>$skill["category"])
+      <h4>{{$skill["category"]}}</h4>
+    @endif
+
+
+    <input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}" value="{{$skill["id"]}}" {{$skill["checked"]}}>
+
+    <!-- Actual name of skill output -->
+    {{$skill["skill_name"]}}
+    
+    <?php $category=$skill["category"]?>
+  
+  @endforeach
+
 @endif
-
-{{$skill["skill_name"]}}
-
-<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}"
-value="{{$skill["id"]}}" {{$skill["checked"]}}>
-<!--@{{ Form::checkbox('skillsOffered', 'yes', false, array('class' => 'form-checkbox')) }} -->
-
-
-<?php $category=$skill["category"]?>
-@endforeach
-@endif
-
-
 
 <br><br>
 
+{{ Form::submit('Update your Venture Page',array('class' => 'btn btn-primary')) }}
 
 
-{{ Form::submit('Update your Venture Page',array('class' => 'form-button')) }}
+</fieldset>
 
 
 {{ Form::close() }}
 
+<!-- End of form -->
 
 @endsection
 

@@ -8,11 +8,14 @@ return array(
     'images' => array(
 
         'paths' => array(
-            //'input' => 'app/assets/images',
-            'input' => 'images/',
 
-            //'output' => 'app/storage/cache/images'
-            'output' => 'images/generated'
+           // 'input' => '../FacultyCooperative/public/images',
+            //http://localhost/FacultyCooperative/public/image2/profile/profile10.jpg
+
+            'input' => 'images',
+
+          // 'output' => '../FacultyCooperative/public/images/generated'
+            'output' => 'images/generated',
 
 
         ),

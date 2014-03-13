@@ -14,7 +14,7 @@
 <div class="row show-grid">
 	<div class="col-md-4">
     	<div class="thumbnail">
-		<img src='/image2/profile/{{$user->image}}' />
+		<img src='{{URL::to('')}}/image2/profile/{{$user->image}}' />
     	
 		<ul class="list-group custom-set">
         <li class="list-group-item">
@@ -56,7 +56,7 @@
           	<li class="thumb-list">
 
                 <a href='/viewVenture/{{$team->venture_id}}'>
-                    <img src='/image2/tiny/{{$team->logo}}' />{{$team->title}}</a></li>
+                    <img src='{{URL::to('')}}/image2/tiny/{{$team->logo}}' />{{$team->title}}</a></li>
 
           	@endforeach
           	@endif
@@ -68,7 +68,7 @@
           	@foreach($venturesWantingUsersSkills as $venture)
           	<li class="thumb-list">
                 <a href='/viewVenture/{{$venture->venture_id}}'>
-                    <img src='/image2/tiny/{{$venture->logo}}' />{{$venture->title}}</a></li>
+                    <img src='{{URL::to('')}}/image2/tiny/{{$venture->logo}}' />{{$venture->title}}</a></li>
 
           	@endforeach
           	@endif

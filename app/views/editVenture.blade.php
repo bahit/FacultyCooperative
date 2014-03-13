@@ -7,7 +7,7 @@
 <h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
-<!--hateful inline style temporary!-->
+
 <h4 class="alert alert-success">Thank you - your venture has been updated</h4>
 
 <h4 class="alert alert-success"><a href="../viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <!--SEE profile controller - need to resize image when saved!!!  ST -->
+
   <div class="form-group">
     <label class="col-md-4 control-label" for="Selecterd Image">Selected Image</label>
     <div class="col-md-4">

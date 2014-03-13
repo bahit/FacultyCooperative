@@ -1,6 +1,24 @@
 @extends('main')
 @section('content')
 
+{{public_path()}}<br>
+{{Request::url()}}<br>
+{{Route::getCurrentRoute()->getPath()}}<br><br>
+
+{{URL::to('')}}
+
+<br><br>
+
+<?php
+$url = Request::url();
+
+print_r(parse_url($url));
+echo '<br>';
+
+echo parse_url($url, PHP_URL_PATH);
+?>
+
+
 <div class="container">
 	<ul class="nav nav-tabs">
 		<li class="active">
@@ -14,7 +32,7 @@
 	<div class="col-md-4">
     	<div class="thumbnail">
 
-    	<img src='/image2/profile/{{$profile->image}}' />
+    	<img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
 		<ul class="list-group custom-set">
         <!--<li class="list-group-item">
         		<span class="glyphicon glyphicon-envelope"></span>

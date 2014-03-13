@@ -39,7 +39,7 @@
                             <?php
                             $id = Auth::user()->id;
                             $user = User::find($id);?>
-                            <li><img src='/image2/tiny/{{$user->image}}'/></li>
+                            <li><img src='{{URL::to('')}}/image2/tiny/{{$user->image}}'/></li>
                             <li class="{{Request::path() == 'dashboard' ? 'active' : '';}}">{{ HTML::link('dashboard', 'Dashboard') }}</li>
                             <li class="{{Request::path() == '/logout' ? 'active' : '';}}">{{ HTML::link('/logout', 'Logout') }}</li>
 

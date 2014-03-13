@@ -38,7 +38,7 @@
 @foreach($users as $key => $users)
 
         <li class="thumb-list">
-<a href='publicProfile/{{$users->id}}'><img src='/image2/tiny/{{$users->image}}' />View {{$users->name}}'s profile</a>
+<a href='publicProfile/{{$users->id}}'><img src='{{URL::to('')}}/image2/tiny/{{$users->image}}' />View {{$users->name}}'s profile</a>
             </li>
 
 @endforeach
@@ -80,7 +80,7 @@
         <li class="thumb-list">
 
             <a href='viewVenture/{{$ventures->id}}'>
-                <img src='/image2/tiny/{{$ventures->logo}}' />View {{$ventures->title}}'s page</a>
+                <img src='{{URL::to('')}}/image2/tiny/{{$ventures->logo}}' />View {{$ventures->title}}'s page</a>
 
         </li>
 
@@ -148,7 +148,7 @@
         <li class="thumb-list">
 
     <a href='/publicProfile/{{$userWith->user_id}}'>
-        <img src='/image2/tiny/{{$userWith->image}}' />
+        <img src='{{URL::to('')}}/image2/tiny/{{$userWith->image}}' />
         View {{$userWith->name}}'s profile</a></li>
 
 
@@ -210,8 +210,8 @@
 
 
     <li class="thumb-list">
-    <a href='/viewVenture/{{$venturesWanting->venture_id}}'>
-        <img src='/image2/tiny/{{$venturesWanting->logo}}' />
+    <a href='{{URL::to('')}}/viewVenture/{{$venturesWanting->venture_id}}'>
+        <img src='{{URL::to('')}}/image2/tiny/{{$venturesWanting->logo}}' />
         View {{$venturesWanting->title}}'s profile</a></li>
 
 

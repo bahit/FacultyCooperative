@@ -116,6 +116,25 @@ class VentureController extends BaseController
         // TODO
         //
         if (Input::hasFile('logo')) {
+
+            //workaround for image library not working for some of team - would not be required for production server
+            //otherwise images wont update
+
+            if (file_exists(base_path() .'/public/image2/profile/'.'logo' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/profile/'.'logo' . $id . '.jpg');
+            }
+
+            if (file_exists(base_path() .'/public/image2/thumb/'.'logo' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/thumb/'.'logo' . $id . '.jpg');
+            }
+
+            if (file_exists(base_path() .'/public/image2/tiny/'.'logo' . $id . '.jpg')) {
+                unlink(base_path() .'/public/image2/tiny/'.'logo' . $id . '.jpg');
+            }
+
+
+
+
             Input::file('logo')->move(base_path() . '/public/images/', 'logo' . $id . '.jpg');
             $venture->logo = 'logo' . $id . '.jpg';
         }

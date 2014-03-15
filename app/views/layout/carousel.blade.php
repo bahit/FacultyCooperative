@@ -15,7 +15,8 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>The Faculty Cooperative</h1>
-              <p>Are you a student with an idea for a project? Have you got skills from any area of study, or are you looking to fund the next big thing? If your answer is "yes", then the "Faculty Cooperative" is the best place to start!</p>
+              <h4>Are you a student with an idea for a project? Have you got skills from any area of study, or are you looking to fund the next big thing?
+                  If your answer is "yes", then the "Faculty Cooperative" is the best place to start!</h4>
               
             </div>
           </div>
@@ -25,7 +26,7 @@
 		<div class="container">
         <div class="carousel-caption">
               <h1>Everyone is different</h1>
-              <p>Search for people that have the skills you need, and...</br></br></p>
+              <h4>Search for people that have the skills you need, and...</br></br></h4>
               
             </div>
           </div>
@@ -36,7 +37,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Build your own team</h1>
-              <p>Add your new team members and start working on your new venture!</br></br></p>
+              <h4>Add your new team members and start working on your new venture!</br></br></h4>
               
             </div>
           </div>

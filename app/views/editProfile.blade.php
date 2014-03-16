@@ -6,11 +6,8 @@
 
 <h1>Edit your Profile, {{$profile->name}}</h1>
 
-@if(!isset($success))
-<h4>When a new user is registered a default profile should be created for them. They can then edit it with this
-    form</h4>
+@if(isset($success))
 
-@else
 
 <h4 class="alert alert-success">Thank you - your profile has been updated</h4>
 
@@ -25,87 +22,130 @@
 {{ HTML::ul($errors->all()) }}
 
 
-{{ Form::open(array('url' => 'updateProfile', 'files' => true, 'method' => 'post')) }}
+{{ Form::open(array('url' => 'updateProfile', 'files' => true, 'method' => 'post','class' => 'form-horizontal')) }}
 
 <fieldset>
 
     <!-- Main Form Name -->
     <legend>Profile Details</legend>
 
-{{ Form::label('name', 'Name', array('class' => 'form-label')) }}
-{{ Form::text('name', $profile->name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
-<br>
+
+    <!-- Name Text input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="title">Name</label>
+
+        <div class="col-md-4">
+            {{ Form::text('name', $profile->name, array('class'=>'form-control input-md', 'placeholder'=>'Name', 'required' => '')) }}
+
+        </div>
+    </div>
+
+    <br>
 
 
-<img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
-{{Form::file('image')}}
-
-<br>
-
-{{ Form::label('bioDetails', 'Tell us about yourself in 200 characters or less') }}<br>
-{{ Form::textarea('bioDetails', $profile->bio_details, array('class'=>'input-block-level')) }}
-
-<br>
-{{ Form::label('careerStatus', 'Career Status') }}
-
-<!--We might want to populate these pull down boxes from the database-->
-{{ Form::select('careerStatus', array(
-'default' => $profile->career_status,
-'Academic Professional' => 'Academic Professional',
-'Business Professional' => 'Business Professional',
-'Postgraduate Student' => 'Postgraduate Student',
-'Undergraduate Student' => 'Undergraduate Student'
-),'default') }}
-
-<br>
-{{ Form::label('institution', 'Institution', array('class' => 'form-label')) }}
-{{ Form::text('institution', $profile->institution, array('class'=>'input-block-level')) }}
-
-<br>
-
-<!--I think a public profile should not talk about investment amount - just a boolean yes/no here -->
-{{ Form::label('investmentOffered', 'Are you willing to offer investment to potential ventures', array('class' => 'formlabel')) }}
-{{ Form::checkbox('investmentOffered', 'yes', $profile->investmentOffered) }}
+    <!--<img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
+    @{{Form::file('image')}}-->
 
 
-<br>
-<br>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Current Image">Current Image</label>
 
-<!--The skills heirachy needs to go in here somehow - or we simplify with just a text entry -->
-{{ Form::label('skillsOffered', 'What skills can you offer:') }}
+        <div class="col-md-4">
+            <img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
+        </div>
+    </div>
 
+    <!-- Image File Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="logo">New Image</label>
 
+        <div class="col-md-4">
+            <input id="image" name="image" class="input-file" type="file">
+        </div>
+    </div>
 
-@if(isset($skills))
+    <!-- Description Textarea -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="description">Tell us about yourself </label>
 
-{{$category=''}}
-
-@foreach($skills as $key => $skill)
-
-@if ($category<>$skill["category"])
-<h4>{{$skill["category"]}}</h4>
-@endif
-
-{{$skill["skill_name"]}}
-
-<input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}"
-       value="{{$skill["id"]}}" {{$skill["checked"]}}>
-<!--@{{ Form::checkbox('skillsOffered', 'yes', false, array('class' => 'form-checkbox')) }} -->
-
-
-<?php $category=$skill["category"]?>
-@endforeach
-@endif
+        <div class="col-md-4">
+            {{ Form::textarea('bioDetails', $profile->bio_details, array('class'=>'form-control')) }}
+        </div>
+    </div>
 
 
-<br><br>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="careerstatus">Career Status </label>
+
+        <div class="col-md-4">
+
+            <!--We might want to populate these pull down boxes from the database-->
+            {{ Form::select('careerStatus', array(
+            'default' => $profile->career_status,
+            'Academic Professional' => 'Academic Professional',
+            'Business Professional' => 'Business Professional',
+            'Postgraduate Student' => 'Postgraduate Student',
+            'Undergraduate Student' => 'Undergraduate Student'
+            ),'default') }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="institution">Institution </label>
+
+        <div class="col-md-4">
+
+            {{ Form::text('institution', $profile->institution, array('class'=>'input-block-level')) }}
+
+        </div>
+    </div>
+
+    <!--I think a public profile should not talk about investment amount - just a boolean yes/no here -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="investmentOffered">Are you willing to offer investment? </label>
+
+        <div class="col-md-4">
+
+            {{ Form::checkbox('investmentOffered', 'yes', $profile->investmentOffered) }}
+
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!--The skills heirachy needs to go in here somehow - or we simplify with just a text entry -->
+    <h3>What skills can you offer:</h3>
+
+
+    @if(isset($skills))
+
+    {{$category=''}}
+
+    @foreach($skills as $key => $skill)
+
+    @if ($category<>$skill["category"])
+    <h4>{{$skill["category"]}}</h4>
+    @endif
+
+    {{$skill["skill_name"]}}
+
+    <input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}" value="{{$skill["id"]}}"
+    {{$skill["checked"]}}>&nbsp;&nbsp;
 
 
 
-{{ Form::submit('Update your Profile',array('class' => 'btn btn-primary')) }}
+    <?php $category = $skill["category"] ?>
+    @endforeach
+    @endif
 
 
-{{ Form::close() }}
+    <br><br>
+
+
+    {{ Form::submit('Update your Profile',array('class' => 'btn btn-primary')) }}
+
+
+    {{ Form::close() }}
 </fieldset>
 
 @endsection

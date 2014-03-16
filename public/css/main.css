@@ -168,7 +168,7 @@ legend {
 	color:#F30;
 	/*background: url(../images/transp.png) repeat;  */
 
-background:rgba(0,0,0,0.2);
+background:rgba(0,0,0,0.1);
 
 }
 
@@ -176,13 +176,18 @@ background:rgba(0,0,0,0.2);
 	color:#ccc;
 }
 
-.carousel-caption h4{
+.carousel-caption h3{
     color:#fff;
+    text-shadow: 3px 3px 1px  rgba(0, 0, 0, 0.7);
 }
 
 .carousel-caption h1{
-	text-shadow: 0 3px 3px rgba(0, 0, 0, 0.8);
-    color: #2fc85a;
+	text-shadow: 4px 4px 1px  rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+    letter-spacing:2px;
+    color: #32d99e;
+    font-weight:900;
+/* color: #fff;*/
 }
 /* Declare heights because of positioning of img element */
 .carousel .item {

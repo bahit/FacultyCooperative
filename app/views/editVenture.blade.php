@@ -12,7 +12,7 @@
 
 <h4 class="alert alert-success">Thank you - your venture has been updated</h4>
 
-<h4 class="alert alert-success"><a href="{{URL::to('')}}//viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
+<h4 class="alert alert-success"><a href="{{URL::to('')}}/viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
 
 @endif
 
@@ -37,23 +37,25 @@
     </div>
   </div>
 
-  <!-- Image File Button --> 
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="logo">Image</label>
-    <div class="col-md-4">
-      <input id="logo" name="logo" class="input-file" type="file">
-    </div>
-  </div>
 
 
   <div class="form-group">
-    <label class="col-md-4 control-label" for="Selecterd Image">Selected Image</label>
+    <label class="col-md-4 control-label" for="Current Image">Current Image</label>
     <div class="col-md-4">
-      <img src='../image2/profile/{{$venture->logo}}' />
+      <img src='{{URL::to('')}}/image2/profile/{{$venture->logo}}' />
     </div>
   </div>
 
-  <!-- Description Textarea -->
+      <!-- Image File Button -->
+      <div class="form-group">
+          <label class="col-md-4 control-label" for="logo">New Image</label>
+          <div class="col-md-4">
+              <input id="logo" name="logo" class="input-file" type="file">
+          </div>
+      </div>
+
+
+      <!-- Description Textarea -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="description">Describe the Venture</label>
     <div class="col-md-4">                     
@@ -85,11 +87,7 @@
     </div>
   </div>
 
-  {{ Form::submit('Update your Venture Page',array('class' => 'btn btn-primary')) }}
 
-  </fieldset>
-
-<fieldset>
 
 <!-- Skills Form Name -->
 <legend>What skills does your venture seek?</legend>
@@ -104,11 +102,11 @@
       <h4>{{$skill["category"]}}</h4>
     @endif
 
-
+      <!-- Actual name of skill output -->
+      {{$skill["skill_name"]}}
     <input tabindex="1" type="checkbox" name="skillsCB[]" id="{{$skill["id"]}}" value="{{$skill["id"]}}" {{$skill["checked"]}}>
 
-    <!-- Actual name of skill output -->
-    {{$skill["skill_name"]}}
+   &nbsp;&nbsp;
     
     <?php $category=$skill["category"]?>
   

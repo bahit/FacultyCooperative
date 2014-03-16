@@ -23,7 +23,7 @@
                 <span class="glyphicon glyphicon-user"></span>
                 </p>
 
-						<a href="{{URL::to('')}}//editProfile">Update your profile</a>
+						<a href="{{URL::to('')}}/editProfile">Update your profile</a>
           </li>
         <li class="list-group-item">
         		<span class="glyphicon glyphicon-envelope"></span>

@@ -6,4 +6,7 @@ composer.phar
 .DS_Store
 Thumbs.db
 .idea/*
-/public/images/generated
+/public/image2
+Report/CE903_Group1_Final_Report1.docx
+
+*.docx

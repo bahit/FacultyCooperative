@@ -70,7 +70,7 @@ class CreateAll extends Migration
 
             $t->increments('id');
             $t->string('title');
-            $t->string('logo')->default('default.jpg');
+            $t->string('logo')->default('logo.jpg');
             $t->text('description');
             //$t->string('blog_id');  //link to blog - social area
             $t->integer('funding_target');

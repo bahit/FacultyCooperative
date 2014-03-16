@@ -14,6 +14,10 @@
 
 <h4 class="alert alert-success">Thank you - your message has been sent</h4>
 
+
+<h4 class="alert alert-success"><a href="{{URL::to('')}}//dashboard" >Follow this link to your dashboard</a></h4>
+
+
 @endif
 
 
@@ -35,10 +39,10 @@
 <br>
 
 
-<!--NEEDS hooking to authentication so we know who messsage is FROM *********  -->
-
+@if(!isset($success))
+<!--only show if form not yet sent-->
 {{ Form::submit('Send Message',array('class' => 'form-button')) }}
-
+@endif
 
 {{ Form::close() }}
 

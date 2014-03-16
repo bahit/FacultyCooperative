@@ -9,9 +9,16 @@
 @if(!isset($success))
 <h4>When a new user is registered a default profile should be created for them. They can then edit it with this
     form</h4>
+
 @else
 
 <h4 class="alert alert-success">Thank you - your profile has been updated</h4>
+
+
+<h4 class="alert alert-success"><a href="{{URL::to('')}}/publicProfile/{{$profile->id}}">
+        Follow this link to see how your profile page looks now</a></h4>
+
+
 @endif
 
 <!--This picks up errors from validation-->
@@ -19,6 +26,11 @@
 
 
 {{ Form::open(array('url' => 'updateProfile', 'files' => true, 'method' => 'post')) }}
+
+<fieldset>
+
+    <!-- Main Form Name -->
+    <legend>Profile Details</legend>
 
 {{ Form::label('name', 'Name', array('class' => 'form-label')) }}
 {{ Form::text('name', $profile->name, array('class'=>'input-block-level', 'placeholder'=>$profile->screen_name)) }}
@@ -90,11 +102,11 @@
 
 
 
-{{ Form::submit('Update your Profile',array('class' => 'form-button')) }}
+{{ Form::submit('Update your Profile',array('class' => 'btn btn-primary')) }}
 
 
 {{ Form::close() }}
-
+</fieldset>
 
 @endsection
 

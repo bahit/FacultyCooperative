@@ -5,11 +5,11 @@
 <h1>Create New Venture</h1>
 
 @if(isset($success))
-<!--hateful inline style temporary!-->
-<!--Please someone style this page-->
-<h4 style="background-color:red;">Thank you - your venture has been created</h4>
 
-<h4><a href="../editVenture/{{$venture->id}}" >Follow this link to add details to your venture page now</a></h4>
+<!--Please someone style this page-->
+<h4 class="alert alert-success">Thank you - your venture has been created</h4>
+
+<h4 class="alert alert-success"><a href="{{URL::to('')}}/editVenture/{{$venture->id}}" >Follow this link to add details to your venture page now</a></h4>
 
 @else
 

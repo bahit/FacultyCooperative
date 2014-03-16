@@ -1,6 +1,8 @@
 @extends('main')
 @section('content')
 
+<!-- seems to be a bug effecting alignment of first item on page so this is a work around -->
+<div style="visibility: hidden">&nbsp; </div>
 
 <h1>Edit Venture</h1>
 
@@ -10,7 +12,7 @@
 
 <h4 class="alert alert-success">Thank you - your venture has been updated</h4>
 
-<h4 class="alert alert-success"><a href="../viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
+<h4 class="alert alert-success"><a href="{{URL::to('')}}//viewVenture/{{$venture->id}}" >Follow this link to see how your venture page looks now</a></h4>
 
 @endif
 

@@ -54,7 +54,7 @@
                 <h3>Team members:</h3>
                 @foreach($teams as $team)
                 <li class="thumb-list"> <!--auto resize -->
-                	<a href="../publicProfile/{{$team->user_id}}"><img src='../image2/thumb/{{$team->image}}' />{{$team->name}}</a>
+                	<a href="{{URL::to('')}}/publicProfile/{{$team->user_id}}"><img src='{{URL::to('')}}/image2/thumb/{{$team->image}}' />{{$team->name}}</a>
                 	@if($team->position==2)
           			<strong>Team Leader</strong>
     				@endif
@@ -68,8 +68,8 @@
                     
                 @if($auth)
 				<h3>You are a team leader for this venture</h3>
-				<h3><a href='../editVenture/{{$venture->id}}'> click here to edit this venture</a></h3>
-				<h3><a href='../editTeam/{{$venture->id}}'> click here to edit the team for this venture</a></h3>
+				<h3><a href='{{URL::to('')}}/editVenture/{{$venture->id}}'> click here to edit this venture</a></h3>
+				<h3><a href='{{URL::to('')}}/editTeam/{{$venture->id}}'> click here to edit the team for this venture</a></h3>
 				@endif
             </div>
      

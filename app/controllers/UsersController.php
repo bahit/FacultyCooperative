@@ -26,7 +26,7 @@ class UsersController extends BaseController {
     if ($validator->passes()) {
         // validation has passed, save user in DB
 	    	$user = new User;
-		    $user->name = Input::get('name');
+		    $user->name = strip_tags(Input::get('name'));
 		    $user->email = Input::get('email');
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();

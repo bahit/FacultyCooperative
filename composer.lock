@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ee9e38405f55edbf58c89c0dcca98cae",
+    "hash": "e2e833c9253312330737a5027aac0206",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -136,6 +136,47 @@
                 "zf2"
             ],
             "time": "2013-12-04 14:19:30"
+        },
+        {
+            "name": "frozennode/xssinput",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FrozenNode/XssInput.git",
+                "reference": "0e3ce1f675307520529ea940a9f6be511410e0c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FrozenNode/XssInput/zipball/0e3ce1f675307520529ea940a9f6be511410e0c0",
+                "reference": "0e3ce1f675307520529ea940a9f6be511410e0c0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Frozennode\\XssInput\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Hartigan",
+                    "email": "jan@frozennode.com"
+                }
+            ],
+            "description": "A simple extension of the Laravel Input facade that mimics CodeIgniter's xss filtering",
+            "keywords": [
+                "laravel",
+                "xss"
+            ],
+            "time": "2014-02-11 19:54:49"
         },
         {
             "name": "imagine/imagine",
@@ -1654,12 +1695,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "f4bdb309f899b7a5e476e61f14979a5a166b2aa6"
+                "reference": "5697d896577c8bd8cbab2a17e4e86f193189cff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/f4bdb309f899b7a5e476e61f14979a5a166b2aa6",
-                "reference": "f4bdb309f899b7a5e476e61f14979a5a166b2aa6",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/5697d896577c8bd8cbab2a17e4e86f193189cff9",
+                "reference": "5697d896577c8bd8cbab2a17e4e86f193189cff9",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1734,7 @@
                     "role": "Developer"
                 }
             ],
-            "time": "2014-03-10 20:57:40"
+            "time": "2014-03-16 15:40:46"
         }
     ],
     "packages-dev": [
@@ -1705,7 +1746,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "way/generators": 20,
-        "imagine/imagine": 20
+        "imagine/imagine": 20,
+        "frozennode/xssinput": 20
     },
     "platform": [
 

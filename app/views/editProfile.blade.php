@@ -35,16 +35,11 @@
         <label class="col-md-4 control-label" for="title">Name</label>
 
         <div class="col-md-4">
-            {{ Form::text('name', $profile->name, array('class'=>'form-control input-md', 'placeholder'=>'Name', 'required' => '')) }}
+            {{ Form::text('name', $profile->name, array('class'=>'form-control input-md', 'placeholder'=>'Name',
+            'required' => '')) }}
 
         </div>
     </div>
-
-    <br>
-
-
-    <!--<img src='{{URL::to('')}}/image2/profile/{{$profile->image}}' />
-    @{{Form::file('image')}}-->
 
 
     <div class="form-group">
@@ -57,11 +52,19 @@
 
     <!-- Image File Button -->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="logo">New Image</label>
+        <label class="col-md-4 control-label" for="logo">Upload New Image</label>
 
         <div class="col-md-4">
             <input id="image" name="image" class="input-file" type="file">
         </div>
+    </div>
+
+    <div class="form-group" id="previewDiv">
+        <label class="col-md-4 control-label" for="preview">New Image</label>
+        <div class="col-md-4">
+        <img id="preview" alt="Upload Image Preview" width="200px" height="200px"/>
+
+    </div>
     </div>
 
     <!-- Description Textarea -->
@@ -149,7 +152,29 @@
 </fieldset>
 
 @endsection
+@section("script")
+<script>
 
+    $(document).ready(function(){
+        $( "#previewDiv" ).hide();
+       // alert("I am an alert box!");
+    });
 
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
 
+        }
+    }
 
+    $("#image").change(function () {
+        $("#previewDiv").show();
+        previewImage(this);
+    });
+
+</script>
+@stop

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <meta http-equiv="pragma" content="no-cache" />
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery.min.js') }}
         {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}

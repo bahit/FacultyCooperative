@@ -6,7 +6,7 @@
 
 
 <h2>Team Management Page</h2>
-<h2><a href='../viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
+<h2><a href='{{URL::to('')}}/viewVenture/{{$venture->id}}'>{{$venture->title}}</a></h2>
 
 @if(isset($success))
 

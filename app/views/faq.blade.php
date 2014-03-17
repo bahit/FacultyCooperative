@@ -1,5 +1,7 @@
 @extends('main')
 @section('content')
+<!-- seems to be a bug effecting alignment of first item on page so this is a work around -->
+<div style="visibility: hidden">&nbsp; </div>
 
 <h1>FAQs</h1>
 

@@ -15,9 +15,11 @@
 @if(isset($readMessages))
 @foreach($readMessages as $readMessage)
 
-<div class='new{{$readMessage->id}}' style="background-color:red; display:inline;">
+<div class='new{{$readMessage->id}}'>
     @if(!$readMessage->read_flag)
-    NEW
+    <div class='newMessage'>** NEW **</div>
+    @else
+    <div class='seenMessage'>You have read this message</div>
     @endif
 
 </div>
@@ -67,7 +69,8 @@
 
                     $( ".result" ).hide();
 
-                    $( ".new"+bid ).hide();
+                    $( ".new"+bid ).html("<div class='seenMessage'>You just read this message</div>");
+
                     $( ".a"+bid ).slideDown( "slow", function() {
                         // Animation complete.
                     });

@@ -82,8 +82,9 @@
 				<h4>{{$profile->name}} is not willing to offer investment</h4>
 				@endif
                 </br>
-
+                @if(!$currentUser)
                 <h3> <span class="glyphicon glyphicon-envelope"></span> <a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
+                @endif
             </div>
             </br>
 

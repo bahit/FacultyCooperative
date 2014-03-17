@@ -10,8 +10,16 @@ class ProfileController extends BaseController
 
         $teamInvolvement = Team::getTeamInvolvement($id);
 
+        //Checks for current user is logged in viewing own profile page
+        if (isset(Auth::user()->id)) {
+            $currentUser = Auth::user()->id;
+            if ($currentUser == $id) {
+                $currentUserId = true;}
+        } else { $currentUserId = false;}
+        
+
         $view = View::make('showProfile', array('profile' => $profile,
-            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement));
+            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement, 'currentUser' => $currentUserId));
 
 
         return $view;

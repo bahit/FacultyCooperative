@@ -404,6 +404,7 @@ class SkillWantedTableSeeder extends Seeder
     {
         DB::table('skill_wanteds')->truncate();
 
+        SkillWanted::create(array('venture_id' => '1', 'skill_id' => '17'));
         SkillWanted::create(array('venture_id' => '1', 'skill_id' => '18'));
         SkillWanted::create(array('venture_id' => '1', 'skill_id' => '23'));
         SkillWanted::create(array('venture_id' => '1', 'skill_id' => '26'));
@@ -463,8 +464,8 @@ class TeamTableSeeder extends Seeder
         Team::create(array('venture_id' => '3', 'user_id' => '6'));
         Team::create(array('venture_id' => '3', 'user_id' => '7'));
 
-        Team::create(array('venture_id' => '9', 'user_id' => '1', 'position' => '2'));
-        Team::create(array('venture_id' => '9', 'user_id' => '2'));
+        Team::create(array('venture_id' => '9', 'user_id' => '2', 'position' => '2'));
+
 
 
 
@@ -527,7 +528,8 @@ class VentureTableSeeder extends Seeder
         Venture::create(array(
             'title' => 'Facebucket',
             'logo' => 'facebucket.jpg',
-            'description' => 'Facebook is a social utility that connects you with the people around you',
+            'description' => 'Facebucket is a social utility that connects you with the people around you
+                                whilst still allowing the anonymity inherent from keeping your head in a bucket',
             'funding_target' => '8000',
             'funding_secured' => '6000'
         ));
@@ -594,6 +596,8 @@ class MessageTableSeeder extends Seeder
             'from_user_id' => '4',
             'to_user_id' => '1',
             'body' => "Can you design something for us - if so please reply",
+            'read_flag' => '1'
+
         ));
 
 

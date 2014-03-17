@@ -6,5 +6,6 @@ composer.phar
 .DS_Store
 Thumbs.db
 .idea/*
-/public/image2
+/public/image2/*
+/public/images
 

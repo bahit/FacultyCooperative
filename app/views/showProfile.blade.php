@@ -76,7 +76,7 @@
             	<p>{{$profile->bio_details}} </p>
 				<p> {{$profile->name}}'s career status: {{$profile->career_status}} </p>
 				<p> {{$profile->name}}'s institution: {{$profile->institution}} </p>
-                @if($profile->investmentOffered==1)
+        @if($profile->investment_offered==1)
 				<h4>{{$profile->name}} is willing to offer investment</h4>
 				@else
 				<h4>{{$profile->name}} is not willing to offer investment</h4>

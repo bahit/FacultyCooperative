@@ -1,7 +1,7 @@
 body {
   padding-top: 50px;
   height: 100%;
-  background: url(../images/pattern.png) repeat;
+  background: url(../../../FacultyCooperative%20copy/public/images/pattern.png) repeat;
 }
 
 
@@ -16,7 +16,7 @@ footer {
 .sbanner{
 	width: 1140px;
 	height: 150px;
-	background: url(../images/sbanner.png);
+	background: url(../../../FacultyCooperative%20copy/public/images/sbanner.png);
 	color: #ffffff;
 	padding: 10px 0px 0px 200px;
   	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -31,7 +31,7 @@ fieldset {
     margin: 0 0 1.5em 0 !important;
     -webkit-box-shadow:  0px 0px 0px 0px #000;
     box-shadow:  0px 0px 0px 0px #000;
-	background: url(../images/transp.png) repeat;	
+	background: url(../../../FacultyCooperative%20copy/public/images/transp.png) repeat;
 }
 
 
@@ -468,7 +468,7 @@ p {
 }
 
 .social.twitter:before {
-    background: url(../images/social-btn.png) no-repeat scroll left -25px transparent;
+    background: url(../../../FacultyCooperative%20copy/public/images/social-btn.png) no-repeat scroll left -25px transparent;
 }
 
 .social:before {
@@ -496,15 +496,15 @@ p {
 }
 
 .social.google_plus:before {
-    background: url(../images/social-btn.png) no-repeat scroll left top transparent;
+    background: url(../../../FacultyCooperative%20copy/public/images/social-btn.png) no-repeat scroll left top transparent;
 }
 
 .social.facebook:before {
-    background: url('../images/social-btn.png') no-repeat scroll left -49px transparent;
+    background: url('../../../FacultyCooperative%20copy/public/images/social-btn.png') no-repeat scroll left -49px transparent;
 }
 
 .social.skype:before {
-    background: url('../images/social-btn.png') no-repeat scroll left bottom transparent;
+    background: url('../../../FacultyCooperative%20copy/public/images/social-btn.png') no-repeat scroll left bottom transparent;
 }
 
 
@@ -573,7 +573,7 @@ p {
 .msgbanner{
 	width: 1140px;
 	height: 150px;
-	background: url(../images/msgbanner.png);
+	background: url(../../../FacultyCooperative%20copy/public/images/msgbanner.png);
 	color: #ffffff;
 	padding: 0px 0px 0px 0px;
   	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -592,5 +592,19 @@ p {
 	}
 
 .msg-content{
-	background: url(../images/transp.png);
+	background: url(../../../FacultyCooperative%20copy/public/images/transp.png);
 	}
+
+.newMessage {
+    background: #fec000;
+    padding: 1px 0px 0px 20px;
+    color: #ff130a;
+    font-weight: bolder;
+}
+
+.seenMessage {
+    background: #2ed78f;
+    color: #fff;
+    font-weight: bolder;
+    padding: 1px 0px 0px 20px;
+}

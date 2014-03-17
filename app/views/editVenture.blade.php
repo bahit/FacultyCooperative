@@ -55,6 +55,15 @@
       </div>
 
 
+      <div class="form-group" id="previewDiv">
+          <label class="col-md-4 control-label" for="preview">New Image</label>
+          <div class="col-md-4">
+              <img id="preview" alt="Upload Image Preview" width="200px" height="200px"/>
+
+          </div>
+      </div>
+
+
       <!-- Description Textarea -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="description">Describe the Venture</label>
@@ -127,7 +136,32 @@
 <!-- End of form -->
 
 @endsection
+@section("script")
+<script>
 
+    $(document).ready(function(){
+        $( "#previewDiv" ).hide();
+        // alert("I am an alert box!");
+    });
+
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+
+        }
+    }
+
+    $("#logo").change(function () {
+        $("#previewDiv").show();
+        previewImage(this);
+    });
+
+</script>
+@stop
 
 
 

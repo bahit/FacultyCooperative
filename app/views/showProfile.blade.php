@@ -25,7 +25,8 @@
 						Send a message
                         </a>
           </li>
-       	  --><li class="list-group-item">
+       	  -->
+            <li class="list-group-item">
         		<span class="glyphicon glyphicon-briefcase"></span>
 				<b>Ventures</b>
 
@@ -82,9 +83,13 @@
 				<h4>{{$profile->name}} is not willing to offer investment</h4>
 				@endif
                 </br>
-                @if(!$currentUser)
-                <h3> <span class="glyphicon glyphicon-envelope"></span> <a href="../sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
+                @if (!isset(Auth::user()->id))
+                <h3> <span class="glyphicon glyphicon-envelope"></span> <a href="{{URL::to('')}}/login">Login to send message to {{$profile->name}}</a></h3>
+
+                @elseif(Auth::user()->id<>$profile->id)
+                <h3> <span class="glyphicon glyphicon-envelope"></span> <a href="{{URL::to('')}}/sendMessage/{{$profile->id}}">Send a message to {{$profile->name}}</a></h3>
                 @endif
+
             </div>
             </br>
 

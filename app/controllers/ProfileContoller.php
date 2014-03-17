@@ -6,20 +6,24 @@ class ProfileController extends BaseController
     {
         $profile = User::find($id);
 
-        $skillOffer= SkillOffer::getSkillOffer($id);
+        $skillOffer = SkillOffer::getSkillOffer($id);
 
         $teamInvolvement = Team::getTeamInvolvement($id);
 
         //Checks for current user is logged in viewing own profile page
-        if (isset(Auth::user()->id)) {
+        //this caused an error for logged in user viewing another profile
+        /*if (isset(Auth::user()->id)) {
             $currentUser = Auth::user()->id;
             if ($currentUser == $id) {
-                $currentUserId = true;}
-        } else { $currentUserId = false;}
-        
+                $currentUserId = true;
+            }
+        } else {
+            $currentUserId = false;
+        }
+        */
 
         $view = View::make('showProfile', array('profile' => $profile,
-            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement, 'currentUser' => $currentUserId));
+            'skillOffer' => $skillOffer, 'teamInvolvement' => $teamInvolvement));
 
 
         return $view;
@@ -89,21 +93,21 @@ class ProfileController extends BaseController
 
                 //workaround for image library not working for some of team - would not be required for production server
                 //otherwise images wont update
-                if (file_exists(base_path() .'/public/image2/profile/'.'profile' . $id . '.jpg')) {
-                unlink(base_path() .'/public/image2/profile/'.'profile' . $id . '.jpg');
+                if (file_exists(base_path() . '/public/image2/profile/' . 'profile' . $id . '.jpg')) {
+                    unlink(base_path() . '/public/image2/profile/' . 'profile' . $id . '.jpg');
                 }
 
-                if (file_exists(base_path() .'/public/image2/thumb/'.'profile' . $id . '.jpg')) {
-                unlink(base_path() .'/public/image2/thumb/'.'profile' . $id . '.jpg');
+                if (file_exists(base_path() . '/public/image2/thumb/' . 'profile' . $id . '.jpg')) {
+                    unlink(base_path() . '/public/image2/thumb/' . 'profile' . $id . '.jpg');
                 }
 
-                if (file_exists(base_path() .'/public/image2/tiny/'.'profile' . $id . '.jpg')) {
-                unlink(base_path() .'/public/image2/tiny/'.'profile' . $id . '.jpg');
+                if (file_exists(base_path() . '/public/image2/tiny/' . 'profile' . $id . '.jpg')) {
+                    unlink(base_path() . '/public/image2/tiny/' . 'profile' . $id . '.jpg');
                 }
-               // Image::resize('profile' . $id . '.jpg','profile');
+                // Image::resize('profile' . $id . '.jpg','profile');
 
                 Input::file('image')->move(base_path() . '/public/images/', 'profile' . $id . '.jpg');
-               // Input::file('image')->move(URL::to('') . '/images/', 'profile' . $id . '.jpg');
+                // Input::file('image')->move(URL::to('') . '/images/', 'profile' . $id . '.jpg');
                 $user->image = 'profile' . $id . '.jpg';
             }
 
@@ -142,8 +146,6 @@ class ProfileController extends BaseController
 
                 ));
             return $view;
-
-
 
 
         }

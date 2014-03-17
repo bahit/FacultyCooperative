@@ -6,7 +6,7 @@ class Venture extends Eloquent
     public static function validate($input) {
 
         $rules = array(
-            'title' => 'Required|alpha_spaces|min:2'
+            'title' => 'Required|min:2'
 
         );
 
